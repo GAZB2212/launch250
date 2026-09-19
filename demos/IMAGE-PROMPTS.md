@@ -124,20 +124,20 @@ and 6 videos are now generated and wired in:
 
 | Site | Hero still | Hero video | Supporting |
 | --- | --- | --- | --- |
-| plumbing | plumber at boiler | 5s push-in | bathroom ×2 |
-| electrical | electrician at consumer unit | 5s push-in | EV charger |
-| joinery | joiner planing oak | 5s push-in | fitted wardrobes |
-| landscaping | striped lawn and borders | 5s panoramic pan | patio ×2 |
-| barbers | barber mid-fade | 5s push-in | shop interior ×2 |
-| doggrooming | cockapoo on the table | 5s dolly-in | grooming van |
+| plumbing | plumber under a sink | — | bathroom ×2 |
+| electrical | electrician at consumer unit | — | EV charger |
+| joinery | joiner planing oak | — | fitted wardrobes |
+| landscaping | striped lawn and borders | — | patio ×2 |
+| barbers | barber working a fade at the temple | — | shop interior ×2 |
+| doggrooming | cockapoo on the table | — | grooming van |
 
-Videos are Kling 3.0, standard mode, sound off, 1280×720, generated
-image-to-video from each hero still so the poster frame and the video match.
-They autoplay muted and loop; `prefers-reduced-motion` hides the video and
-freezes the Ken Burns drift on the still.
+**Video heroes were generated and then dropped** — the image-to-video output
+was uncanny in places (a barber clippering a forehead, a plumber not
+plumbing). The heroes are stills only, with a slow Ken Burns drift for motion.
+The `hero_video` / `hero_poster` config keys and the `<video>` layering in
+the build remain, so a clip can be dropped back in with one config line if a
+good one is ever produced.
 
 **Everything is still hotlinked to the Higgsfield CDN.** Before production
-deploy, download every `.png` and `.mp4` into its demo folder and repoint the
-`--hero-img`, `--shot-1`, `--shot-2` properties and the `<video>` `src` /
-`poster` at local files. Re-encode the videos to a web-friendly size
-(a 5s 720p H.264 clip should be well under 2 MB).
+deploy, download every `.png` into its demo folder and repoint the
+`--hero-img`, `--shot-1`, `--shot-2` properties at local files.
