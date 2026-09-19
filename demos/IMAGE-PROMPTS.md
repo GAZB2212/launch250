@@ -91,17 +91,27 @@ currently shows a patterned block in the About section instead.
 ## Note on the MCP generation cap
 
 Generation via MCP returned *"You've reached the daily generation limit for
-your grace period"* for every request after the first five, regardless of:
+your grace period"* for every request after the first five.
 
-- **model** — nano_banana_pro, nano_banana_2, nano_banana, recraft_v4_1,
-  flux_2, gpt_image_2, gpt_image_2_5, kling_omni_image and z_image all failed
-  identically (nine models, six providers)
-- **endpoint** — both `generate_image_batch` and `generate_image`
-- **workspace** — the Plus workspace was unselected and has since been
-  selected; the cap did not lift
-- **credits** — 1,424 credits were available throughout; the four successful
-  images cost 8
+Ruled out: **model** (nano_banana_pro, nano_banana_2, nano_banana,
+recraft_v4_1, flux_2, gpt_image_2, gpt_image_2_5, kling_omni_image and
+z_image all failed identically — nine models, six providers); **endpoint**
+(both `generate_image_batch` and `generate_image`); **workspace** (it was
+unselected, and selecting it changed nothing); **credits** (1,424 available
+throughout).
 
-It is an account-level daily cap on MCP generations that is independent of the
-credit balance. The web UI was reported as working normally, so generating
-there and pasting the URLs is the quickest way round it.
+The transaction history shows the actual cause. The last `Subscription
+Credits` grant was **2026-08-05**; there is no September grant, so the Plus
+subscription did not renew on or around 5 September. That is what "grace
+period" refers to. Purchased credits (Auto Top-Up and Credit Packages) do not
+expire with the plan, which is why a large balance sits there unspendable —
+credits and plan entitlement are separate things.
+
+The grace-period allowance appears to be about **five generations per day**:
+five spends landed in a one-second burst at 17:26 on 19 September (four
+completed, one failed and was refunded), and everything after that was
+refused.
+
+Restoring the subscription lifts the cap. Failing that, the allowance resets
+daily, so the two outstanding heroes can be generated across the next day or
+two without any billing change.
