@@ -3,7 +3,7 @@
 /* Swap this one line to change the hero photograph. */
 :root {
   --hero-img: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_172621_19abc826-193c-4786-a49e-a7ed69365092.png');
-  --shot-1: none;
+  --shot-1: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_200240_c4f54f6e-0b27-4263-bd16-9ecf7b650ef8.png');
   --shot-2: none;
 
   --ink: #121418;
@@ -163,16 +163,28 @@ p { text-wrap: pretty; }
 .trust { display: flex; align-items: center; gap: .6rem; font-size: .9rem; font-weight: 600; }
 .trust svg { width: 20px; height: 20px; flex: none; stroke: var(--accent-on-light); stroke-width: 2; fill: none; }
 
-/* overlay hero: full-bleed photograph */
-.hero--overlay { background: var(--ink); color: #fff; }
+/* overlay hero: full-bleed photograph, optional video on top, tint above both */
+.hero--overlay { background: var(--ink); color: #fff; overflow: hidden; }
 .hero--overlay .hero__bg {
   position: absolute; inset: 0; z-index: 0;
   background-image: var(--hero-img);
   background-size: cover; background-position: center;
+  animation: kenburns 26s ease-in-out infinite alternate;
+  will-change: transform;
 }
-.hero--overlay .hero__bg::after {
-  content: ""; position: absolute; inset: 0;
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.07); } }
+.hero__video {
+  position: absolute; inset: 0; z-index: 1;
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero__tint {
+  position: absolute; inset: 0; z-index: 2;
   background: linear-gradient(105deg, rgba(10,12,15,.94) 0%, rgba(10,12,15,.7) 52%, rgba(0,0,0,.25) 100%);
+}
+.hero--overlay .hero__inner { z-index: 3; }
+@media (prefers-reduced-motion: reduce) {
+  .hero--overlay .hero__bg { animation: none; }
+  .hero__video { display: none; }
 }
 /* `.hero__inner` is also a `.shell`, so narrowing IT would centre the block.
    Constrain the children instead and the copy stays left-aligned to the grid. */
@@ -205,6 +217,26 @@ p { text-wrap: pretty; }
 .hero__price { display: flex; align-items: baseline; gap: .4rem; margin-bottom: .4rem; font-family: var(--font-display); }
 .hero__price b { font-size: 2.6rem; letter-spacing: -.03em; }
 .hero__price span { font-size: .9rem; color: var(--muted); font-family: var(--font-body); }
+
+/* ---------- marquee band ---------- */
+.band { background: var(--cta); color: var(--on-accent); padding-block: .9rem; overflow: hidden; }
+.band__track { display: flex; width: max-content; animation: slide 34s linear infinite; }
+.band__track:hover { animation-play-state: paused; }
+.band__track span {
+  display: inline-flex; align-items: center; gap: 1.4rem; padding-inline: 1.4rem;
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(.9rem, 1.5vw, 1.05rem);
+  letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
+}
+.band__track span::after { content: ""; width: 8px; height: 8px; background: currentColor; opacity: .7; transform: rotate(45deg); flex: none; }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .band__track { animation: none; } }
+
+/* ---------- gallery strip ---------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.75rem, 1.5vw, 1.25rem); }
+@media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
+.gallery .shot { aspect-ratio: 4 / 3; transition: transform .6s var(--ease), box-shadow .6s var(--ease); }
+.gallery .shot:hover { transform: translateY(-6px) scale(1.015); box-shadow: var(--shadow-lg); }
+.shot--hero { background-image: var(--hero-img); }
 
 /* ---------- generic pieces ---------- */
 .sechead { margin-bottom: clamp(2.2rem, 5vw, 3.5rem); max-width: 62ch; }

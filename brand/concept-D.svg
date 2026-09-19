@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" role="img" aria-label="Launch250">
+  <defs><clipPath id="d-sq"><rect x="10" y="10" width="80" height="80" rx="16"/></clipPath></defs>
+  <rect x="10" y="10" width="80" height="80" rx="16" fill="#E10600"/>
+  <text x="4" y="76" font-size="78" letter-spacing="-5" fill="#fff" clip-path="url(#d-sq)" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif" font-weight="700">250</text>
+  <text x="108" y="70" font-size="54" letter-spacing="-2.5" fill="#0B0B0C" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif" font-weight="700">Launch<tspan fill="#E10600">250</tspan></text>
+</svg>

@@ -115,3 +115,29 @@ refused.
 Restoring the subscription lifts the cap. Failing that, the allowance resets
 daily, so the two outstanding heroes can be generated across the next day or
 two without any billing change.
+
+## Update — 19 Sept, after the subscription was restored
+
+The renewal had failed because the payment card was cancelled for fraud. Once
+a new card was on the account, generation worked immediately. All 24 stills
+and 6 videos are now generated and wired in:
+
+| Site | Hero still | Hero video | Supporting |
+| --- | --- | --- | --- |
+| plumbing | plumber at boiler | 5s push-in | bathroom ×2 |
+| electrical | electrician at consumer unit | 5s push-in | EV charger |
+| joinery | joiner planing oak | 5s push-in | fitted wardrobes |
+| landscaping | striped lawn and borders | 5s panoramic pan | patio ×2 |
+| barbers | barber mid-fade | 5s push-in | shop interior ×2 |
+| doggrooming | cockapoo on the table | 5s dolly-in | grooming van |
+
+Videos are Kling 3.0, standard mode, sound off, 1280×720, generated
+image-to-video from each hero still so the poster frame and the video match.
+They autoplay muted and loop; `prefers-reduced-motion` hides the video and
+freezes the Ken Burns drift on the still.
+
+**Everything is still hotlinked to the Higgsfield CDN.** Before production
+deploy, download every `.png` and `.mp4` into its demo folder and repoint the
+`--hero-img`, `--shot-1`, `--shot-2` properties and the `<video>` `src` /
+`poster` at local files. Re-encode the videos to a web-friendly size
+(a 5s 720p H.264 clip should be well under 2 MB).

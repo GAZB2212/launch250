@@ -36,8 +36,14 @@ def build(s):
                f'<a class="btn btn--lg {"btn--on-dark" if s["hero_kind"]=="overlay" else "btn--ghost"}" href="#quote">Get a free quote</a>')
 
     if s['hero_kind'] == 'overlay':
+        vid = s.get('hero_video')
+        video = (f'<video class="hero__video" autoplay muted loop playsinline preload="metadata" '
+                 f'poster="{s["hero_poster"]}" aria-hidden="true"><source src="{vid}" type="video/mp4"></video>'
+                 if vid else '')
         hero = f'''<section class="hero hero--overlay">
   <div class="hero__bg" aria-hidden="true"></div>
+  {video}
+  <div class="hero__tint" aria-hidden="true"></div>
   <div class="shell hero__inner">
     <p class="eyebrow">{e(s['eyebrow'])}</p>
     <h1>{e(s['h1'])}</h1>
@@ -95,6 +101,25 @@ def build(s):
       </div>\n''' for q, a in s['faq'])
 
     svc_opts = "".join(f'<option>{e(t)}</option>' for t, _, _ in s['services'])
+
+    names = [t for t, _, _ in s['services']] + s['trusts']
+    band_items = "".join(f'<span>{e(n)}</span>' for n in names)
+    band = f'''<div class="band" aria-hidden="true"><div class="band__track">{band_items}{band_items}</div></div>'''
+
+    shots = [c for c, v in (('shot--1', s['shot1']), ('shot--2', s['shot2']), ('shot--hero', s['hero_img'])) if v != 'none']
+    gallery = ''
+    if len(shots) >= 2:
+        tiles = "".join(f'<div class="shot {c} reveal" role="img" aria-label="{e(full)} — recent work"></div>' for c in shots[:3])
+        gallery = f'''
+<section class="section section--wash" id="work">
+  <div class="shell">
+    <div class="sechead reveal">
+      <p class="eyebrow">Recent work</p>
+      <h2>{e(s.get('gal_h', 'A few recent jobs.'))}</h2>
+    </div>
+    <div class="gallery">{tiles}</div>
+  </div>
+</section>'''
 
     dv = derive(s)
     css = CSS.format(
@@ -160,6 +185,7 @@ def build(s):
 <main id="main">
 <span id="top"></span>
 {hero}
+{band}
 
 <section class="section" id="services">
   <div class="shell">
@@ -172,7 +198,7 @@ def build(s):
 {svc}    </div>
   </div>
 </section>
-
+{gallery}
 <section class="section section--wash" id="about">
   <div class="shell">
     <div class="split">
@@ -182,7 +208,7 @@ def build(s):
         <p class="lede" style="margin-block:1.2rem 1.8rem">{e(s['about_p'])}</p>
         <div class="stats">{stats}</div>
       </div>
-      <div class="shot shot--pattern reveal" role="img" aria-label="{e(s['trade'])} work by {e(full)}"></div>
+      <div class="shot {'shot--1' if s['shot1'] != 'none' else 'shot--pattern'} reveal" role="img" aria-label="{e(s['trade'])} work by {e(full)}"></div>
     </div>
   </div>
 </section>

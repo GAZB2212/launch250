@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" role="img" aria-label="Launch250">
+  <text x="10" y="70" font-size="54" letter-spacing="-2.5" fill="#0B0B0C" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif" font-weight="700">Launch</text>
+  <text x="190" y="70" font-size="54" letter-spacing="-2" fill="#0B0B0C" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif" font-weight="700">25</text>
+  <rect x="254" y="27" width="44" height="44" rx="9" fill="#E10600"/>
+  <path d="M276 37 L288 51 H281 V61 H271 V51 H264 Z" fill="#fff"/>
+</svg>

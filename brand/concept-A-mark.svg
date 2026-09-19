@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" role="img" aria-label="250">
+  <defs><clipPath id="am-sq"><rect x="4" y="14" width="72" height="72" rx="14"/></clipPath></defs>
+  <rect x="4" y="14" width="72" height="72" rx="14" fill="#E10600"/>
+  <text x="28" y="70" font-size="54" letter-spacing="-2" fill="#0B0B0C" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif" font-weight="700">250</text>
+  <text x="28" y="70" font-size="54" letter-spacing="-2" fill="#fff" clip-path="url(#am-sq)" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif" font-weight="700">250</text>
+</svg>

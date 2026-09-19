@@ -1,5 +1,7 @@
-CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_172621_"
-def img(i): return f"url('{CDN}{i}.png')"
+CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_"
+def raw(stem): return f"{CDN}{stem}.png"
+def img(stem): return f"url('{raw(stem)}')"
+def vid(stem): return f"{CDN}{stem}.mp4"
 NONE = "none"
 
 SITES = [
@@ -8,8 +10,8 @@ SITES = [
  "trade":"Plumber & heating engineer","town":"Wirral",
  "title":"Hartley Plumbing & Heating | Emergency Plumber in Wirral",
  "desc":"Gas Safe registered plumber and heating engineer covering Wirral and Chester. Emergency callouts, boiler repairs, installations. No callout fee.",
- "hero_kind":"overlay","hero_img":img("89e5e42b-d3a5-4daf-946c-fbfc961e437a"),
- "shot1":NONE,"shot2":NONE,
+ "hero_kind":"overlay","hero_img":img("20260919_200240_10491fbf-b2be-4581-b777-30925d09a12b"),
+ "shot1":img("20260919_172621_89e5e42b-d3a5-4daf-946c-fbfc961e437a"),"shot2":img("20260919_200240_ba7185ac-bb49-43c8-8971-803d412f3308"),"hero_video":vid("20260919_201016_0a574ab3-87dc-416e-b736-16fff529544c"),"hero_poster":raw("20260919_200240_10491fbf-b2be-4581-b777-30925d09a12b"),
  "eyebrow":"Gas Safe registered · No callout fee",
  "h1":"Burst pipe? We answer the phone.",
  "sub":"Emergency plumbing and heating across Wirral and Chester. Most jobs fixed same day, fixed price agreed before we start, and a real person on the end of the line at 2am.",
@@ -52,8 +54,8 @@ SITES = [
  "trade":"Electrician","town":"Chester",
  "title":"Marsden Electrical | NICEIC Electrician in Chester",
  "desc":"NICEIC approved electrician in Chester. Rewires, consumer units, EV charger installation, EICR reports and emergency callouts. Free written quotes.",
- "hero_kind":"overlay","hero_img":img("19abc826-193c-4786-a49e-a7ed69365092"),
- "shot1":NONE,"shot2":NONE,
+ "hero_kind":"overlay","hero_img":img("20260919_172621_19abc826-193c-4786-a49e-a7ed69365092"),
+ "shot1":img("20260919_200240_c4f54f6e-0b27-4263-bd16-9ecf7b650ef8"),"shot2":NONE,"hero_video":vid("20260919_201016_da1f3a35-4045-4123-b656-e67c65b37706"),"hero_poster":raw("20260919_172621_19abc826-193c-4786-a49e-a7ed69365092"),
  "eyebrow":"NICEIC approved · Part P registered",
  "h1":"Electrics done properly. First time.",
  "sub":"Domestic and commercial electrical work across Chester and Cheshire. Rewires, fuse boards, EV chargers and EICR reports — all certified, all guaranteed, all quoted in writing.",
@@ -96,8 +98,8 @@ SITES = [
  "trade":"Joiner & kitchen fitter","town":"Wirral",
  "title":"Northgate Joinery | Bespoke Fitted Furniture & Kitchens, Wirral",
  "desc":"Bespoke joinery on the Wirral. Handmade fitted wardrobes, alcove units, kitchens and staircases, designed and made for your space. Free design visit.",
- "hero_kind":"type","hero_img":NONE,
- "shot1":NONE,"shot2":NONE,
+ "hero_kind":"overlay","hero_img":img("20260919_200222_00d0df38-db53-422c-a7c7-c60f1055132e"),
+ "shot1":img("20260919_200240_816c66b9-b741-4f73-ac13-8787a8056d7e"),"shot2":NONE,"hero_video":vid("20260919_201015_c1ee5f31-dff1-4f73-ac03-fa0ca412c440"),"hero_poster":raw("20260919_200222_00d0df38-db53-422c-a7c7-c60f1055132e"),
  "eyebrow":"Bespoke joinery since 2004",
  "h1":"Made for your house. Not off a shelf.",
  "sub":"Handmade fitted wardrobes, alcove units, kitchens and staircases — designed around the awkward corners of your actual home, built in our Wirral workshop, fitted by the person who made them.",
@@ -140,8 +142,8 @@ SITES = [
  "trade":"Landscaper & garden designer","town":"Cheshire",
  "title":"Greenacre Landscapes | Garden Design & Landscaping, Cheshire",
  "desc":"Garden design and landscaping across Cheshire. Patios, driveways, fencing, turfing and full garden transformations. Free site visit and 3D design.",
- "hero_kind":"overlay","hero_img":img("3fa514c2-c472-4afd-a203-11ab58c6a8a5"),
- "shot1":NONE,"shot2":NONE,
+ "hero_kind":"overlay","hero_img":img("20260919_200549_70e6e027-e58d-4915-84e2-fbc75be0c0ab"),
+ "shot1":img("20260919_200240_f4cc5e03-bbec-4c57-8a5a-42b17267a3f0"),"shot2":img("20260919_172621_3fa514c2-c472-4afd-a203-11ab58c6a8a5"),"hero_video":vid("20260919_201015_3b713166-e769-43c0-a4f3-8e92e1f62bd5"),"hero_poster":raw("20260919_200549_70e6e027-e58d-4915-84e2-fbc75be0c0ab"),
  "eyebrow":"Design & build · Fully insured",
  "h1":"A garden you actually go outside for.",
  "sub":"Design-and-build landscaping across Cheshire. Patios, planting, fencing, lawns and full transformations — drawn up properly, priced fixed, and finished when we said we would finish.",
@@ -184,8 +186,8 @@ SITES = [
  "trade":"Barbershop","town":"Liverpool",
  "title":"The Corner Barbers | Traditional Barbershop, Liverpool",
  "desc":"Traditional barbershop in Liverpool. Skin fades, beard trims, hot towel shaves and kids cuts. Walk in or book online. Open six days.",
- "hero_kind":"overlay","hero_img":img("db95aa74-8fb3-4ab5-9fba-40f7e6c16401"),
- "shot1":NONE,"shot2":NONE,
+ "hero_kind":"overlay","hero_img":img("20260919_200240_bd4cdf6b-7cf0-46c8-adac-b33379fbbf0a"),
+ "shot1":img("20260919_172621_db95aa74-8fb3-4ab5-9fba-40f7e6c16401"),"shot2":img("20260919_200240_73bc2f01-b38e-4bf6-ac07-38685966c7ed"),"hero_video":vid("20260919_201015_3772b4e2-e576-4b74-ae28-494fec42177a"),"hero_poster":raw("20260919_200240_bd4cdf6b-7cf0-46c8-adac-b33379fbbf0a"),
  "eyebrow":"Est. 2016 · Walk-ins welcome",
  "h1":"Proper barbering. No appointment needed.",
  "sub":"Skin fades, scissor work, beard sculpting and hot towel shaves in the heart of Liverpool. Six chairs, six days a week, and a brew while you wait.",
@@ -228,8 +230,8 @@ SITES = [
  "trade":"Mobile dog groomer","town":"Cheshire",
  "title":"Muddy Paws | Mobile Dog Grooming in Cheshire — We Come to You",
  "desc":"Fully equipped mobile dog grooming van covering Cheshire. One dog at a time, no cages, no waiting. Book your regular slot online.",
- "hero_kind":"type","hero_img":NONE,
- "shot1":NONE,"shot2":NONE,
+ "hero_kind":"overlay","hero_img":img("20260919_200222_e60bac25-86a2-4042-8c65-17a9edeb7cbf"),
+ "shot1":img("20260919_200241_1fd7aaac-e332-4ab0-894e-f5ea11272bb4"),"shot2":NONE,"hero_video":vid("20260919_201015_b9cdd90b-2349-4444-9e4b-d8d19da5f19f"),"hero_poster":raw("20260919_200222_e60bac25-86a2-4042-8c65-17a9edeb7cbf"),
  "eyebrow":"We come to your door",
  "h1":"Grooming without the stressful day out.",
  "sub":"A fully equipped grooming salon that parks on your driveway. One dog at a time, no cages, no waiting around in kennels — just your dog, your groomer, and about ninety minutes.",
