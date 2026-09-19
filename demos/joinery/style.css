@@ -2,7 +2,7 @@
 
 /* Swap this one line to change the hero photograph. */
 :root {
-  --hero-img: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_200222_00d0df38-db53-422c-a7c7-c60f1055132e.png');
+  --hero-img: url('img/hero.webp');
   --shot-1: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_200240_816c66b9-b741-4f73-ac13-8787a8056d7e.png');
   --shot-2: none;
 

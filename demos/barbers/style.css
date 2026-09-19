@@ -3,7 +3,7 @@
 /* Swap this one line to change the hero photograph. */
 :root {
   --hero-img: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_202822_530b2483-393f-489d-abd0-ad5c5a313d3b.png');
-  --shot-1: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_172621_db95aa74-8fb3-4ab5-9fba-40f7e6c16401.png');
+  --shot-1: url('img/shot-1.webp');
   --shot-2: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_200240_73bc2f01-b38e-4bf6-ac07-38685966c7ed.png');
 
   --ink: #101010;
