@@ -1,0 +1,353 @@
+# CSS core shared by every demo build. Per-site tokens are substituted in,
+# so each site ships a single self-contained stylesheet (they deploy to
+# separate subdomains and must not depend on each other).
+CSS = r'''/* {BRAND} — built by Launch250. Single-page site, no dependencies. */
+
+/* Swap this one line to change the hero photograph. */
+:root {{
+  --hero-img: {HERO_IMG};
+  --shot-1: {SHOT1};
+  --shot-2: {SHOT2};
+
+  --ink: {INK};
+  --ink-soft: {INK_SOFT};
+  --accent: {ACCENT};
+  --accent-dark: {ACCENT_DARK};
+  /* WCAG-derived variants: brand colour is rarely legible as text as-is. */
+  --cta: {CTA};
+  --cta-hover: {CTA_HOVER};
+  --accent-on-light: {INK_ACCENT};
+  --accent-on-dark: {DARK_ACCENT};
+  --on-accent: {ON_ACCENT};
+  --surface: {SURFACE};
+  --wash: {WASH};
+  --line: {LINE};
+  --muted: {MUTED};
+  --paper: #ffffff;
+
+  --font-display: {FONT_DISPLAY};
+  --font-body: {FONT_BODY};
+  --display-caps: {DISPLAY_CAPS};
+  --display-track: {DISPLAY_TRACK};
+  --radius: {RADIUS};
+
+  --gutter: clamp(1.15rem, 4vw, 2.75rem);
+  --section: clamp(3.5rem, 8vw, 6.5rem);
+  --max: 1160px;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --shadow: 0 2px 6px rgba(0,0,0,.05), 0 18px 40px -16px rgba(0,0,0,.22);
+  --shadow-lg: 0 30px 70px -24px rgba(0,0,0,.42);
+}}
+
+*, *::before, *::after {{ box-sizing: border-box; }}
+* {{ margin: 0; }}
+html {{ -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; overflow-x: clip; }}
+body {{
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}}
+img {{ display: block; max-width: 100%; height: auto; }}
+a {{ color: inherit; text-decoration: none; }}
+ul {{ list-style: none; padding: 0; }}
+button {{ font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }}
+input, textarea, select {{ font: inherit; color: inherit; }}
+:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }}
+
+h1, h2, h3, h4, .display {{
+  font-family: var(--font-display);
+  line-height: 1.06;
+  letter-spacing: var(--display-track);
+  text-transform: var(--display-caps);
+  font-weight: {DISPLAY_WEIGHT};
+  text-wrap: balance;
+}}
+h1 {{ font-size: clamp(2.4rem, 6.4vw, 4.15rem); }}
+h2 {{ font-size: clamp(1.85rem, 4.4vw, 2.9rem); }}
+h3 {{ font-size: clamp(1.15rem, 2vw, 1.4rem); }}
+p {{ text-wrap: pretty; }}
+
+.shell {{ width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }}
+.section {{ padding-block: var(--section); }}
+.section--wash {{ background: var(--wash); }}
+.section--ink {{ background: var(--ink); color: #fff; }}
+.lede {{ font-size: clamp(1.02rem, 1.5vw, 1.14rem); color: var(--muted); max-width: 58ch; }}
+.section--ink .lede {{ color: rgba(255,255,255,.72); }}
+
+.eyebrow {{
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--font-display); font-size: .8rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--accent-on-light);
+  margin-bottom: .9rem;
+}}
+.eyebrow::before {{ content: ""; width: 20px; height: 2px; background: var(--accent); }}
+.section--ink .eyebrow {{ color: var(--accent-on-dark); }}
+
+/* ---------- buttons ---------- */
+.btn {{
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  padding: .95rem 1.6rem; border-radius: var(--radius);
+  background: var(--cta); color: var(--on-accent);
+  font-family: var(--font-display); font-weight: 600; font-size: 1rem;
+  letter-spacing: .01em; text-transform: var(--display-caps);
+  border: 2px solid var(--cta); white-space: nowrap;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}}
+.btn:hover {{ transform: translateY(-2px); box-shadow: var(--shadow); background: var(--cta-hover); border-color: var(--cta-hover); }}
+.btn--ghost {{ background: transparent; color: var(--ink); border-color: var(--line); }}
+.btn--ghost:hover {{ background: var(--ink); border-color: var(--ink); color: #fff; }}
+.btn--on-dark {{ background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }}
+.btn--on-dark:hover {{ background: #fff; color: var(--ink); border-color: #fff; }}
+.btn--lg {{ padding: 1.1rem 2rem; font-size: 1.05rem; }}
+.btn--block {{ width: 100%; }}
+
+/* ---------- header ---------- */
+.head {{
+  position: sticky; top: 0; z-index: 60;
+  background: rgba(255,255,255,.9);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+}}
+.head.is-stuck {{ border-bottom-color: var(--line); box-shadow: 0 6px 22px -16px rgba(0,0,0,.4); }}
+.nav {{ display: flex; align-items: center; gap: 1.25rem; height: 72px; }}
+.brand {{ display: inline-flex; align-items: center; gap: .6rem; margin-right: auto; }}
+.brand__mark {{
+  display: grid; place-items: center; width: 40px; height: 40px; flex: none;
+  border-radius: {MARK_RADIUS}; background: var(--cta); color: var(--on-accent);
+  font-family: var(--font-display); font-weight: 700; font-size: .95rem; letter-spacing: -.02em;
+}}
+.brand__name {{ font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: var(--display-track); line-height: 1.1; text-transform: var(--display-caps); }}
+.brand__sub {{ display: block; font-family: var(--font-body); font-size: .68rem; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }}
+.nav__links {{ display: flex; align-items: center; gap: 1.5rem; font-size: .95rem; font-weight: 500; }}
+.nav__links a {{ position: relative; padding: .3rem 0; }}
+.nav__links a::after {{ content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: right; transition: transform .3s var(--ease); }}
+.nav__links a:hover::after {{ transform: scaleX(1); transform-origin: left; }}
+.nav__call {{ display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }}
+.nav__call svg {{ width: 17px; height: 17px; fill: var(--accent-on-light); }}
+.burger {{ display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 10px; place-items: center; }}
+.burger span {{ display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s; }}
+.burger span + span {{ margin-top: 5px; }}
+.burger[aria-expanded="true"] span:nth-child(1) {{ transform: translateY(7px) rotate(45deg); }}
+.burger[aria-expanded="true"] span:nth-child(2) {{ opacity: 0; }}
+.burger[aria-expanded="true"] span:nth-child(3) {{ transform: translateY(-7px) rotate(-45deg); }}
+
+@media (max-width: 860px) {{
+  .burger {{ display: grid; }}
+  .nav__links {{
+    position: fixed; inset: 0 0 0 auto; width: min(320px, 84vw);
+    flex-direction: column; align-items: stretch; justify-content: center; gap: .2rem;
+    padding: 2rem var(--gutter); background: var(--paper);
+    border-left: 1px solid var(--line); box-shadow: var(--shadow-lg);
+    transform: translateX(100%); visibility: hidden;
+    transition: transform .45s var(--ease), visibility .45s var(--ease);
+    font-family: var(--font-display); font-size: 1.4rem; text-transform: var(--display-caps);
+  }}
+  .nav__links.is-open {{ transform: none; visibility: visible; }}
+  .nav__links a {{ padding: .75rem 0; border-bottom: 1px solid var(--line); }}
+  .nav__links a::after {{ display: none; }}
+  .nav__call span {{ display: none; }}
+  .scrim {{ position: fixed; inset: 0; z-index: 55; background: rgba(0,0,0,.45); opacity: 0; pointer-events: none; transition: opacity .35s var(--ease); }}
+  .scrim.is-open {{ opacity: 1; pointer-events: auto; }}
+  body.locked {{ overflow: hidden; }}
+}}
+
+/* ---------- hero ---------- */
+.hero {{ position: relative; }}
+.hero__inner {{ position: relative; z-index: 2; }}
+.hero h1 {{ margin-bottom: 1.1rem; }}
+.hero p {{ font-size: clamp(1.05rem, 1.7vw, 1.2rem); max-width: 54ch; }}
+.hero__actions {{ display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }}
+.hero__trust {{ display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; margin-top: 2.5rem; padding-top: 1.6rem; }}
+.trust {{ display: flex; align-items: center; gap: .6rem; font-size: .9rem; font-weight: 600; }}
+.trust svg {{ width: 20px; height: 20px; flex: none; stroke: var(--accent-on-light); stroke-width: 2; fill: none; }}
+
+/* overlay hero: full-bleed photograph */
+.hero--overlay {{ background: var(--ink); color: #fff; }}
+.hero--overlay .hero__bg {{
+  position: absolute; inset: 0; z-index: 0;
+  background-image: var(--hero-img);
+  background-size: cover; background-position: center;
+}}
+.hero--overlay .hero__bg::after {{
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(105deg, {OVERLAY} 0%, {OVERLAY_MID} 52%, rgba(0,0,0,.25) 100%);
+}}
+/* `.hero__inner` is also a `.shell`, so narrowing IT would centre the block.
+   Constrain the children instead and the copy stays left-aligned to the grid. */
+.hero--overlay .hero__inner {{ padding-block: clamp(4rem, 12vw, 8rem); }}
+.hero--overlay .hero__inner > * {{ max-width: 42rem; }}
+.hero--overlay p {{ color: rgba(255,255,255,.82); }}
+.hero--overlay .hero__trust {{ border-top: 1px solid rgba(255,255,255,.2); }}
+.hero--overlay .trust svg {{ stroke: var(--accent-on-dark); }}
+.hero--overlay .eyebrow {{ color: var(--accent-on-dark); }}
+
+/* typographic hero: colour field, no photograph */
+.hero--type {{ background: var(--wash); overflow: hidden; }}
+.hero--type .hero__inner {{ padding-block: clamp(3.5rem, 10vw, 7rem); }}
+.hero--type .hero__trust {{ border-top: 1px solid var(--line); }}
+.hero--type h1 {{ max-width: 15ch; }}
+.hero--type .hero__blob {{
+  position: absolute; z-index: 0; top: -30%; right: -12%;
+  width: 46vw; height: 46vw; max-width: 620px; max-height: 620px;
+  border-radius: 50%; background: var(--accent); opacity: .16; filter: blur(70px);
+}}
+.hero--type .hero__grid {{ display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }}
+@media (max-width: 880px) {{ .hero--type .hero__grid {{ grid-template-columns: 1fr; }} }}
+.hero__card {{
+  background: var(--paper); border-radius: calc(var(--radius) * 1.6);
+  padding: clamp(1.5rem, 3vw, 2.2rem); box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+}}
+.hero__card h3 {{ margin-bottom: 1.1rem; }}
+.hero__card .checks {{ margin-bottom: 1.5rem; }}
+.hero__price {{ display: flex; align-items: baseline; gap: .4rem; margin-bottom: .4rem; font-family: var(--font-display); }}
+.hero__price b {{ font-size: 2.6rem; letter-spacing: -.03em; }}
+.hero__price span {{ font-size: .9rem; color: var(--muted); font-family: var(--font-body); }}
+
+/* ---------- generic pieces ---------- */
+.sechead {{ margin-bottom: clamp(2.2rem, 5vw, 3.5rem); max-width: 62ch; }}
+.sechead h2 {{ margin-bottom: .85rem; }}
+.sechead.center {{ margin-inline: auto; text-align: center; }}
+.sechead.center h2 {{ max-width: 20ch; margin-inline: auto; }}
+.sechead.center .lede {{ margin-inline: auto; }}
+
+.grid {{ display: grid; gap: clamp(1rem, 2vw, 1.5rem); }}
+.grid--3 {{ grid-template-columns: repeat(3, 1fr); }}
+.grid--2 {{ grid-template-columns: repeat(2, 1fr); }}
+@media (max-width: 900px) {{ .grid--3 {{ grid-template-columns: repeat(2, 1fr); }} }}
+@media (max-width: 620px) {{ .grid--3, .grid--2 {{ grid-template-columns: 1fr; }} }}
+
+.card {{
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: clamp(1.4rem, 2.5vw, 1.9rem);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+}}
+.card:hover {{ transform: translateY(-5px); box-shadow: var(--shadow); border-color: transparent; }}
+.card h3 {{ margin-bottom: .5rem; }}
+.card p {{ color: var(--muted); font-size: .96rem; }}
+.card__n {{
+  display: block; margin-bottom: 1rem; padding-bottom: .9rem;
+  border-bottom: 2px solid var(--cta);
+  width: 2.4rem;
+  font-family: var(--font-display); font-weight: 700; font-size: .92rem;
+  letter-spacing: .12em; color: var(--accent-on-light);
+}}
+.card__price {{ display: block; margin-top: 1rem; font-family: var(--font-display); font-weight: 700; color: var(--accent-on-light); font-size: .95rem; }}
+
+.checks {{ display: grid; gap: .75rem; }}
+.checks li {{ display: flex; align-items: flex-start; gap: .7rem; font-size: .97rem; }}
+.tick {{ flex: none; display: grid; place-items: center; width: 21px; height: 21px; margin-top: .18rem; border-radius: 50%; background: var(--cta); }}
+.tick svg {{ width: 11px; height: 11px; stroke: var(--on-accent); stroke-width: 3.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }}
+.section--ink .checks li {{ color: rgba(255,255,255,.85); }}
+
+.split {{ display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }}
+@media (max-width: 880px) {{ .split {{ grid-template-columns: 1fr; }} }}
+.shot {{ border-radius: calc(var(--radius) * 1.4); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 4 / 3; background: var(--wash); background-size: cover; background-position: center; }}
+.shot--1 {{ background-image: var(--shot-1); }}
+.shot--2 {{ background-image: var(--shot-2); }}
+.shot--tall {{ aspect-ratio: 3 / 4; }}
+
+/* pattern fallback where no photograph is wired up yet */
+.shot--pattern {{
+  background-image:
+    repeating-linear-gradient(45deg, {PATTERN_A} 0 14px, transparent 14px 28px),
+    linear-gradient(140deg, {PATTERN_B}, {PATTERN_C});
+}}
+
+.stats {{ display: flex; flex-wrap: wrap; gap: 2rem 3rem; }}
+.stat b {{ display: block; font-family: var(--font-display); font-size: clamp(1.9rem, 3.4vw, 2.5rem); color: var(--accent-on-light); line-height: 1; }}
+.section--ink .stat b {{ color: var(--accent-on-dark); }}
+.stat span {{ font-size: .85rem; color: var(--muted); }}
+.section--ink .stat span {{ color: rgba(255,255,255,.6); }}
+
+.areas {{ display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }}
+.area {{ padding: .4rem .85rem; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; color: var(--muted); }}
+.section--ink .area {{ border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.72); }}
+
+.tmo {{ display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.4rem, 2.5vw, 1.9rem); }}
+.stars {{ display: inline-flex; gap: 2px; color: {STAR}; margin-bottom: .9rem; }}
+.stars svg {{ width: 16px; height: 16px; fill: currentColor; }}
+.tmo blockquote {{ flex: 1; font-size: 1rem; margin-bottom: 1.3rem; }}
+.tmo cite {{ display: flex; align-items: center; gap: .7rem; font-style: normal; padding-top: 1.1rem; border-top: 1px solid var(--line); }}
+.tmo__av {{ display: grid; place-items: center; width: 38px; height: 38px; flex: none; border-radius: 50%; background: var(--ink); color: #fff; font-family: var(--font-display); font-size: .82rem; font-weight: 700; }}
+.tmo__av--accent {{ background: var(--cta); color: var(--on-accent); }}
+.tmo cite b {{ display: block; font-size: .92rem; }}
+.tmo__loc {{ font-size: .8rem; color: var(--muted); }}
+
+/* ---------- contact ---------- */
+.contact {{ display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }}
+@media (max-width: 880px) {{ .contact {{ grid-template-columns: 1fr; }} }}
+.contact__rows {{ display: grid; gap: 1.1rem; margin-top: 2rem; }}
+.crow {{ display: flex; gap: .9rem; align-items: flex-start; }}
+.crow svg {{ width: 22px; height: 22px; flex: none; margin-top: .2rem; stroke: var(--accent-on-dark); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }}
+.crow b {{ display: block; font-family: var(--font-display); font-size: 1.02rem; }}
+.crow span, .crow a {{ font-size: .95rem; color: rgba(255,255,255,.7); }}
+.crow a:hover {{ color: var(--accent-on-dark); }}
+
+.form {{ display: grid; gap: .8rem; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: calc(var(--radius) * 1.3); padding: clamp(1.4rem, 3vw, 2rem); }}
+.form h3 {{ margin-bottom: .3rem; }}
+.form p.small {{ font-size: .88rem; color: rgba(255,255,255,.6); margin-bottom: .6rem; }}
+.field {{ display: grid; gap: .35rem; }}
+.field label {{ font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.62); }}
+.field input, .field textarea, .field select {{
+  width: 100%; padding: .85rem 1rem; border-radius: var(--radius);
+  background: rgba(255,255,255,.07); border: 1.5px solid rgba(255,255,255,.16); color: #fff;
+  transition: border-color .25s var(--ease), background .25s var(--ease);
+}}
+.field textarea {{ min-height: 92px; resize: vertical; }}
+.field input::placeholder, .field textarea::placeholder {{ color: rgba(255,255,255,.35); }}
+.field input:focus, .field textarea:focus, .field select:focus {{ outline: none; border-color: var(--accent); background: rgba(255,255,255,.1); }}
+.field select option {{ background: var(--ink); color: #fff; }}
+.frow {{ display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }}
+@media (max-width: 520px) {{ .frow {{ grid-template-columns: 1fr; }} }}
+.form__ok {{ display: none; gap: .7rem; padding: .95rem 1.1rem; border-radius: var(--radius); background: rgba(255,255,255,.12); border: 1px solid var(--accent); font-size: .93rem; }}
+.form__ok.on {{ display: flex; }}
+.hp {{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }}
+.form small {{ font-size: .78rem; color: rgba(255,255,255,.5); }}
+
+/* ---------- footer + sticky mobile call bar ---------- */
+.foot {{ background: {FOOT_BG}; color: rgba(255,255,255,.62); padding-block: 3rem 2rem; font-size: .92rem; }}
+.foot__top {{ display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.14); }}
+.foot .brand__name {{ color: #fff; }}
+.foot__links {{ display: flex; flex-wrap: wrap; gap: 1.2rem; }}
+.foot__links a:hover {{ color: var(--accent-on-dark); }}
+.foot__bottom {{ display: flex; flex-wrap: wrap; gap: .8rem 1.5rem; justify-content: space-between; padding-top: 1.5rem; font-size: .82rem; color: rgba(255,255,255,.42); }}
+.foot__by {{ color: rgba(255,255,255,.55); }}
+.foot__by a {{ color: #fff; font-weight: 600; border-bottom: 1px solid var(--accent); }}
+.foot__by a:hover {{ color: var(--accent-on-dark); }}
+
+.callbar {{ display: none; }}
+@media (max-width: 760px) {{
+  .callbar {{
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+    display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--ink); border-top: 1px solid rgba(255,255,255,.14);
+    padding-bottom: env(safe-area-inset-bottom);
+  }}
+  .callbar a {{
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+    padding: .95rem .5rem; font-family: var(--font-display); font-weight: 700;
+    color: #fff; font-size: 1rem; text-transform: var(--display-caps);
+  }}
+  .callbar a:first-child {{ background: var(--cta); color: var(--on-accent); }}
+  .callbar svg {{ width: 18px; height: 18px; fill: currentColor; }}
+  body {{ padding-bottom: 62px; }}
+}}
+
+/* ---------- reveal ---------- */
+.js .reveal {{ opacity: 0; transform: translateY(22px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0ms); }}
+.js .reveal.in {{ opacity: 1; transform: none; }}
+@media (prefers-reduced-motion: reduce) {{
+  html {{ scroll-behavior: auto; }}
+  .js .reveal {{ opacity: 1; transform: none; transition: none; }}
+  *, *::before, *::after {{ animation-duration: .001ms !important; transition-duration: .001ms !important; }}
+}}
+.vh {{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }}
+.skip {{ position: absolute; left: 1rem; top: -100px; z-index: 200; padding: .7rem 1.1rem; background: var(--ink); color: #fff; border-radius: var(--radius); transition: top .25s var(--ease); }}
+.skip:focus {{ top: 1rem; }}
+'''
