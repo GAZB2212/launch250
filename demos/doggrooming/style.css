@@ -3,7 +3,7 @@
 /* Swap this one line to change the hero photograph. */
 :root {
   --hero-img: url('img/hero.webp');
-  --shot-1: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_200241_1fd7aaac-e332-4ab0-894e-f5ea11272bb4.png');
+  --shot-1: url('img/shot-1.webp');
   --shot-2: none;
 
   --ink: #123b3b;
