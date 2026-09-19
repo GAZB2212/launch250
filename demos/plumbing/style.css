@@ -2,9 +2,9 @@
 
 /* Swap this one line to change the hero photograph. */
 :root {
-  --hero-img: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_202822_63577ee2-e593-4e1e-b171-b2cb74bcac05.png');
+  --hero-img: url('img/hero.webp');
   --shot-1: url('img/shot-1.webp');
-  --shot-2: url('https://d8j0ntlcm91z4.cloudfront.net/user_3G5cjhlY4ceEi0osJJBdYOnenKT/hf_20260919_200240_ba7185ac-bb49-43c8-8971-803d412f3308.png');
+  --shot-2: url('img/shot-2.webp');
 
   --ink: #0d1f33;
   --ink-soft: #1b3a5c;
