@@ -22,28 +22,15 @@ META = {
               [("-80%","Admin time"),("500+","Regular clients"),("4","Days to live")]),
 }
 
-SK = {
- 'light': '''<div class="browser">
+def frame(slug, url, theme, alt):
+    """Browser frame holding a real screenshot of the demo (see _screenshots.js)."""
+    cls = 'browser browser--dark' if theme == 'dark' else 'browser'
+    return f'''<div class="{cls}">
             <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">{url}</span></div>
-            <div class="browser__body" aria-hidden="true">
-              <div class="sk sk--nav"><span class="sk sk--logo"></span><span class="sk sk--navlink ml-auto"></span><span class="sk sk--navlink"></span><span class="sk sk--navlink"></span></div>
-              <div class="sk sk--h1"></div><div class="sk sk--h2"></div>
-              <div class="sk sk--p"></div><div class="sk sk--p sk--p2"></div>
-              <div class="sk sk--btn"></div><div class="sk sk--hero"></div>
-              <div class="sk--row"><span class="sk"></span><span class="sk"></span><span class="sk"></span></div>
+            <div class="browser__body browser__body--img">
+              <img src="assets/img/work/{slug}.webp" alt="{alt}" loading="lazy" width="1200" height="825">
             </div>
-          </div>''',
- 'dark': '''<div class="browser browser--dark">
-            <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">{url}</span></div>
-            <div class="browser__body" aria-hidden="true">
-              <div class="sk sk--nav"><span class="sk sk--logo"></span><span class="sk sk--navlink ml-auto"></span><span class="sk sk--navlink"></span></div>
-              <div class="sk sk--hero"></div><div class="sk sk--h1"></div>
-              <div class="sk sk--p"></div><div class="sk sk--p sk--p2"></div>
-              <div class="sk--row"><span class="sk"></span><span class="sk"></span></div>
-              <div class="sk sk--btn"></div>
-            </div>
-          </div>''',
-}
+          </div>'''
 
 ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>'
 
@@ -55,7 +42,7 @@ def card(s, live_prefix):
     st = "".join(f'<div class="work__stat"><b>{e(n)}</b><span>{e(l)}</span></div>' for n, l in stats)
     return f'''      <article class="work reveal">
         <div class="work__media">
-          {SK[theme].format(url=url)}
+          {frame(s['slug'], url, theme, e(full) + ' website, ' + e(s['trade']))}
         </div>
         <div>
           <div class="work__meta">

@@ -232,6 +232,10 @@ p { text-wrap: pretty; }
   transition: transform .4s var(--ease);
 }
 .tlink:hover::after { transform: scaleX(1); transform-origin: left; }
+/* The arrow was unsized, so it ballooned and forced the label onto three lines. */
+.tlink svg { width: 1em; height: 1em; flex: none; transition: transform .35s var(--ease); }
+.tlink:hover svg { transform: translateX(3px); }
+.work .tlink { margin-bottom: 1.4rem; white-space: nowrap; }
 
 /* ---------- Pills / chips ---------- */
 .pill {
@@ -1110,6 +1114,10 @@ p { text-wrap: pretty; }
 .sk--row { display: flex; gap: .6rem; }
 .sk--row > * { flex: 1; height: 42px; border-radius: 7px; }
 .ml-auto { margin-left: auto; }
+
+/* Real screenshot inside the frame */
+.browser__body--img { padding: 0; display: block; }
+.browser__body--img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
 /* Theme variants for mockups */
 .browser--dark .browser__body { background: linear-gradient(180deg, #17171b, #0b0b0c); }
