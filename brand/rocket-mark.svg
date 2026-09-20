@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Launch250">
+  <g transform="translate(100 104) rotate(40) scale(1.2)">
+    <!-- speed trail -->
+    <rect x="-30" y="52" width="6" height="46" rx="3" fill="#E10600"/>
+    <rect x="-12" y="66" width="6" height="58" rx="3" fill="#0B0B0C"/>
+    <rect x="8"   y="56" width="6" height="40" rx="3" fill="#E10600"/>
+    <!-- flame -->
+    <path d="M-10 42 Q0 84 10 42 Z" fill="#0B0B0C"/>
+    <path d="M-5 42 Q0 64 5 42 Z" fill="#E10600"/>
+    <!-- nozzle -->
+    <path d="M-9 33 H9 L13 43 H-13 Z" fill="#E10600"/>
+    <!-- fins -->
+    <path d="M-17 8 L-36 38 L-17 31 Z" fill="#E10600"/>
+    <path d="M17 8 L36 38 L17 31 Z" fill="#E10600"/>
+    <!-- fuselage -->
+    <path d="M0 -64 C13 -46 19 -26 19 -4 V24 Q19 34 9 34 H-9 Q-19 34 -19 24 V-4 C-19 -26 -13 -46 0 -64 Z" fill="#FFFFFF" stroke="#E10600" stroke-width="4" stroke-linejoin="round"/>
+    <!-- nose cone -->
+    <path d="M0 -64 C11 -48 16 -34 17 -22 H-17 C-16 -34 -11 -48 0 -64 Z" fill="#E10600"/>
+    <!-- porthole -->
+    <circle cx="0" cy="2" r="9.5" fill="#E10600"/>
+    <circle cx="0" cy="2" r="5" fill="#FFFFFF"/>
+    <!-- 250 on the fuselage -->
+    <text x="0" y="27" font-size="10.5" font-weight="700" text-anchor="middle" fill="#E10600" letter-spacing="-.3" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">250</text>
+  </g>
+</svg>
