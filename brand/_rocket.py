@@ -35,28 +35,25 @@ def rocket(ink=BLK, body=WHT, scale=1.0, x=0, y=0, rot=40, trail=True):
   </g>'''
 
 def lockup_ref(ink=BLK):
-    """A — as the reference: rocket · 250 · LAUNCH / WEBSITE COMPANY"""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 220" role="img" aria-label="250 Launch website company">
+    """A — as the reference: rocket · 250 · LAUNCH"""
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" role="img" aria-label="250 Launch">
   {rocket(ink=ink, x=118, y=104, scale=1.18)}
-  <text x="212" y="150" font-size="112" font-weight="700" letter-spacing="-5" fill="{RED}" {F}>250</text>
-  <text x="418" y="132" font-size="88" font-weight="700" letter-spacing="-3" fill="{ink}" {F}>LAUNCH</text>
-  <text x="420" y="170" font-size="26" font-weight="700" letter-spacing="2.4" fill="{ink}" {F}>WEBSITE COMPANY</text>
+  <text x="212" y="144" font-size="112" font-weight="700" letter-spacing="-5" fill="{RED}" {F}>250</text>
+  <text x="418" y="144" font-size="112" font-weight="700" letter-spacing="-5" fill="{ink}" {F}>LAUNCH</text>
 </svg>'''
 
 def lockup_brand(ink=BLK):
-    """B — brand order: rocket · LAUNCH250 / WEBSITE COMPANY"""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" role="img" aria-label="Launch250 website company">
+    """B — brand order: rocket · LAUNCH250"""
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" role="img" aria-label="Launch250">
   {rocket(ink=ink, x=118, y=104, scale=1.18)}
-  <text x="212" y="140" font-size="96" font-weight="700" letter-spacing="-4" fill="{ink}" {F}>LAUNCH<tspan fill="{RED}">250</tspan></text>
-  <text x="216" y="178" font-size="26" font-weight="700" letter-spacing="2.4" fill="{ink}" {F}>WEBSITE COMPANY</text>
+  <text x="212" y="142" font-size="104" font-weight="700" letter-spacing="-4.5" fill="{ink}" {F}>LAUNCH<tspan fill="{RED}">250</tspan></text>
 </svg>'''
 
 def stacked(ink=BLK):
     """C — square format for avatars: rocket over LAUNCH250"""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Launch250">
-  {rocket(ink=ink, x=170, y=118, scale=1.15)}
-  <text x="160" y="268" font-size="58" font-weight="700" letter-spacing="-2.5" text-anchor="middle" fill="{ink}" {F}>LAUNCH<tspan fill="{RED}">250</tspan></text>
-  <text x="160" y="298" font-size="17" font-weight="700" letter-spacing="2.2" text-anchor="middle" fill="{ink}" {F}>WEBSITE COMPANY</text>
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="Launch250">
+  {rocket(ink=ink, x=210, y=118, scale=1.15)}
+  <text x="200" y="282" font-size="60" font-weight="700" letter-spacing="-2.6" text-anchor="middle" fill="{ink}" {F}>LAUNCH<tspan fill="{RED}">250</tspan></text>
 </svg>'''
 
 def mark(ink=BLK, bg=None):
@@ -65,6 +62,11 @@ def mark(ink=BLK, bg=None):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Launch250">
   {tile}{rocket(ink=ink, x=100, y=104, scale=1.2)}
 </svg>'''
+
+def mark_inline():
+    """Header/footer mark. Flame and trail use currentColor so the same
+    markup works on the white header and the black footer."""
+    return f'''<svg class="logo__rocket" viewBox="0 0 200 200" aria-hidden="true" focusable="false">{rocket(ink="currentColor", x=100, y=104, scale=1.25)}</svg>'''
 
 def mark_tile():
     # red tile, white rocket body, white trail: reads at 16px
@@ -100,8 +102,8 @@ h2{{font-size:15px;font-weight:500;margin:0 0 14px;color:#3a3a42}} h2 b{{display
 </style></head><body>
 <h1>Launch250 — rocket concept, redrawn</h1>
 <p class="sub">Clean vector from the generated idea. Two lockup orders, a stacked version for square formats, and the rocket alone at icon sizes.</p>
-<section><h2><b>A</b> As the reference — 250 · LAUNCH · website company</h2>{pair(lockup_ref(), lockup_ref(WHT))}</section>
-<section><h2><b>B</b> Brand order — LAUNCH250 · website company (matches the domain and every page)</h2>{pair(lockup_brand(), lockup_brand(WHT))}</section>
+<section><h2><b>A</b> As the reference — 250 · LAUNCH</h2>{pair(lockup_ref(), lockup_ref(WHT))}</section>
+<section><h2><b>B</b> Brand order — LAUNCH250 (matches the domain and every page)</h2>{pair(lockup_brand(), lockup_brand(WHT))}</section>
 <section class="sq"><h2><b>C</b> Stacked — for avatars, social, app icon</h2>{pair(stacked(), stacked(WHT))}</section>
 <section><h2><b>M</b> Mark alone at 128 / 64 / 32 / 16px — outline on light and dark, then as a red tile</h2>
 <div class="marks"><span class="m128">{mark()}</span><span class="m64">{mark()}</span><span class="m32">{mark()}</span><span class="m16">{mark()}</span><span>on white</span></div>

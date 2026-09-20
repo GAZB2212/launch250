@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" role="img" aria-label="250 Launch">
-  <g transform="translate(118 104) rotate(40) scale(1.18)">
+<svg class="logo__rocket" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g transform="translate(100 104) rotate(40) scale(1.25)">
     <!-- speed trail -->
     <rect x="-30" y="52" width="6" height="46" rx="3" fill="#E10600"/>
-    <rect x="-12" y="66" width="6" height="58" rx="3" fill="#FFFFFF"/>
+    <rect x="-12" y="66" width="6" height="58" rx="3" fill="currentColor"/>
     <rect x="8"   y="56" width="6" height="40" rx="3" fill="#E10600"/>
     <!-- flame -->
-    <path d="M-10 42 Q0 84 10 42 Z" fill="#FFFFFF"/>
+    <path d="M-10 42 Q0 84 10 42 Z" fill="currentColor"/>
     <path d="M-5 42 Q0 64 5 42 Z" fill="#E10600"/>
     <!-- nozzle -->
     <path d="M-9 33 H9 L13 43 H-13 Z" fill="#E10600"/>
@@ -21,7 +20,4 @@
     <circle cx="0" cy="2" r="5" fill="#FFFFFF"/>
     <!-- 250 on the fuselage -->
     <text x="0" y="27" font-size="10.5" font-weight="700" text-anchor="middle" fill="#E10600" letter-spacing="-.3" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">250</text>
-  </g>
-  <text x="212" y="144" font-size="112" font-weight="700" letter-spacing="-5" fill="#E10600" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">250</text>
-  <text x="418" y="144" font-size="112" font-weight="700" letter-spacing="-5" fill="#FFFFFF" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">LAUNCH</text>
-</svg>
+  </g></svg>

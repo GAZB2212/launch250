@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" role="img" aria-label="Launch250 website company">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" role="img" aria-label="Launch250">
   <g transform="translate(118 104) rotate(40) scale(1.18)">
     <!-- speed trail -->
     <rect x="-30" y="52" width="6" height="46" rx="3" fill="#E10600"/>
@@ -22,6 +22,5 @@
     <!-- 250 on the fuselage -->
     <text x="0" y="27" font-size="10.5" font-weight="700" text-anchor="middle" fill="#E10600" letter-spacing="-.3" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">250</text>
   </g>
-  <text x="212" y="140" font-size="96" font-weight="700" letter-spacing="-4" fill="#0B0B0C" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">LAUNCH<tspan fill="#E10600">250</tspan></text>
-  <text x="216" y="178" font-size="26" font-weight="700" letter-spacing="2.4" fill="#0B0B0C" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">WEBSITE COMPANY</text>
+  <text x="212" y="142" font-size="104" font-weight="700" letter-spacing="-4.5" fill="#0B0B0C" font-family="'Space Grotesk','Liberation Sans',Arial,Helvetica,sans-serif">LAUNCH<tspan fill="#E10600">250</tspan></text>
 </svg>

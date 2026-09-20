@@ -379,6 +379,15 @@ p { text-wrap: pretty; }
   transition: transform .5s var(--ease);
 }
 .logo:hover .logo__mark { transform: rotate(-8deg) scale(1.06); }
+/* Rocket mark: flame and trail inherit the link colour, so it works on the
+   white header and the black footer from the same markup. */
+.logo__rocket {
+  width: 44px; height: 44px; flex: none;
+  color: var(--ink);
+  transition: transform .5s var(--ease);
+}
+.site-foot .logo__rocket { color: var(--paper); }
+.logo:hover .logo__rocket { transform: translate(3px, -3px); }
 .logo__word em { font-style: normal; color: var(--red); }
 
 .nav__links {
