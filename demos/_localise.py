@@ -27,7 +27,7 @@ def localise_logo(src, slug):
         im.save(out, 'WEBP', quality=90, method=6); size = im.size
     rel = os.path.basename(out)
     p = os.path.join(HERE, '_sites.py'); s = open(p, encoding='utf-8').read()
-    i = s.index(f'"slug":"{slug}"'); j = s.index('\n}},', i); seg = s[i:j]
+    i = s.index(f'"slug":"{slug}"'); j = s.index('\n},', i); seg = s[i:j]
     if '"logo":' in seg: seg = re.sub(r'"logo":[^,]+,', f'"logo":"img/{rel}",', seg)
     else: seg = seg.replace(f'"slug":"{slug}",', f'"slug":"{slug}","logo":"img/{rel}",', 1)
     open(p, 'w', encoding='utf-8').write(s[:i] + seg + s[j:])

@@ -25,7 +25,7 @@ p.lede{color:#6b6b76;max-width:60ch;font-size:1.08rem}
 @media(max-width:620px){.grid{grid-template-columns:1fr}}
 .demo{display:flex;flex-direction:column;gap:.4rem;padding:1.6rem;border-radius:20px;background:var(--w);border:1px solid rgba(11,11,12,.08);transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;min-height:210px}
 .demo:hover{transform:translateY(-6px);box-shadow:0 20px 50px -18px rgba(0,0,0,.3)}
-.demo__mark{width:44px;height:44px;border-radius:12px;background:var(--c);display:grid;place-items:center;margin-bottom:.4rem}.demo__mark svg{width:26px;height:26px}
+.demo__mark{width:44px;height:44px;border-radius:12px;background:var(--c);display:grid;place-items:center;margin-bottom:.4rem}.demo__mark svg{width:26px;height:26px}.demo__mark--logo{background:#fff;border:1px solid #e6e6e6;width:auto;min-width:44px;padding:6px 8px}.demo__mark--logo img{height:32px;width:auto;max-width:120px;display:block}.demo__mark--badge img,.demo__mark--stack img{height:44px}
 .demo__chip{align-self:flex-start;padding:.3rem .7rem;border-radius:999px;background:var(--c);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .demo__name{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-top:.7rem;color:var(--i)}
 .demo__url{font-size:.85rem;color:#6b6b76;font-family:'Space Grotesk',sans-serif}
@@ -45,53 +45,42 @@ footer{padding-block:2.5rem;border-top:1px solid rgba(11,11,12,.1);color:#6b6b76
 <main class="shell">
   <div class="grid">
       <a class="demo" href="plumbing/index.html" style="--c:#097bb6;--w:#eef5fa;--i:#0d1f33">
-        <span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 12 C50 12 22 44 22 62 A28 28 0 0 0 78 62 C78 44 50 12 50 12 Z" fill="#fff"/>
-<path d="M50 40 C57 48 62 55 62 63 A12 12 0 0 1 38 63 C38 57 42 52 45 47 C45 54 50 57 50 57 C53 51 50 45 50 40 Z" fill="#097bb6"/></svg></span>
+        <span class="demo__mark demo__mark--logo demo__mark--wide"><img src="plumbing/img/logo.svg" alt=""></span>
         <span class="demo__chip">Plumber &amp; heating engineer</span>
         <span class="demo__name">Hartley Plumbing &amp; Heating</span>
         <span class="demo__url">plumbing.launch250.co.uk</span>
         <span class="demo__go">View the site &rarr;</span>
       </a>
       <a class="demo" href="electrical/index.html" style="--c:#ffcc00;--w:#f6f6f4;--i:#121418">
-        <span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M57 8 L24 56 H46 L41 92 L76 42 H54 Z" fill="#fff"/></svg></span>
+        <span class="demo__mark demo__mark--logo demo__mark--wide"><img src="electrical/img/logo.svg" alt=""></span>
         <span class="demo__chip">Electrician</span>
         <span class="demo__name">Marsden Electrical</span>
         <span class="demo__url">electrical.launch250.co.uk</span>
         <span class="demo__go">View the site &rarr;</span>
       </a>
       <a class="demo" href="joinery/index.html" style="--c:#9c6a2c;--w:#f6f1e8;--i:#2b2118">
-        <span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M10 20 H47 L59 31 L47 42 L59 53 L47 64 L59 75 L47 86 H10 Z" fill="#fff"/>
-<path d="M90 20 H56 L68 31 L56 42 L68 53 L56 64 L68 75 L56 86 H90 Z" fill="#fff"/></svg></span>
+        <span class="demo__mark demo__mark--logo demo__mark--badge"><img src="joinery/img/logo.svg" alt=""></span>
         <span class="demo__chip">Joiner &amp; kitchen fitter</span>
         <span class="demo__name">Northgate Joinery</span>
         <span class="demo__url">joinery.launch250.co.uk</span>
         <span class="demo__go">View the site &rarr;</span>
       </a>
       <a class="demo" href="landscaping/index.html" style="--c:#458135;--w:#eef4ea;--i:#14301f">
-        <span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M16 84 C16 40 48 16 86 16 C86 58 58 84 16 84 Z" fill="#fff"/>
-<path d="M22 78 L74 28" stroke="#458135" stroke-width="5" stroke-linecap="round" fill="none"/></svg></span>
+        <span class="demo__mark demo__mark--logo demo__mark--stack"><img src="landscaping/img/logo.svg" alt=""></span>
         <span class="demo__chip">Landscaper &amp; garden designer</span>
         <span class="demo__name">Greenacre Landscapes</span>
         <span class="demo__url">landscaping.launch250.co.uk</span>
         <span class="demo__go">View the site &rarr;</span>
       </a>
       <a class="demo" href="barbers/index.html" style="--c:#c8a54b;--w:#f4f2ed;--i:#101010">
-        <span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="polegbarbers"><rect x="35" y="16" width="30" height="68" rx="9"/></clipPath></defs>
-<rect x="35" y="16" width="30" height="68" rx="9" fill="#fff"/>
-<g clip-path="url(#polegbarbers)" stroke="#c8a54b" stroke-width="7">
-  <path d="M20 30 L80 10"/><path d="M20 50 L80 30"/><path d="M20 70 L80 50"/><path d="M20 90 L80 70"/>
-</g>
-<rect x="30" y="8" width="40" height="10" rx="4" fill="#fff"/>
-<rect x="30" y="82" width="40" height="10" rx="4" fill="#fff"/></svg></span>
+        <span class="demo__mark demo__mark--logo demo__mark--badge"><img src="barbers/img/logo.svg" alt=""></span>
         <span class="demo__chip">Barbershop</span>
         <span class="demo__name">The Corner Barbers</span>
         <span class="demo__url">barbers.launch250.co.uk</span>
         <span class="demo__go">View the site &rarr;</span>
       </a>
       <a class="demo" href="doggrooming/index.html" style="--c:#b85840;--w:#e9f4f3;--i:#123b3b">
-        <span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="66" rx="21" ry="17" fill="#fff"/>
-<circle cx="29" cy="42" r="9.5" fill="#fff"/><circle cx="43" cy="28" r="9.5" fill="#fff"/>
-<circle cx="57" cy="28" r="9.5" fill="#fff"/><circle cx="71" cy="42" r="9.5" fill="#fff"/></svg></span>
+        <span class="demo__mark demo__mark--logo demo__mark--stack"><img src="doggrooming/img/logo.svg" alt=""></span>
         <span class="demo__chip">Mobile dog groomer</span>
         <span class="demo__name">Muddy Paws Mobile Grooming</span>
         <span class="demo__url">doggrooming.launch250.co.uk</span>

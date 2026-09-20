@@ -6,7 +6,7 @@ NONE = "none"
 
 SITES = [
 {
- "slug":"plumbing","svc_h":'Plumbing and heating, priced before we start.',"svc_l":'No callout fee, no hourly meter running. We look at the job, quote a fixed price, and that is what you pay.',"brand":"Hartley","brand2":"Plumbing & Heating","mark":"HP",
+ "slug":"plumbing","logo":"img/logo.svg","svc_h":'Plumbing and heating, priced before we start.',"svc_l":'No callout fee, no hourly meter running. We look at the job, quote a fixed price, and that is what you pay.',"brand":"Hartley","brand2":"Plumbing & Heating","mark":"HP",
  "trade":"Plumber & heating engineer","town":"Wirral",
  "title":"Hartley Plumbing & Heating | Emergency Plumber in Wirral",
  "desc":"Gas Safe registered plumber and heating engineer covering Wirral and Chester. Emergency callouts, boiler repairs, installations. No callout fee.",
@@ -50,7 +50,7 @@ SITES = [
  ],
 },
 {
- "slug":"electrical","svc_h":'Electrical work, certified and quoted up front.',"svc_l":'Every job leaves with the right certificate and a price agreed in writing beforehand.',"brand":"Marsden","brand2":"Electrical","mark":"ME",
+ "slug":"electrical","logo":"img/logo.svg","svc_h":'Electrical work, certified and quoted up front.',"svc_l":'Every job leaves with the right certificate and a price agreed in writing beforehand.',"brand":"Marsden","brand2":"Electrical","mark":"ME",
  "trade":"Electrician","town":"Chester",
  "title":"Marsden Electrical | NICEIC Electrician in Chester",
  "desc":"NICEIC approved electrician in Chester. Rewires, consumer units, EV charger installation, EICR reports and emergency callouts. Free written quotes.",
@@ -94,7 +94,7 @@ SITES = [
  ],
 },
 {
- "slug":"joinery","svc_h":'What we make.',"svc_l":'Everything is built to your measurements in our own workshop. The prices below are honest starting points for a typical room.',"brand":"Northgate","brand2":"Joinery","mark":"NJ",
+ "slug":"joinery","logo":"img/logo.svg","svc_h":'What we make.',"svc_l":'Everything is built to your measurements in our own workshop. The prices below are honest starting points for a typical room.',"brand":"Northgate","brand2":"Joinery","mark":"NJ",
  "trade":"Joiner & kitchen fitter","town":"Wirral",
  "title":"Northgate Joinery | Bespoke Fitted Furniture & Kitchens, Wirral",
  "desc":"Bespoke joinery on the Wirral. Handmade fitted wardrobes, alcove units, kitchens and staircases, designed and made for your space. Free design visit.",
@@ -138,7 +138,7 @@ SITES = [
  ],
 },
 {
- "slug":"landscaping","svc_h":'What we build.',"svc_l":'Design and build under one roof, so nobody can blame anybody else. Fixed price, fixed dates, staged payments.',"brand":"Greenacre","brand2":"Landscapes","mark":"GL",
+ "slug":"landscaping","logo":"img/logo.svg","svc_h":'What we build.',"svc_l":'Design and build under one roof, so nobody can blame anybody else. Fixed price, fixed dates, staged payments.',"brand":"Greenacre","brand2":"Landscapes","mark":"GL",
  "trade":"Landscaper & garden designer","town":"Cheshire",
  "title":"Greenacre Landscapes | Garden Design & Landscaping, Cheshire",
  "desc":"Garden design and landscaping across Cheshire. Patios, driveways, fencing, turfing and full garden transformations. Free site visit and 3D design.",
@@ -182,7 +182,7 @@ SITES = [
  ],
 },
 {
- "slug":"barbers","svc_h":'The menu.',"svc_l":'No hidden extras and no upselling. Walk in, sit down, and pay what is on the board.',"brand":"The Corner","brand2":"Barbers","mark":"CB",
+ "slug":"barbers","logo":"img/logo.svg","svc_h":'The menu.',"svc_l":'No hidden extras and no upselling. Walk in, sit down, and pay what is on the board.',"brand":"The Corner","brand2":"Barbers","mark":"CB",
  "trade":"Barbershop","town":"Liverpool",
  "title":"The Corner Barbers | Traditional Barbershop, Liverpool",
  "desc":"Traditional barbershop in Liverpool. Skin fades, beard trims, hot towel shaves and kids cuts. Walk in or book online. Open six days.",
@@ -226,7 +226,7 @@ SITES = [
  ],
 },
 {
- "slug":"doggrooming","svc_h":'Grooming services.',"svc_l":'Prices vary a little with size and coat condition. Send a photo and we will confirm before we book you in.',"brand":"Muddy Paws","brand2":"Mobile Grooming","mark":"MP",
+ "slug":"doggrooming","logo":"img/logo.svg","svc_h":'Grooming services.',"svc_l":'Prices vary a little with size and coat condition. Send a photo and we will confirm before we book you in.',"brand":"Muddy Paws","brand2":"Mobile Grooming","mark":"MP",
  "trade":"Mobile dog groomer","town":"Cheshire",
  "title":"Muddy Paws | Mobile Dog Grooming in Cheshire — We Come to You",
  "desc":"Fully equipped mobile dog grooming van covering Cheshire. One dog at a time, no cages, no waiting. Book your regular slot online.",

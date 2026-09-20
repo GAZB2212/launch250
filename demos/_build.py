@@ -28,6 +28,34 @@ def initials(name):
     p = [x for x in name.split() if x]
     return (p[0][0] + p[-1][0]).upper() if len(p) > 1 else p[0][:2].upper()
 
+def logo_shape(s):
+    """badge (round/square), stack (mark over wordmark) or wide (wordmark),
+    read from the SVG viewBox so the header can size each logo sensibly."""
+    if not s.get('logo'): return None
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), s['slug'], s['logo'])
+    try:
+        m = re.search(r'viewBox="[-\d.]+ [-\d.]+ ([\d.]+) ([\d.]+)"', open(path, encoding='utf-8').read())
+        ratio = float(m.group(1)) / float(m.group(2))
+    except Exception:
+        return 'wide'
+    return 'badge' if ratio < 1.3 else 'stack' if ratio < 2.4 else 'wide'
+
+def brand_lockup(s, where):
+    """Header/footer brand. With a real logo: the logo, sized by shape, plus the
+    name alongside badge logos (a small round badge alone is unreadable).
+    Without one: the simple trade mark and the name."""
+    full = f"{s['brand']} {s['brand2']}"
+    shape = logo_shape(s)
+    if shape:
+        img = f'<img class="brand__logo brand__logo--{shape}" src="{s["logo"]}" alt="{e(full)}">'
+        if where == 'foot': img = f'<span class="foot__tile">{img}</span>'
+        name = f'<span class="brand__name">{e(s["brand"])}<span class="brand__sub">{e(s["brand2"])}</span></span>' if shape == 'badge' else ''
+        return img + name
+    mark = f'<span class="brand__mark" aria-hidden="true">{trade_mark(s["slug"], "h" if where == "head" else "f")}</span>'
+    if where == 'foot':
+        return mark + f'<span class="brand__name">{e(full)}</span>'
+    return mark + f'<span class="brand__name">{e(s["brand"])}<span class="brand__sub">{e(s["brand2"])}</span></span>'
+
 def build(s):
     L250 = 'https://launch250.co.uk'
     full = f"{s['brand']} {s['brand2']}"
@@ -168,11 +196,7 @@ def build(s):
 <header class="head">
   <div class="shell">
     <nav class="nav" aria-label="Main">
-      <a class="brand" href="#top">{(
-        f'<img class="brand__logo" src="{s["logo"]}" alt="{e(full)}" height="48">' if s.get('logo') else
-        f'<span class="brand__mark" aria-hidden="true">{trade_mark(s["slug"], "h")}</span>'
-        f'<span class="brand__name">{e(s["brand"])}<span class="brand__sub">{e(s["brand2"])}</span></span>'
-      )}</a>
+      <a class="brand" href="#top">{brand_lockup(s, "head")}</a>
       <ul class="nav__links" id="menu">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
@@ -300,7 +324,7 @@ def build(s):
   <div class="shell">
     <div class="foot__top">
       <div>
-        <span class="brand"><span class="brand__mark" aria-hidden="true">{trade_mark(s['slug'], 'f')}</span><span class="brand__name">{e(full)}</span></span>
+        <span class="brand">{brand_lockup(s, "foot")}</span>
         <p style="margin-top:.6rem;max-width:34ch">{e(s['trade'])} covering {e(s['town'])} and the surrounding area.</p>
       </div>
       <ul class="foot__links">
@@ -375,7 +399,8 @@ def build(s):
     open(f"{d}/favicon.svg", "w", encoding="utf-8").write(fav)
     return d, len(doc), len(css)
 
-for s in SITES:
-    d, a, b = build(s)
-    print(f"  {d:14s} index.html {a//1024}KB  style.css {b//1024}KB")
-print("built", len(SITES), "sites")
+if __name__ == '__main__':
+    for s in SITES:
+        d, a, b = build(s)
+        print(f"  {d:14s} index.html {a//1024}KB  style.css {b//1024}KB")
+    print("built", len(SITES), "sites")
