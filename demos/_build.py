@@ -6,6 +6,7 @@ from _build_css import CSS
 from _colour import derive
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'brand'))
 from _rocket import mark_inline
+from _trade_marks import inline as trade_mark, favicon as trade_favicon
 ROCKET = mark_inline().replace('class="logo__rocket"', 'class="foot__rocket"')
 
 ICONS = [
@@ -168,7 +169,7 @@ def build(s):
   <div class="shell">
     <nav class="nav" aria-label="Main">
       <a class="brand" href="#top">
-        <span class="brand__mark" aria-hidden="true">{s['mark']}</span>
+        <span class="brand__mark" aria-hidden="true">{trade_mark(s['slug'], 'h')}</span>
         <span class="brand__name">{e(s['brand'])}<span class="brand__sub">{e(s['brand2'])}</span></span>
       </a>
       <ul class="nav__links" id="menu">
@@ -298,7 +299,7 @@ def build(s):
   <div class="shell">
     <div class="foot__top">
       <div>
-        <span class="brand__name">{e(full)}</span>
+        <span class="brand"><span class="brand__mark" aria-hidden="true">{trade_mark(s['slug'], 'f')}</span><span class="brand__name">{e(full)}</span></span>
         <p style="margin-top:.6rem;max-width:34ch">{e(s['trade'])} covering {e(s['town'])} and the surrounding area.</p>
       </div>
       <ul class="foot__links">
@@ -364,11 +365,7 @@ def build(s):
 </body>
 </html>
 '''
-    fav = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="{e(full)}">
-  <rect width="64" height="64" rx="12" fill="{s['accent']}"/>
-  <text x="32" y="42" font-family="{s['fd'].split(',')[0].strip(chr(39))}, Arial, sans-serif" font-size="26"
-        font-weight="700" fill="{s['on_accent']}" text-anchor="middle">{s['mark']}</text>
-</svg>'''
+    fav = trade_favicon(s['slug'], dv['cta'], s['on_accent'], full)
 
     d = s['slug']
     os.makedirs(d, exist_ok=True)

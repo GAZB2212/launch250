@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Northgate Joinery">
-  <rect width="64" height="64" rx="12" fill="#a8722f"/>
-  <text x="32" y="42" font-family="Fraunces, Arial, sans-serif" font-size="26"
-        font-weight="700" fill="#ffffff" text-anchor="middle">NJ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Northgate Joinery">
+<rect width="100" height="100" rx="22" fill="#9c6a2c"/>
+<g transform="translate(15 15) scale(.7)"><path d="M10 20 H47 L59 31 L47 42 L59 53 L47 64 L59 75 L47 86 H10 Z" fill="#ffffff"/>
+<path d="M90 20 H56 L68 31 L56 42 L68 53 L56 64 L68 75 L56 86 H90 Z" fill="#ffffff"/></g>
 </svg>

@@ -2,12 +2,15 @@ import sys, os, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _sites import SITES
 from _colour import derive
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'brand'))
+from _trade_marks import MARKS
 def e(t): return html.escape(str(t), quote=False)
 
 cards = ""
 for s in SITES:
     d = derive(s)
     cards += f'''      <a class="demo" href="{s['slug']}/index.html" style="--c:{d['cta']};--w:{s['wash']};--i:{s['ink']}">
+        <span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true">{MARKS[s['slug']]("#fff", d['cta'], "g"+s['slug'])}</svg></span>
         <span class="demo__chip">{e(s['trade'])}</span>
         <span class="demo__name">{e(s['brand'])} {e(s['brand2'])}</span>
         <span class="demo__url">{s['slug']}.launch250.co.uk</span>
@@ -41,6 +44,7 @@ p.lede{{color:#6b6b76;max-width:60ch;font-size:1.08rem}}
 @media(max-width:620px){{.grid{{grid-template-columns:1fr}}}}
 .demo{{display:flex;flex-direction:column;gap:.4rem;padding:1.6rem;border-radius:20px;background:var(--w);border:1px solid rgba(11,11,12,.08);transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;min-height:210px}}
 .demo:hover{{transform:translateY(-6px);box-shadow:0 20px 50px -18px rgba(0,0,0,.3)}}
+.demo__mark{{width:44px;height:44px;border-radius:12px;background:var(--c);display:grid;place-items:center;margin-bottom:.4rem}}.demo__mark svg{{width:26px;height:26px}}
 .demo__chip{{align-self:flex-start;padding:.3rem .7rem;border-radius:999px;background:var(--c);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}}
 .demo__name{{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-top:.7rem;color:var(--i)}}
 .demo__url{{font-size:.85rem;color:#6b6b76;font-family:'Space Grotesk',sans-serif}}
