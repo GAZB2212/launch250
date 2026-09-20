@@ -2,7 +2,7 @@
 backend:
   name: git-gateway
   repo: GAZB2212/launch250
-  branch: main
+  branch: claude/festive-albattani-iyheb4
   identity_url: https://auth.decapbridge.com/sites/SITE-ID-NOT-SET
   gateway_url: https://gateway.decapbridge.com
   commit_messages:

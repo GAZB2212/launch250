@@ -7,7 +7,7 @@ BRIDGE          DecapBridge site id per slug. Register each site once at
                 instead of showing a login that cannot work.
 """
 REPO = 'GAZB2212/launch250'
-BRANCH = 'main'
+BRANCH = 'claude/festive-albattani-iyheb4'   # rename here if you later rename the branch on GitHub
 BRIDGE = {
     'plumbing':    '',
     'electrical':  '',

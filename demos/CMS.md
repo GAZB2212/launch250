@@ -40,7 +40,7 @@ live in `demos/<slug>/img/uploads/`.
    HTTPS is automatic.
 3. **Login service.** Netlify has deprecated Git Gateway for new sites, so the
    editor uses [DecapBridge](https://decapbridge.com) (free, built for this).
-   Register the site there with this repo and the `main` branch, copy the
+   Register the site there with this repo and the branch named in `BRANCH` in `demos/_deploy.py`, copy the
    *site id* it gives you into `BRIDGE['<slug>']` in `demos/_deploy.py`, run
    `python3 _build.py <slug>`, commit and push. Until the id is set, `/admin`
    shows a "not switched on yet" note instead of a login that cannot work.
