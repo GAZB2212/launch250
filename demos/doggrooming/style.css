@@ -349,6 +349,7 @@ p { text-wrap: pretty; }
 .foot__by { color: rgba(255,255,255,.55); }
 .foot__by a { color: #fff; font-weight: 600; border-bottom: 1px solid var(--accent); }
 .foot__by a:hover { color: var(--accent-on-dark); }
+.foot__rocket { width: 1.25em; height: 1.25em; vertical-align: -.3em; margin-right: .3em; color: #fff; }
 
 .callbar { display: none; }
 @media (max-width: 760px) {

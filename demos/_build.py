@@ -4,6 +4,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _sites import SITES
 from _build_css import CSS
 from _colour import derive
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'brand'))
+from _rocket import mark_inline
+ROCKET = mark_inline().replace('class="logo__rocket"', 'class="foot__rocket"')
 
 ICONS = [
  '<path d="M3 12h4l2.5-7 4 14L16 12h5"/>',
@@ -308,7 +311,7 @@ def build(s):
     </div>
     <div class="foot__bottom">
       <p>&copy; <span data-year>2026</span> {e(full)}. {e(s['hours'])}</p>
-      <p class="foot__by">Demo site built by <a href="{L250}">Launch250</a> — websites from £250</p>
+      <p class="foot__by">Demo site built by <a href="{L250}">{ROCKET}Launch250</a> — websites from £250</p>
     </div>
   </div>
 </footer>
