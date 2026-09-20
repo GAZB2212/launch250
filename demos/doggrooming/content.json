@@ -1,0 +1,115 @@
+{
+  "brand": "Muddy Paws",
+  "brand2": "Mobile Grooming",
+  "trade": "Mobile dog groomer",
+  "town": "Cheshire",
+  "title": "Muddy Paws | Mobile Dog Grooming in Cheshire — We Come to You",
+  "desc": "Fully equipped mobile dog grooming van covering Cheshire. One dog at a time, no cages, no waiting. Book your regular slot online.",
+  "phone": "01632 960 866",
+  "tel": "+441632960866",
+  "email": "book@muddypawsmobile.co.uk",
+  "hours": "Mon–Sat 8am–6pm · Sunday by arrangement",
+  "logo": "img/logo.svg",
+  "hero_photo": "img/hero.webp",
+  "photo1": "img/shot-1.webp",
+  "photo2": "",
+  "eyebrow": "We come to your door",
+  "h1": "Grooming without the stressful day out.",
+  "sub": "A fully equipped grooming salon that parks on your driveway. One dog at a time, no cages, no waiting around in kennels — just your dog, your groomer, and about ninety minutes.",
+  "trusts": [
+    "City & Guilds qualified",
+    "One dog at a time",
+    "Fully insured"
+  ],
+  "svc_h": "Grooming services.",
+  "svc_l": "Prices vary a little with size and coat condition. Send a photo and we will confirm before we book you in.",
+  "services": [
+    {
+      "title": "Full groom",
+      "desc": "Bath, blow dry, full clip or hand strip, nails, ears and a finishing spritz. The works.",
+      "price": "From £45"
+    },
+    {
+      "title": "Bath & tidy",
+      "desc": "Wash, dry, nail trim and a tidy of face, feet and rear. Perfect between full grooms.",
+      "price": "From £28"
+    },
+    {
+      "title": "Puppy's first groom",
+      "desc": "A gentle, short introduction session so grooming never becomes something to dread.",
+      "price": "£22"
+    },
+    {
+      "title": "De-shedding treatment",
+      "desc": "Specialist bath and rake for double-coated breeds. Dramatically less hair on your sofa.",
+      "price": "From £38"
+    },
+    {
+      "title": "Hand stripping",
+      "desc": "Correct coat care for terriers and wire-haired breeds, done by hand the way it should be.",
+      "price": "From £55"
+    },
+    {
+      "title": "Nails, ears & anal glands",
+      "desc": "Quick welfare visits without a full groom. Ten minutes on the driveway.",
+      "price": "£15"
+    }
+  ],
+  "about_h": "Kirsty, a van, and a lot of very relaxed dogs.",
+  "about_p": "Muddy Paws is Kirsty Bell, City & Guilds qualified with nine years in salons before going mobile. The van has hot water, a hydraulic table, proper lighting and heating. Your dog is never caged and never waits — the session starts when Kirsty arrives and your dog goes straight back inside afterwards. Nervous and elderly dogs are a speciality.",
+  "stats": [
+    {
+      "value": "9",
+      "label": "Years grooming"
+    },
+    {
+      "value": "500+",
+      "label": "Regular dogs"
+    },
+    {
+      "value": "1:1",
+      "label": "Never more than one dog"
+    }
+  ],
+  "areas": [
+    "Chester",
+    "Tarporley",
+    "Frodsham",
+    "Helsby",
+    "Northwich",
+    "Kelsall",
+    "Tattenhall",
+    "Malpas"
+  ],
+  "reviews": [
+    {
+      "quote": "Our rescue lurcher panics in salons. Kirsty did three short sessions to build him up and now he trots to the van on his own.",
+      "name": "Nicola Grant",
+      "where": "Tarporley"
+    },
+    {
+      "quote": "The convenience is unreal. She grooms him on the drive while I work and I do not lose half a Saturday sat in a waiting room.",
+      "name": "Paul Ridley",
+      "where": "Chester"
+    },
+    {
+      "quote": "Our old collie is fourteen and arthritic. Kirsty works around him, takes breaks, never rushes. That care is worth every penny.",
+      "name": "Fiona Mackay",
+      "where": "Helsby"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do you need my water or electricity?",
+      "a": "No. The van is completely self-contained with its own water, heating and power, so all we need is somewhere legal to park near your door."
+    },
+    {
+      "q": "How long does a groom take?",
+      "a": "A full groom is usually 90 minutes to two hours depending on coat and size. You will get a text when we are fifteen minutes away."
+    },
+    {
+      "q": "What if my dog is nervous?",
+      "a": "Tell us when you book. Nervous and elderly dogs are what we are best at — we will take it at their pace, over several short visits if needed."
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "brand": "The Corner",
+  "brand2": "Barbers",
+  "trade": "Barbershop",
+  "town": "Liverpool",
+  "title": "The Corner Barbers | Traditional Barbershop, Liverpool",
+  "desc": "Traditional barbershop in Liverpool. Skin fades, beard trims, hot towel shaves and kids cuts. Walk in or book online. Open six days.",
+  "phone": "01632 960 733",
+  "tel": "+441632960733",
+  "email": "bookings@thecornerbarbers.co.uk",
+  "hours": "Mon–Fri 9am–7pm · Sat 8am–6pm · Sun closed",
+  "logo": "img/logo.svg",
+  "hero_photo": "img/hero.webp",
+  "photo1": "img/shot-1.webp",
+  "photo2": "img/shot-2.webp",
+  "eyebrow": "Est. 2016 · Walk-ins welcome",
+  "h1": "Proper barbering. No appointment needed.",
+  "sub": "Skin fades, scissor work, beard sculpting and hot towel shaves in the heart of Liverpool. Six chairs, six days a week, and a brew while you wait.",
+  "trusts": [
+    "Walk-ins always welcome",
+    "Six barbers, no waiting about",
+    "Card & cash"
+  ],
+  "svc_h": "The menu.",
+  "svc_l": "No hidden extras and no upselling. Walk in, sit down, and pay what is on the board.",
+  "services": [
+    {
+      "title": "Skin fade",
+      "desc": "Clipper work taken down to the skin and blended properly. The cut we are known for.",
+      "price": "£18"
+    },
+    {
+      "title": "Cut & style",
+      "desc": "Scissor cut, washed, dried and styled with product that suits your hair, not ours.",
+      "price": "£16"
+    },
+    {
+      "title": "Beard trim & shape",
+      "desc": "Lined up with a razor, balanced to your face, finished with oil and a hot towel.",
+      "price": "£12"
+    },
+    {
+      "title": "Hot towel wet shave",
+      "desc": "The full traditional service. Hot towels, badger brush, straight razor, cold finish.",
+      "price": "£25"
+    },
+    {
+      "title": "Cut & beard combo",
+      "desc": "Full haircut and beard service together, and you save a fiver doing it.",
+      "price": "£26"
+    },
+    {
+      "title": "Under 12s",
+      "desc": "Kids cuts, no fuss, booster seat for the little ones and a lolly at the end.",
+      "price": "£11"
+    }
+  ],
+  "about_h": "Six chairs on the corner since 2016.",
+  "about_p": "We opened The Corner because Liverpool had plenty of places to get your hair cut and not many to get it cut properly. Every barber here has served an apprenticeship. We take walk-ins all day, we will tell you honestly if what you have asked for will not suit you, and nobody gets rushed out of the chair.",
+  "stats": [
+    {
+      "value": "6",
+      "label": "Barbers on the floor"
+    },
+    {
+      "value": "40k+",
+      "label": "Cuts since opening"
+    },
+    {
+      "value": "4.9",
+      "label": "From 480 reviews"
+    }
+  ],
+  "areas": [
+    "Liverpool City Centre",
+    "Baltic Triangle",
+    "Georgian Quarter",
+    "Toxteth",
+    "Aigburth",
+    "Bootle",
+    "Wavertree",
+    "Anfield"
+  ],
+  "reviews": [
+    {
+      "quote": "Been going three years and never had a bad cut, whoever is on. That consistency is rarer than it should be.",
+      "name": "Michael Doran",
+      "where": "Liverpool"
+    },
+    {
+      "quote": "Walked in on a Saturday morning expecting an hour wait. Sat down in ten minutes, out in forty with the best fade I have had.",
+      "name": "Jordan Achebe",
+      "where": "Aigburth"
+    },
+    {
+      "quote": "Took my lad for his first proper haircut. They were brilliant with him, made a fuss of him, and he has asked to go back since.",
+      "name": "Steve Whelan",
+      "where": "Bootle"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do I need to book?",
+      "a": "No — we take walk-ins every day and that is most of our trade. You can book online if you want a specific barber or a wet shave, which takes longer."
+    },
+    {
+      "q": "How long will I wait?",
+      "a": "Usually under fifteen minutes. Saturday mornings and late afternoons are busiest; mid-morning midweek you will walk straight in."
+    },
+    {
+      "q": "Do you cut children's hair?",
+      "a": "Every day. Under 12s are £11 and we have a booster seat. First haircuts are a bit of an occasion here."
+    }
+  ]
+}

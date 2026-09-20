@@ -1,0 +1,15 @@
+# Netlify build for doggrooming.launch250.co.uk
+# In the Netlify site settings set "Package directory" to demos/doggrooming and leave
+# "Base directory" as the repo root. Paths below are relative to the repo root.
+[build]
+  command = "pip install -r demos/requirements.txt && python3 demos/_build.py doggrooming"
+  publish = "demos/doggrooming"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- demos/doggrooming demos/_*.py demos/_build_css.py brand"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

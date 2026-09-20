@@ -1,0 +1,115 @@
+{
+  "brand": "Marsden",
+  "brand2": "Electrical",
+  "trade": "Electrician",
+  "town": "Chester",
+  "title": "Marsden Electrical | NICEIC Electrician in Chester",
+  "desc": "NICEIC approved electrician in Chester. Rewires, consumer units, EV charger installation, EICR reports and emergency callouts. Free written quotes.",
+  "phone": "01632 960 244",
+  "tel": "+441632960244",
+  "email": "office@marsdenelectrical.co.uk",
+  "hours": "Mon–Fri 7.30am–6pm · Emergency 24/7",
+  "logo": "img/logo.svg",
+  "hero_photo": "img/hero.webp",
+  "photo1": "img/shot-1.webp",
+  "photo2": "",
+  "eyebrow": "NICEIC approved · Part P registered",
+  "h1": "Electrics done properly. First time.",
+  "sub": "Domestic and commercial electrical work across Chester and Cheshire. Rewires, fuse boards, EV chargers and EICR reports — all certified, all guaranteed, all quoted in writing.",
+  "trusts": [
+    "NICEIC approved contractor",
+    "Certificates with every job",
+    "Free written quotes"
+  ],
+  "svc_h": "Electrical work, certified and quoted up front.",
+  "svc_l": "Every job leaves with the right certificate and a price agreed in writing beforehand.",
+  "services": [
+    {
+      "title": "Full & partial rewires",
+      "desc": "Whole-house rewires with minimal mess, plus partial rewires where only part of the property needs bringing up to standard.",
+      "price": "From £2,900"
+    },
+    {
+      "title": "Consumer unit upgrades",
+      "desc": "Modern 18th edition boards with RCBO protection. Old rewireable fuse boxes swapped in a day.",
+      "price": "From £480"
+    },
+    {
+      "title": "EV charger installation",
+      "desc": "OZEV approved installer. 7kW home chargers fitted and commissioned, usually in half a day.",
+      "price": "From £850"
+    },
+    {
+      "title": "EICR & landlord reports",
+      "desc": "Electrical Installation Condition Reports for homeowners, landlords and letting agents. Digital certificate within 24 hours.",
+      "price": "From £150"
+    },
+    {
+      "title": "Lighting design & fitting",
+      "desc": "Downlights, garden lighting, under-cabinet and feature lighting. Designed properly, not just dotted about.",
+      "price": "From £220"
+    },
+    {
+      "title": "Fault finding & repairs",
+      "desc": "Tripping circuits, dead sockets, flickering lights. We find the actual cause rather than guessing.",
+      "price": "From £85"
+    }
+  ],
+  "about_h": "Certified work, plain English, no surprises.",
+  "about_p": "Ryan Marsden has been an electrician for eighteen years, the last nine running Marsden Electrical. Every job leaves with the right certificate, notified to building control where it needs to be. We turn up when we say, we clean up after ourselves, and we will explain what we are doing without the jargon.",
+  "stats": [
+    {
+      "value": "18",
+      "label": "Years qualified"
+    },
+    {
+      "value": "2,400+",
+      "label": "Jobs certified"
+    },
+    {
+      "value": "24hr",
+      "label": "EICR turnaround"
+    }
+  ],
+  "areas": [
+    "Chester",
+    "Ellesmere Port",
+    "Neston",
+    "Tarporley",
+    "Frodsham",
+    "Mold",
+    "Wrexham",
+    "Northwich"
+  ],
+  "reviews": [
+    {
+      "quote": "Rewired our whole 1930s semi while we lived in it. Dust sheets everywhere, hoovered daily, and finished two days early. The certificate landed in my inbox the same afternoon.",
+      "name": "Tom Ellison",
+      "where": "Chester"
+    },
+    {
+      "quote": "Needed an EICR at short notice for a rental. Booked Tuesday, done Thursday, report that evening. Letting agent said it was the clearest one they had seen.",
+      "name": "Sandra Pike",
+      "where": "Ellesmere Port"
+    },
+    {
+      "quote": "Fitted our EV charger and sorted a dodgy kitchen circuit he spotted while he was there. Charged me for half an hour extra, not a whole new job.",
+      "name": "Dan Okafor",
+      "where": "Frodsham"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Will I get a certificate?",
+      "a": "Always. Every notifiable job is certified and registered with building control through NICEIC, and you get the paperwork by email the same week."
+    },
+    {
+      "q": "Can you install an EV charger with a grant?",
+      "a": "We are an OZEV approved installer, so if you qualify for a grant we handle the application as part of the job."
+    },
+    {
+      "q": "Do you do emergency work?",
+      "a": "Yes, 24/7 for genuine electrical emergencies — burning smells, sparking, total power loss. Ring rather than email."
+    }
+  ]
+}

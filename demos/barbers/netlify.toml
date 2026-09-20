@@ -1,0 +1,15 @@
+# Netlify build for barbers.launch250.co.uk
+# In the Netlify site settings set "Package directory" to demos/barbers and leave
+# "Base directory" as the repo root. Paths below are relative to the repo root.
+[build]
+  command = "pip install -r demos/requirements.txt && python3 demos/_build.py barbers"
+  publish = "demos/barbers"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- demos/barbers demos/_*.py demos/_build_css.py brand"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

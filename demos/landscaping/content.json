@@ -1,0 +1,115 @@
+{
+  "brand": "Greenacre",
+  "brand2": "Landscapes",
+  "trade": "Landscaper & garden designer",
+  "town": "Cheshire",
+  "title": "Greenacre Landscapes | Garden Design & Landscaping, Cheshire",
+  "desc": "Garden design and landscaping across Cheshire. Patios, driveways, fencing, turfing and full garden transformations. Free site visit and 3D design.",
+  "phone": "01632 960 512",
+  "tel": "+441632960512",
+  "email": "studio@greenacrelandscapes.co.uk",
+  "hours": "Mon–Fri 7.30am–5.30pm · Sat 9am–1pm",
+  "logo": "img/logo.svg",
+  "hero_photo": "img/hero.webp",
+  "photo1": "img/shot-1.webp",
+  "photo2": "img/shot-2.webp",
+  "eyebrow": "Design & build · Fully insured",
+  "h1": "A garden you actually go outside for.",
+  "sub": "Design-and-build landscaping across Cheshire. Patios, planting, fencing, lawns and full transformations — drawn up properly, priced fixed, and finished when we said we would finish.",
+  "trusts": [
+    "Free 3D design",
+    "Fixed price, fixed dates",
+    "5 year workmanship guarantee"
+  ],
+  "svc_h": "What we build.",
+  "svc_l": "Design and build under one roof, so nobody can blame anybody else. Fixed price, fixed dates, staged payments.",
+  "services": [
+    {
+      "title": "Patios & paving",
+      "desc": "Indian sandstone, porcelain and block paving, laid on a full mortar bed so it is still flat in ten years.",
+      "price": "From £2,800"
+    },
+    {
+      "title": "Garden design",
+      "desc": "Measured survey and a 3D visual so you can see it before you commit. Free if we build it.",
+      "price": "From £450"
+    },
+    {
+      "title": "Fencing & screening",
+      "desc": "Close board, feather edge, slatted screens and sleeper walls. Concrete posts as standard.",
+      "price": "From £65/m"
+    },
+    {
+      "title": "Turfing & lawn care",
+      "desc": "New lawns laid on properly prepared ground, plus scarifying, feeding and seasonal maintenance.",
+      "price": "From £14/m²"
+    },
+    {
+      "title": "Driveways",
+      "desc": "Block paved and resin bound driveways with correct drainage and SUDS compliance.",
+      "price": "From £4,200"
+    },
+    {
+      "title": "Planting schemes",
+      "desc": "Borders planned for year-round interest and your actual soil, not a garden centre trolley dash.",
+      "price": "From £900"
+    }
+  ],
+  "about_h": "We design it, we build it, we stand behind it.",
+  "about_p": "Greenacre is a five-person team working across Cheshire and the Wirral. We do not subcontract — the people who draw your garden are the people who build it. Every job gets a fixed price, a start date and an end date in writing, and we do not ask for money up front. You pay in stages as the work goes in.",
+  "stats": [
+    {
+      "value": "12",
+      "label": "Years landscaping"
+    },
+    {
+      "value": "340+",
+      "label": "Gardens built"
+    },
+    {
+      "value": "5yr",
+      "label": "Guarantee"
+    }
+  ],
+  "areas": [
+    "Chester",
+    "Tarporley",
+    "Northwich",
+    "Knutsford",
+    "Wilmslow",
+    "Nantwich",
+    "Frodsham",
+    "Wirral"
+  ],
+  "reviews": [
+    {
+      "quote": "They turned a sloping, waterlogged mess into three usable terraces. The drainage work alone was worth it — no standing water through two winters since.",
+      "name": "Helen Braithwaite",
+      "where": "Tarporley"
+    },
+    {
+      "quote": "The 3D design sold it to my husband. It looked exactly like the drawing when they finished, which apparently is not normal.",
+      "name": "Gemma Price",
+      "where": "Knutsford"
+    },
+    {
+      "quote": "Fixed price, fixed dates, and they hit both. Cleared up every single evening. The neighbours have booked them too.",
+      "name": "Alan Forsyth",
+      "where": "Chester"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do you charge for the design?",
+      "a": "A measured survey and 3D design is £450, and we take it straight off the build cost if you go ahead with us. If you do not, the drawings are yours to keep."
+    },
+    {
+      "q": "When is the best time to start?",
+      "a": "We landscape all year. Hard landscaping — patios, walls, fencing — is fine through winter. Turf and planting are best spring or autumn."
+    },
+    {
+      "q": "Do you need paying up front?",
+      "a": "No. You pay in stages as work is completed, with nothing due until the first stage is finished."
+    }
+  ]
+}

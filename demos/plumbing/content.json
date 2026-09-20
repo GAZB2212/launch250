@@ -1,0 +1,115 @@
+{
+  "brand": "Hartley",
+  "brand2": "Plumbing & Heating",
+  "trade": "Plumber & heating engineer",
+  "town": "Wirral",
+  "title": "Hartley Plumbing & Heating | Emergency Plumber in Wirral",
+  "desc": "Gas Safe registered plumber and heating engineer covering Wirral and Chester. Emergency callouts, boiler repairs, installations. No callout fee.",
+  "phone": "01632 960 118",
+  "tel": "+441632960118",
+  "email": "hello@hartleyplumbing.co.uk",
+  "hours": "24/7 emergency · Office Mon–Sat 8am–6pm",
+  "logo": "img/logo.svg",
+  "hero_photo": "img/hero.webp",
+  "photo1": "img/shot-1.webp",
+  "photo2": "img/shot-2.webp",
+  "eyebrow": "Gas Safe registered · No callout fee",
+  "h1": "Burst pipe? We answer the phone.",
+  "sub": "Emergency plumbing and heating across Wirral and Chester. Most jobs fixed same day, fixed price agreed before we start, and a real person on the end of the line at 2am.",
+  "trusts": [
+    "Gas Safe registered",
+    "No callout charge",
+    "Fixed price, agreed first"
+  ],
+  "svc_h": "Plumbing and heating, priced before we start.",
+  "svc_l": "No callout fee, no hourly meter running. We look at the job, quote a fixed price, and that is what you pay.",
+  "services": [
+    {
+      "title": "Emergency callouts",
+      "desc": "Burst pipes, leaks, no heating, no hot water. We aim to be with you within the hour, day or night.",
+      "price": "From £75"
+    },
+    {
+      "title": "Boiler repair & servicing",
+      "desc": "Gas Safe repairs on all major brands, plus annual services and landlord safety certificates.",
+      "price": "From £90"
+    },
+    {
+      "title": "Boiler installation",
+      "desc": "New combi and system boilers supplied and fitted, with up to 10 years manufacturer warranty.",
+      "price": "From £1,850"
+    },
+    {
+      "title": "Bathroom installation",
+      "desc": "Full bathroom fits, from a straight swap to strip-out and redesign. Tiling and electrics handled.",
+      "price": "From £2,400"
+    },
+    {
+      "title": "Leaks & drainage",
+      "desc": "Leak detection, blocked drains, overflow and soil pipe work. We find it before we tear anything out.",
+      "price": "From £85"
+    },
+    {
+      "title": "Landlord certificates",
+      "desc": "CP12 gas safety certificates for landlords and letting agents. Same-week appointments.",
+      "price": "£75"
+    }
+  ],
+  "about_h": "Twenty-two years under sinks across the Wirral.",
+  "about_p": "Hartley Plumbing is Dean Hartley and two engineers — not a call centre that subcontracts your job to whoever is nearest. We are Gas Safe registered, fully insured, and we price the work before we pick up a spanner. If we cannot fix it today, we will tell you straight and book you in for when we can.",
+  "stats": [
+    {
+      "value": "22",
+      "label": "Years on the tools"
+    },
+    {
+      "value": "1,800+",
+      "label": "Jobs completed"
+    },
+    {
+      "value": "4.9",
+      "label": "Average rating"
+    }
+  ],
+  "areas": [
+    "Wirral",
+    "Birkenhead",
+    "Heswall",
+    "West Kirby",
+    "Bebington",
+    "Neston",
+    "Chester",
+    "Ellesmere Port"
+  ],
+  "reviews": [
+    {
+      "quote": "Came out at half eleven at night when our heating packed in with a newborn in the house. Fixed it in forty minutes and charged exactly what he quoted on the phone.",
+      "name": "Claire Dawson",
+      "where": "Heswall"
+    },
+    {
+      "quote": "Had three quotes for a new combi. Dean was not the cheapest but he was the only one who actually explained why the others were wrong. Two years on, faultless.",
+      "name": "Martin Rowe",
+      "where": "Bebington"
+    },
+    {
+      "quote": "Full bathroom rip out and refit in six days. Tidy, on time, and they hoovered up every night before leaving. Cannot fault them.",
+      "name": "Priya Shah",
+      "where": "West Kirby"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do you charge a callout fee?",
+      "a": "No. We quote a fixed price for the job before we start, and that is what you pay. If you decide not to go ahead, you owe us nothing."
+    },
+    {
+      "q": "How fast can you get to an emergency?",
+      "a": "For genuine emergencies in the Wirral area we aim to be with you inside an hour, 24 hours a day. Ring us rather than using the form and you will speak to an engineer."
+    },
+    {
+      "q": "Are you Gas Safe registered?",
+      "a": "Yes, and we will show you the card before we touch anything gas. Never let anyone work on your gas appliances without it."
+    }
+  ]
+}

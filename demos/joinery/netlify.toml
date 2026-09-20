@@ -1,0 +1,15 @@
+# Netlify build for joinery.launch250.co.uk
+# In the Netlify site settings set "Package directory" to demos/joinery and leave
+# "Base directory" as the repo root. Paths below are relative to the repo root.
+[build]
+  command = "pip install -r demos/requirements.txt && python3 demos/_build.py joinery"
+  publish = "demos/joinery"
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- demos/joinery demos/_*.py demos/_build_css.py brand"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

@@ -7,6 +7,8 @@ from _colour import derive
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'brand'))
 from _rocket import mark_inline
 from _trade_marks import inline as trade_mark, favicon as trade_favicon
+from _content import load as load_content
+from _cms import write_all as write_cms
 ROCKET = mark_inline().replace('class="logo__rocket"', 'class="foot__rocket"')
 
 ICONS = [
@@ -55,6 +57,32 @@ def brand_lockup(s, where):
     if where == 'foot':
         return mark + f'<span class="brand__name">{e(full)}</span>'
     return mark + f'<span class="brand__name">{e(s["brand"])}<span class="brand__sub">{e(s["brand2"])}</span></span>'
+
+MAX_PHOTO = 2000
+def optimise_photo(slug, rel):
+    """A client upload (img/uploads/x.jpg, straight off a phone) becomes a
+    WebP no wider than MAX_PHOTO next to it, and the build uses that instead.
+    SVGs and already-small WebPs pass through. Cached on mtime."""
+    if not rel or not rel.startswith('img/uploads/') or rel.lower().endswith(('.svg', '.webp')): return rel
+    from PIL import Image
+    src = os.path.join(os.path.dirname(os.path.abspath(__file__)), slug, rel)
+    if not os.path.exists(src): return rel
+    out_rel = os.path.splitext(rel)[0] + '.webp'; out = os.path.join(os.path.dirname(src), os.path.basename(out_rel))
+    if not os.path.exists(out) or os.path.getmtime(out) < os.path.getmtime(src):
+        im = Image.open(src); im = im.convert('RGBA' if im.mode in ('RGBA', 'LA', 'P') else 'RGB')
+        if im.width > MAX_PHOTO: im = im.resize((MAX_PHOTO, round(im.height * MAX_PHOTO / im.width)), Image.LANCZOS)
+        im.save(out, 'WEBP', quality=82, method=6)
+    return out_rel
+
+def _url(v): return v[5:-2] if isinstance(v, str) and v.startswith("url('") else v
+def optimise_photos(s):
+    s = dict(s)
+    for key, wrap in (('hero_img', True), ('shot1', True), ('shot2', True), ('hero_poster', False), ('logo', False)):
+        v = s.get(key)
+        if not v or v == 'none': continue
+        rel = optimise_photo(s['slug'], _url(v))
+        s[key] = f"url('{rel}')" if wrap else rel
+    return s
 
 def build(s):
     L250 = 'https://launch250.co.uk'
@@ -400,7 +428,12 @@ def build(s):
     return d, len(doc), len(css)
 
 if __name__ == '__main__':
-    for s in SITES:
+    only = sys.argv[1:]                       # python3 _build.py [slug ...]
+    todo = [x for x in SITES if not only or x['slug'] in only]
+    if only and len(todo) != len(only): sys.exit(f"unknown site(s): {set(only) - {x['slug'] for x in todo}}")
+    for site in todo:
+        s = optimise_photos(load_content(site))   # _sites.py design + content.json words/photos
         d, a, b = build(s)
+        write_cms(s)                              # admin/ editor + netlify.toml
         print(f"  {d:14s} index.html {a//1024}KB  style.css {b//1024}KB")
-    print("built", len(SITES), "sites")
+    print("built", len(todo), "site(s)")

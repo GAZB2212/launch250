@@ -82,14 +82,21 @@ own subdomain:
 
 `demos/index.html` is a gallery linking to all six.
 
+Each site also has a client editor at `/admin/` (Decap CMS) for changing text,
+prices and photos after handover. The editable content lives in
+`demos/<slug>/content.json`; design stays in `demos/_sites.py`. Setup, hosting
+and the client walkthrough are in [`demos/CMS.md`](demos/CMS.md).
+
 ### Regenerating
 
 The demos are generated so copy, colours and the main-site portfolio can never
-drift apart. Edit `demos/_sites.py`, then:
+drift apart. Edit `demos/_sites.py` (design) or `demos/<slug>/content.json`
+(words, prices, photos), then:
 
 ```bash
 cd demos
-python3 _build.py        # rebuild the six sites
+python3 _build.py        # rebuild the six sites (+ each site's admin/ and netlify.toml)
+python3 _build.py barbers   # just one
 python3 _gallery.py      # rebuild the demo gallery
 cd .. && python3 demos/_portfolio.py   # rebuild the portfolio cards on the main site
 ```

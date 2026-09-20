@@ -1,0 +1,115 @@
+{
+  "brand": "Northgate",
+  "brand2": "Joinery",
+  "trade": "Joiner & kitchen fitter",
+  "town": "Wirral",
+  "title": "Northgate Joinery | Bespoke Fitted Furniture & Kitchens, Wirral",
+  "desc": "Bespoke joinery on the Wirral. Handmade fitted wardrobes, alcove units, kitchens and staircases, designed and made for your space. Free design visit.",
+  "phone": "01632 960 377",
+  "tel": "+441632960377",
+  "email": "dave@northgatejoinery.co.uk",
+  "hours": "Workshop Mon–Fri 8am–5pm · Sat by appointment",
+  "logo": "img/logo.svg",
+  "hero_photo": "img/hero.webp",
+  "photo1": "img/shot-1.webp",
+  "photo2": "",
+  "eyebrow": "Bespoke joinery since 2004",
+  "h1": "Made for your house. Not off a shelf.",
+  "sub": "Handmade fitted wardrobes, alcove units, kitchens and staircases — designed around the awkward corners of your actual home, built in our Wirral workshop, fitted by the person who made them.",
+  "trusts": [
+    "Made in our own workshop",
+    "Free design visit",
+    "10 year guarantee"
+  ],
+  "svc_h": "What we make.",
+  "svc_l": "Everything is built to your measurements in our own workshop. The prices below are honest starting points for a typical room.",
+  "services": [
+    {
+      "title": "Fitted wardrobes",
+      "desc": "Floor to ceiling, wall to wall, around the chimney breast and under the slope. Shaker, flat panel or traditional.",
+      "price": "From £1,400"
+    },
+    {
+      "title": "Alcove units & shelving",
+      "desc": "Those two awkward gaps either side of the fireplace, turned into the best storage in the house.",
+      "price": "From £850"
+    },
+    {
+      "title": "Handmade kitchens",
+      "desc": "Solid timber frames, painted in any colour, with the drawers where you actually want them.",
+      "price": "From £6,500"
+    },
+    {
+      "title": "Staircases & balustrades",
+      "desc": "New oak staircases, or re-covering and re-spindling a tired existing one. Glass, timber or steel.",
+      "price": "From £2,200"
+    },
+    {
+      "title": "Home offices & media walls",
+      "desc": "Built-in desks, cable management that actually works, and shelving sized to your books not a catalogue.",
+      "price": "From £1,100"
+    },
+    {
+      "title": "Doors, skirting & architrave",
+      "desc": "Period-correct mouldings matched to your house, hung and finished properly.",
+      "price": "From £180"
+    }
+  ],
+  "about_h": "One joiner. Twenty years. Every job start to finish.",
+  "about_p": "Dave Kilbride served his time as a bench joiner and has been making fitted furniture on the Wirral since 2004. There is no sales team — the person who measures your room is the person who makes the piece and the person who fits it. That is why nothing ever gets lost in translation, and why the scribe lines actually fit your wonky Victorian walls.",
+  "stats": [
+    {
+      "value": "20",
+      "label": "Years at the bench"
+    },
+    {
+      "value": "600+",
+      "label": "Pieces made"
+    },
+    {
+      "value": "10yr",
+      "label": "Guarantee"
+    }
+  ],
+  "areas": [
+    "Wirral",
+    "Heswall",
+    "West Kirby",
+    "Hoylake",
+    "Caldy",
+    "Bebington",
+    "Chester",
+    "Neston"
+  ],
+  "reviews": [
+    {
+      "quote": "Our bedroom has a bay, a chimney breast and a sloping ceiling. Three companies said it was not possible. Dave measured it, drew it, and made it fit perfectly.",
+      "name": "Rachel Moore",
+      "where": "Caldy"
+    },
+    {
+      "quote": "The alcove units look like they have been there since the house was built in 1904. That is exactly what we asked for and exactly what we got.",
+      "name": "James Whitfield",
+      "where": "Hoylake"
+    },
+    {
+      "quote": "Handmade kitchen, painted in a colour we picked. Six weeks from design to finished. The drawers are still silent two years later.",
+      "name": "Anna Lindqvist",
+      "where": "West Kirby"
+    }
+  ],
+  "faq": [
+    {
+      "q": "How long does a fitted wardrobe take?",
+      "a": "Usually four to six weeks from design sign-off to fitting. Most of that is workshop time — the fit itself is normally one or two days."
+    },
+    {
+      "q": "Can you match existing woodwork?",
+      "a": "Yes. We profile existing skirting and architrave and cut matching mouldings, which is why the work sits right in period houses."
+    },
+    {
+      "q": "Is the design visit really free?",
+      "a": "Completely. We come out, measure, talk through options and send a fixed written quote. No deposit until you are happy with the drawings."
+    }
+  ]
+}

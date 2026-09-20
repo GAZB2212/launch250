@@ -7,3 +7,5 @@ __pycache__/
 undefined/
 demos/_incoming/*.png
 demos/_incoming/*.svg
+hf_*.png
+hf_*.svg
