@@ -14,8 +14,29 @@ from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 MAXW = 2000
 
+def localise_logo(src, slug):
+    """Logos stay vector when they arrive as SVG; PNGs become WebP."""
+    import shutil
+    out_dir = os.path.join(HERE, slug, 'img'); os.makedirs(out_dir, exist_ok=True)
+    if src.lower().endswith('.svg'):
+        out = os.path.join(out_dir, 'logo.svg'); shutil.copyfile(src, out); size = ('svg', '')
+    else:
+        out = os.path.join(out_dir, 'logo.webp')
+        im = Image.open(src).convert('RGBA')
+        if im.width > 1600: im = im.resize((1600, round(im.height * 1600 / im.width)), Image.LANCZOS)
+        im.save(out, 'WEBP', quality=90, method=6); size = im.size
+    rel = os.path.basename(out)
+    p = os.path.join(HERE, '_sites.py'); s = open(p, encoding='utf-8').read()
+    i = s.index(f'"slug":"{slug}"'); j = s.index('\n}},', i); seg = s[i:j]
+    if '"logo":' in seg: seg = re.sub(r'"logo":[^,]+,', f'"logo":"img/{rel}",', seg)
+    else: seg = seg.replace(f'"slug":"{slug}",', f'"slug":"{slug}","logo":"img/{rel}",', 1)
+    open(p, 'w', encoding='utf-8').write(s[:i] + seg + s[j:])
+    return out, os.path.getsize(out) // 1024, size
+
 def localise(src, slug, role):
-    assert role in ('hero', 'shot-1', 'shot-2'), role
+    assert role in ('hero', 'shot-1', 'shot-2', 'logo'), role
+    if role == 'logo':
+        return localise_logo(src, slug)
     out_dir = os.path.join(HERE, slug, 'img'); os.makedirs(out_dir, exist_ok=True)
     out = os.path.join(out_dir, f'{role}.webp')
 
@@ -57,6 +78,13 @@ JOBS = {
     '73bc2f01': ('barbers',     'shot-2'),
     'e60bac25': ('doggrooming', 'hero'),
     '1fd7aaac': ('doggrooming', 'shot-1'),
+    # logos (Recraft vector)
+    '8b5741b3': ('plumbing',    'logo'),
+    '308c4010': ('electrical',  'logo'),
+    'ac06226d': ('joinery',     'logo'),
+    '765034ef': ('landscaping', 'logo'),
+    '8628353e': ('barbers',     'logo'),
+    '1c48b4e1': ('doggrooming', 'logo'),
 }
 
 def auto(incoming):
@@ -65,6 +93,7 @@ def auto(incoming):
     done, unknown = [], []
     for f in sorted(os.listdir(incoming)):
         m = _re.search(r'_([0-9a-f]{8})-[0-9a-f]{4}-', f)
+        if f.endswith('.md'): continue
         if not m or m.group(1) not in JOBS:
             if not f.endswith('.md'): unknown.append(f)
             continue

@@ -168,10 +168,11 @@ def build(s):
 <header class="head">
   <div class="shell">
     <nav class="nav" aria-label="Main">
-      <a class="brand" href="#top">
-        <span class="brand__mark" aria-hidden="true">{trade_mark(s['slug'], 'h')}</span>
-        <span class="brand__name">{e(s['brand'])}<span class="brand__sub">{e(s['brand2'])}</span></span>
-      </a>
+      <a class="brand" href="#top">{(
+        f'<img class="brand__logo" src="{s["logo"]}" alt="{e(full)}" height="48">' if s.get('logo') else
+        f'<span class="brand__mark" aria-hidden="true">{trade_mark(s["slug"], "h")}</span>'
+        f'<span class="brand__name">{e(s["brand"])}<span class="brand__sub">{e(s["brand2"])}</span></span>'
+      )}</a>
       <ul class="nav__links" id="menu">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>

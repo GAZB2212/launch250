@@ -119,6 +119,8 @@ p { text-wrap: pretty; }
   font-family: var(--font-display); font-weight: 700; font-size: .95rem; letter-spacing: -.02em;
 }
 .brand__mark svg { width: 24px; height: 24px; display: block; color: var(--on-accent); }
+.brand__logo { height: 48px; width: auto; max-width: 240px; display: block; object-fit: contain; }
+@media (max-width: 480px) { .brand__logo { height: 40px; max-width: 170px; } }
 .foot .brand { margin-bottom: .2rem; }
 .foot .brand__mark { width: 34px; height: 34px; }
 .foot .brand__mark svg { width: 20px; height: 20px; }
