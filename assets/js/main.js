@@ -231,13 +231,15 @@
           alert("Sorry, that didn't send. Please try again, or email hello@launch250.co.uk or WhatsApp 07522 651942.");
         }
 
-        // Netlify Forms: post the fields to the page itself; Netlify stores the
-        // submission and emails it on (set the address in Netlify → Forms).
-        var body = new URLSearchParams(new FormData(form)).toString();
-        fetch(form.getAttribute('action') || '/', {
+        // Enquiries go to a Supabase function (data-endpoint), which stores
+        // them for the admin page and emails hello@ via Resend.
+        var payload = {};
+        new FormData(form).forEach(function (v, k) { payload[k] = v; });
+        payload.page = location.pathname;
+        fetch(form.getAttribute('data-endpoint'), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
         }).then(function (r) { r.ok ? done() : failed(); }).catch(failed);
       });
     });
