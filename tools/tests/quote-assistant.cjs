@@ -23,6 +23,7 @@ const {chromium} = require('playwright');
  await page.locator('dialog').getByRole('checkbox',{name:'Online shop'}).uncheck();
  if(await page.locator('[data-total]').innerText()!=='£1,290')throw Error('Removal total incorrect');
  await page.getByRole('button',{name:'Continue to my enquiry'}).click();
+ if(!(await page.locator('[name=quote]').inputValue()).includes('Build total: £1,290'))throw Error('Hidden quote disagrees with assistant');
  if(!(await page.locator('[name=message]').inputValue()).includes('Existing requirements'))throw Error('Lost original enquiry');
  await page.getByRole('button',{name:'Help me choose'}).click();await page.locator('dialog').getByRole('checkbox',{name:'Online booking'}).uncheck();await page.getByRole('button',{name:'Continue to my enquiry'}).click();
  const revised = await page.locator('[name=message]').inputValue();if((revised.match(/Guided website quote/g)||[]).length!==1 || !revised.includes('Existing requirements') || !revised.includes('Build total: £1,115'))throw Error('Revised quote duplicated or lost draft');

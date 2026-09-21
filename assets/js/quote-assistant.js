@@ -31,6 +31,8 @@
     message.value = text + (existing ? '\n' + existing : '');
     appliedSummaries.set(message, text);
     message.dispatchEvent(new Event('input', { bubbles: true }));
+    var quoteField = form.querySelector('[name="quote"]');
+    if (quoteField) quoteField.value = text.replace(/\n\nAbout my business: $/, '').trim();
     var packageField = form.querySelector('select[name="package"]');
     if (packageField && !packageField.value) packageField.value = 'Not sure yet — advise me';
     form.scrollIntoView({ behavior: 'auto', block: 'center' });
