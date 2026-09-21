@@ -1511,3 +1511,6 @@ p { text-wrap: pretty; }
 .wa-float svg { width: 24px; height: 24px; flex: none; }
 @media (max-width: 640px) { .wa-float span { display: none; } .wa-float { padding: .8rem; } }
 @media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } }
+
+/* Recurring add-on (hosting) shows its period next to the price. */
+.addon__price small { font-size: .7em; font-weight: 500; color: var(--muted, #666); }

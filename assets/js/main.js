@@ -120,10 +120,12 @@
     function render() {
       var total = base;
       var picked = [];
+      var yearly = 0; // recurring add-ons (hosting) never go in the one-off total
 
       boxes.forEach(function (box) {
         if (!box.checked) return;
-        total += Number(box.getAttribute('data-price')) || 0;
+        var price = Number(box.getAttribute('data-price')) || 0;
+        if (box.hasAttribute('data-recurring')) { yearly += price; } else { total += price; }
         picked.push(box.getAttribute('data-label'));
       });
 
@@ -138,7 +140,8 @@
         var row = document.createElement('div');
         row.className = 'quote__line';
         row.innerHTML = '<span>' + box.getAttribute('data-label') + '</span><b>' +
-          GBP.format(Number(box.getAttribute('data-price')) || 0) + '</b>';
+          GBP.format(Number(box.getAttribute('data-price')) || 0) +
+          (box.hasAttribute('data-recurring') ? '/yr' : '') + '</b>';
         lines.appendChild(row);
       });
 
@@ -149,14 +152,14 @@
         totalEl.classList.add('is-bump');
       }
 
-      subEl.textContent = picked.length
-        ? 'One payment. ' + picked.length + ' extra' + (picked.length > 1 ? 's' : '') + ' included.'
-        : 'One payment. Nothing monthly, ever.';
+      subEl.textContent = yearly
+        ? 'One payment of ' + GBP.format(total) + ' to build, then ' + GBP.format(yearly) + ' a year for hosting from year two.'
+        : 'One payment to build. Hosting included for a year, then £60 a year.';
 
       if (hidden) {
-        hidden.value = picked.length
+        hidden.value = (picked.length
           ? 'Build ' + GBP.format(base) + ' + ' + picked.join(', ') + ' = ' + GBP.format(total)
-          : 'Build only — ' + GBP.format(base);
+          : 'Build only — ' + GBP.format(base)) + (yearly ? ' (+ ' + GBP.format(yearly) + '/yr hosting from year two)' : '');
       }
     }
 
