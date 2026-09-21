@@ -85,9 +85,9 @@ def optimise_photos(s):
     return s
 
 def build(s):
-    L250 = 'https://250launch.co.uk'
+    L250 = 'https://launch250.co.uk'
     full = f"{s['brand']} {s['brand2']}"
-    dom = f"https://{s['slug']}.250launch.co.uk/"
+    dom = f"https://{s['slug']}.launch250.co.uk/"
 
     # ---- hero ----
     trusts = "".join(

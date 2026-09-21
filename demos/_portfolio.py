@@ -37,7 +37,7 @@ ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="current
 def card(s, live_prefix):
     tag, theme, blurb, stats = META[s['slug']]
     full = f"{s['brand']} {s['brand2']}"
-    url = f"{s['slug']}.250launch.co.uk"
+    url = f"{s['slug']}.launch250.co.uk"
     href = f"{live_prefix}{s['slug']}/index.html" if live_prefix else f"https://{url}/"
     st = "".join(f'<div class="work__stat"><b>{e(n)}</b><span>{e(l)}</span></div>' for n, l in stats)
     return f'''      <article class="work reveal">

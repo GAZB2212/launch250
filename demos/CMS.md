@@ -35,8 +35,8 @@ live in `demos/<slug>/img/uploads/`, and so do the photos we ship with the site,
    Set *Package directory* to `demos/<slug>` and leave *Base directory* blank.
    The `netlify.toml` in that folder supplies the build command, publish
    folder and Python version. Deploy once.
-2. **Domain.** Netlify → Domain management → add `<slug>.250launch.co.uk`,
-   then add the CNAME it gives you at the DNS provider for 250launch.co.uk.
+2. **Domain.** Netlify → Domain management → add `<slug>.launch250.co.uk`,
+   then add the CNAME it gives you at the DNS provider for launch250.co.uk.
    HTTPS is automatic.
 3. **Login service.** Netlify has deprecated Git Gateway for new sites, so the
    editor uses [DecapBridge](https://decapbridge.com) (free, built for this).
@@ -46,7 +46,7 @@ live in `demos/<slug>/img/uploads/`, and so do the photos we ship with the site,
    shows a "not switched on yet" note instead of a login that cannot work.
 4. **Invite the client.** In DecapBridge add the client as a collaborator
    with their email. They get an invite, set a password, and log in at
-   `https://<slug>.250launch.co.uk/admin/`.
+   `https://<slug>.launch250.co.uk/admin/`.
 5. **Send the video.** One recording covers every site because the editor is
    identical. Suggested three minutes: log in → change a price → change a
    photo → Publish → refresh the site a minute later.

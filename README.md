@@ -50,9 +50,9 @@ Colours, type, spacing and radii are CSS custom properties at the top of
 
 The content is written as a working draft for a real studio. Swap these for the real thing:
 
-1. **Phone and email** — `0800 250 250` and `hello@250launch.co.uk` are placeholders.
+1. **Phone and email** — `0800 250 250` and `hello@launch250.co.uk` are placeholders.
    They appear in the header, footer and contact page of all four pages.
-2. **Domain** — `250launch.co.uk` in the canonical tags, Open Graph URLs, `robots.txt`
+2. **Domain** — `launch250.co.uk` in the canonical tags, Open Graph URLs, `robots.txt`
    and `sitemap.xml`.
 3. **Form handling** — the forms currently show a confirmation message client-side and
    send nothing. Point them at Formspree, Netlify Forms, Basin or your own endpoint.
@@ -73,12 +73,12 @@ own subdomain:
 
 | Folder | Subdomain | Trade |
 | --- | --- | --- |
-| `demos/plumbing` | `plumbing.250launch.co.uk` | Plumbing & heating |
-| `demos/electrical` | `electrical.250launch.co.uk` | Electrician |
-| `demos/joinery` | `joinery.250launch.co.uk` | Joiner & kitchen fitter |
-| `demos/landscaping` | `landscaping.250launch.co.uk` | Landscaper |
-| `demos/barbers` | `barbers.250launch.co.uk` | Barbershop |
-| `demos/doggrooming` | `doggrooming.250launch.co.uk` | Mobile dog groomer |
+| `demos/plumbing` | `plumbing.launch250.co.uk` | Plumbing & heating |
+| `demos/electrical` | `electrical.launch250.co.uk` | Electrician |
+| `demos/joinery` | `joinery.launch250.co.uk` | Joiner & kitchen fitter |
+| `demos/landscaping` | `landscaping.launch250.co.uk` | Landscaper |
+| `demos/barbers` | `barbers.launch250.co.uk` | Barbershop |
+| `demos/doggrooming` | `doggrooming.launch250.co.uk` | Mobile dog groomer |
 
 `demos/index.html` is a gallery linking to all six.
 
@@ -106,7 +106,7 @@ where the portfolio links point at local folders instead of live subdomains:
 
 ```bash
 python3 demos/_portfolio.py demos/    # links become demos/<slug>/index.html
-python3 demos/_portfolio.py           # links become https://<slug>.250launch.co.uk/
+python3 demos/_portfolio.py           # links become https://<slug>.launch250.co.uk/
 ```
 
 ### Colour accessibility

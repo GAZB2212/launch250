@@ -1,4 +1,4 @@
-# Netlify build for barbers.250launch.co.uk
+# Netlify build for barbers.launch250.co.uk
 # In the Netlify site settings set "Package directory" to demos/barbers and leave
 # "Base directory" as the repo root. Paths below are relative to the repo root.
 [build]

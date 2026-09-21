@@ -1,4 +1,4 @@
-# Netlify build for plumbing.250launch.co.uk
+# Netlify build for plumbing.launch250.co.uk
 # In the Netlify site settings set "Package directory" to demos/plumbing and leave
 # "Base directory" as the repo root. Paths below are relative to the repo root.
 [build]
