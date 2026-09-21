@@ -212,15 +212,33 @@
 
         var ok = form.querySelector('[data-form-ok]');
         var btn = form.querySelector('button[type="submit"]');
-        if (btn) { btn.disabled = true; btn.textContent = 'Sent'; }
-        if (ok) {
-          ok.classList.add('is-on');
-          ok.setAttribute('tabindex', '-1');
-          ok.focus({ preventScroll: true });
+        var label = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+        function done() {
+          if (btn) { btn.textContent = 'Sent'; }
+          if (ok) {
+            ok.classList.add('is-on');
+            ok.setAttribute('tabindex', '-1');
+            ok.focus({ preventScroll: true });
+          }
+          form.querySelectorAll('input, textarea, select').forEach(function (f) {
+            if (f.type !== 'hidden') f.setAttribute('readonly', 'readonly');
+          });
         }
-        form.querySelectorAll('input, textarea, select').forEach(function (f) {
-          if (f.type !== 'hidden') f.setAttribute('readonly', 'readonly');
-        });
+        function failed() {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          alert("Sorry, that didn't send. Please try again, or email hello@launch250.co.uk or WhatsApp 07522 651942.");
+        }
+
+        // Netlify Forms: post the fields to the page itself; Netlify stores the
+        // submission and emails it on (set the address in Netlify → Forms).
+        var body = new URLSearchParams(new FormData(form)).toString();
+        fetch(form.getAttribute('action') || '/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body
+        }).then(function (r) { r.ok ? done() : failed(); }).catch(failed);
       });
     });
   }

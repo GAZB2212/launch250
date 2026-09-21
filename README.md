@@ -50,7 +50,7 @@ Colours, type, spacing and radii are CSS custom properties at the top of
 
 The content is written as a working draft for a real studio. Swap these for the real thing:
 
-1. **Phone and email** — `0800 250 250` and `hello@launch250.co.uk` are placeholders.
+1. **Phone and email** — `07522 651942` (also WhatsApp) and `hello@launch250.co.uk` are live. The contact form posts to Netlify Forms; set the notification email in Netlify → Forms.
    They appear in the header, footer and contact page of all four pages.
 2. **Domain** — `launch250.co.uk` in the canonical tags, Open Graph URLs, `robots.txt`
    and `sitemap.xml`.
