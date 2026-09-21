@@ -9,7 +9,7 @@ BRIDGE          DecapBridge site id per slug. Register each site once at
 REPO = 'GAZB2212/launch250'
 BRANCH = 'claude/festive-albattani-iyheb4'   # rename here if you later rename the branch on GitHub
 BRIDGE = {
-    'plumbing':    '',
+    'plumbing':    'a5f94a16-5122-4549-a7b0-2596822b8329',
     'electrical':  '',
     'joinery':     '',
     'landscaping': '',

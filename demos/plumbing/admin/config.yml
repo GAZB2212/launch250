@@ -3,7 +3,7 @@ backend:
   name: git-gateway
   repo: GAZB2212/launch250
   branch: claude/festive-albattani-iyheb4
-  identity_url: https://auth.decapbridge.com/sites/SITE-ID-NOT-SET
+  identity_url: https://auth.decapbridge.com/sites/a5f94a16-5122-4549-a7b0-2596822b8329
   gateway_url: https://gateway.decapbridge.com
   commit_messages:
     update: "plumbing: {{author-name}} updated the site"
