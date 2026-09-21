@@ -132,8 +132,12 @@ def admin_html(s):
 <div id="notset" style="font:15px/1.5 system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:1.5rem;border:1px solid #e5e5e5;border-radius:12px">
   <h1 style="font-size:1.3rem;margin:0 0 .5rem">Editor not switched on yet</h1>
   <p>This site's editor has not been connected to a login service. Launch250 registers the site at DecapBridge, pastes the site id into <code>demos/_deploy.py</code> and rebuilds. Until then there is nothing to log in to.</p>
-  <p style="color:#666">Developers: run <code>npx decap-server</code> from the repo root and reload this page to edit the local working copy without logging in.</p>
+  <p style="color:#666">Developers: run <code>npx decap-server</code> from the repo root and open this page with <code>?local</code> on the end to edit the working copy without logging in.</p>
 </div>'''
+    # With no login service there is nothing Decap can do, so only load it when
+    # a developer asks for the local proxy. Otherwise the client sees the note alone.
+    loader = (f'<script src="{DECAP_JS}"></script>' if bridge else
+              f'<script>if(location.search.includes("local")){{var s=document.createElement("script");s.src="{DECAP_JS}";document.body.appendChild(s);document.getElementById("notset").remove();}}</script>')
     return f'''<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -144,7 +148,7 @@ def admin_html(s):
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
 <body>{note}
-<script src="{DECAP_JS}"></script>
+{loader}
 </body>
 </html>
 '''
