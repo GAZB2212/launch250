@@ -2,9 +2,9 @@
 
 /* Swap this one line to change the hero photograph. */
 :root {
-  --hero-img: url('img/hero.webp');
-  --shot-1: url('img/shot-1.webp');
-  --shot-2: url('img/shot-2.webp');
+  --hero-img: url('img/uploads/hero.webp');
+  --shot-1: url('img/uploads/shot-1.webp');
+  --shot-2: url('img/uploads/shot-2.webp');
 
   --ink: #101010;
   --ink-soft: #1c1c1c;

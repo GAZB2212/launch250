@@ -27,7 +27,7 @@ plumbing.launch250     content.json (+photos)  python3 _build.py       ~60 secon
 Photos: the editor converts uploads to WebP no wider than 2000px in the
 browser before saving (`media_processing` in config.yml), and `_build.py`
 does the same again at build time for anything that slips through. Uploads
-live in `demos/<slug>/img/uploads/`.
+live in `demos/<slug>/img/uploads/`, and so do the photos we ship with the site, so the editor can preview them and the client can reuse them from the media library.
 
 ## Setting up a new site (once per client, about 15 minutes)
 

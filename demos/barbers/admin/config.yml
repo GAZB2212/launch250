@@ -31,7 +31,7 @@ media_processing:
   height: null
 site_url: https://barbers.launch250.co.uk
 display_url: https://barbers.launch250.co.uk
-logo_url: https://barbers.launch250.co.uk/img/logo.svg
+logo_url: https://barbers.launch250.co.uk/img/uploads/logo.svg
 locale: en
 editor:
   preview: false

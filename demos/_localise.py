@@ -4,7 +4,7 @@ local files instead of the CDN.
 Usage:  python3 _localise.py <source_file> <slug> <role>
         role is hero | shot-1 | shot-2
 
-Writes demos/<slug>/img/<role>.webp (max 2000px wide, quality 82) and
+Writes demos/<slug>/img/uploads/<role>.webp (max 2000px wide, quality 82) and
 rewrites that site's entry in _sites.py so the build uses the local file.
 Run _build.py afterwards.
 """
@@ -17,7 +17,7 @@ MAXW = 2000
 def localise_logo(src, slug):
     """Logos stay vector when they arrive as SVG; PNGs become WebP."""
     import shutil
-    out_dir = os.path.join(HERE, slug, 'img'); os.makedirs(out_dir, exist_ok=True)
+    out_dir = os.path.join(HERE, slug, 'img', 'uploads'); os.makedirs(out_dir, exist_ok=True)
     if src.lower().endswith('.svg'):
         out = os.path.join(out_dir, 'logo.svg'); shutil.copyfile(src, out); size = ('svg', '')
     else:
@@ -28,8 +28,8 @@ def localise_logo(src, slug):
     rel = os.path.basename(out)
     p = os.path.join(HERE, '_sites.py'); s = open(p, encoding='utf-8').read()
     i = s.index(f'"slug":"{slug}"'); j = s.index('\n},', i); seg = s[i:j]
-    if '"logo":' in seg: seg = re.sub(r'"logo":[^,]+,', f'"logo":"img/{rel}",', seg)
-    else: seg = seg.replace(f'"slug":"{slug}",', f'"slug":"{slug}","logo":"img/{rel}",', 1)
+    if '"logo":' in seg: seg = re.sub(r'"logo":[^,]+,', f'"logo":"img/uploads/{rel}",', seg)
+    else: seg = seg.replace(f'"slug":"{slug}",', f'"slug":"{slug}","logo":"img/uploads/{rel}",', 1)
     open(p, 'w', encoding='utf-8').write(s[:i] + seg + s[j:])
     return out, os.path.getsize(out) // 1024, size
 
@@ -37,7 +37,7 @@ def localise(src, slug, role):
     assert role in ('hero', 'shot-1', 'shot-2', 'logo'), role
     if role == 'logo':
         return localise_logo(src, slug)
-    out_dir = os.path.join(HERE, slug, 'img'); os.makedirs(out_dir, exist_ok=True)
+    out_dir = os.path.join(HERE, slug, 'img', 'uploads'); os.makedirs(out_dir, exist_ok=True)
     out = os.path.join(out_dir, f'{role}.webp')
 
     im = Image.open(src).convert('RGB')
@@ -47,7 +47,7 @@ def localise(src, slug, role):
 
     p = os.path.join(HERE, '_sites.py'); s = open(p, encoding='utf-8').read()
     i = s.index(f'"slug":"{slug}"'); j = s.index('\n},', i); seg = s[i:j]
-    rel = f'img/{role}.webp'
+    rel = f'img/uploads/{role}.webp'
     if role == 'hero':
         seg = re.sub(r'"hero_img":[^,]+,',    f'"hero_img":"url(\'{rel}\')",', seg)
         seg = re.sub(r'"hero_poster":[^,]+,', f'"hero_poster":"{rel}",', seg)

@@ -29,9 +29,9 @@ media_processing:
   strip_metadata: true
   width: 2000
   height: null
-site_url: https://plumbing.launch250.co.uk
-display_url: https://plumbing.launch250.co.uk
-logo_url: https://plumbing.launch250.co.uk/img/logo.svg
+site_url: https://launch250-plumbing.netlify.app
+display_url: https://launch250-plumbing.netlify.app
+logo_url: https://launch250-plumbing.netlify.app/img/uploads/logo.svg
 locale: en
 editor:
   preview: false
