@@ -420,12 +420,16 @@ def build(s):
 '''
     fav = trade_favicon(s['slug'], dv['cta'], s['on_accent'], full)
 
-    d = s['slug']
+    # Always write into demos/<slug>/ next to this file, whatever the current
+    # directory: Netlify runs `python3 demos/_build.py <slug>` from the repo
+    # root and publishes demos/<slug>, so a cwd-relative path would leave the
+    # published folder untouched and the client's edits would never appear.
+    d = os.path.join(os.path.dirname(os.path.abspath(__file__)), s['slug'])
     os.makedirs(d, exist_ok=True)
-    open(f"{d}/index.html", "w", encoding="utf-8").write(doc)
-    open(f"{d}/style.css", "w", encoding="utf-8").write(css)
-    open(f"{d}/favicon.svg", "w", encoding="utf-8").write(fav)
-    return d, len(doc), len(css)
+    open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
+    open(os.path.join(d, "style.css"), "w", encoding="utf-8").write(css)
+    open(os.path.join(d, "favicon.svg"), "w", encoding="utf-8").write(fav)
+    return s['slug'], len(doc), len(css)
 
 if __name__ == '__main__':
     only = sys.argv[1:]                       # python3 _build.py [slug ...]
