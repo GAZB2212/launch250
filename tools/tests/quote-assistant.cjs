@@ -1,0 +1,38 @@
+const {chromium} = require('playwright');
+(async()=>{
+ const browser=await chromium.launch({headless:true}); const page=await browser.newPage({viewport:{width:1280,height:900}}); let errors=[]; page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://localhost:8767/pricing.html');
+ await page.getByRole('button',{name:'Help me choose'}).click();
+ await page.getByRole('button',{name:'Yes, include this'}).click();
+ if(await page.locator('[data-total]').innerText()!=='£425') throw Error('Booking total incorrect');
+ for(let i=1;i<7;i++) await page.getByRole('button',{name:'No thanks',exact:true}).click();
+ await page.getByRole('button',{name:'Continue to my enquiry'}).click();
+ await page.waitForURL('**/contact.html#quote-form');
+ const message=await page.locator('[name=message]').inputValue();
+ if(!message.includes('Build total: £425')||!message.includes('Online booking: £175')) throw Error('Handoff missing quote');
+ if(await page.evaluate(()=>sessionStorage.getItem('launch250-guided-quote-v1'))!==null) throw Error('Handoff not cleared');
+ // Ensure existing enquiry submission receives the quote without sending a real lead.
+ let payload; await page.route('**/functions/v1/launch250-enquiry',async route=>{payload=route.request().postDataJSON();await route.fulfill({status:200,contentType:'application/json',body:'{}'});});
+ await page.locator('[name=name]').fill('Test Person');await page.locator('[name=business]').fill('Test Business');await page.locator('[name=email]').fill('test@example.com');
+ await page.locator('button[type=submit]').click();await page.waitForTimeout(300);
+ if(!payload?.message?.includes('Build total: £425'))throw Error('Existing form did not receive quote');
+ await page.goto('http://localhost:8767/index.html');
+ await page.locator('[name=message]').fill('Existing requirements');await page.getByRole('button',{name:'Help me choose'}).click();
+ for(let i=0;i<7;i++)await page.getByRole('button',{name:'Yes, include this'}).click();
+ if(await page.locator('[data-total]').innerText()!=='£1,740')throw Error('All extras total incorrect');
+ await page.locator('dialog').getByRole('checkbox',{name:'Online shop'}).uncheck();
+ if(await page.locator('[data-total]').innerText()!=='£1,290')throw Error('Removal total incorrect');
+ await page.getByRole('button',{name:'Continue to my enquiry'}).click();
+ if(!(await page.locator('[name=message]').inputValue()).includes('Existing requirements'))throw Error('Lost original enquiry');
+ await page.getByRole('button',{name:'Help me choose'}).click();await page.locator('dialog').getByRole('checkbox',{name:'Online booking'}).uncheck();await page.getByRole('button',{name:'Continue to my enquiry'}).click();
+ const revised = await page.locator('[name=message]').inputValue();if((revised.match(/Guided website quote/g)||[]).length!==1 || !revised.includes('Existing requirements') || !revised.includes('Build total: £1,115'))throw Error('Revised quote duplicated or lost draft');
+ await page.reload();await page.getByRole('button',{name:'Help me choose'}).click();await page.getByRole('button',{name:'Review my quote now'}).click();
+ if(await page.locator('[data-total]').innerText()!=='£250')throw Error('Base only incorrect');
+ await page.keyboard.press('Escape');if(await page.locator('dialog').isVisible())throw Error('Escape failed');
+ await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Help me choose'}).click();
+ if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Mobile overflow');
+ await page.screenshot({path:'/tmp/launch250-helper-mobile.png'});
+ await page.setViewportSize({width:1280,height:900});await page.screenshot({path:'/tmp/launch250-helper-desktop.png'});
+ if(errors.length)throw Error(errors.join('\n'));
+ console.log('PASS: booking £425, all extras £1740, removal £1290, base £250, cross-page handoff, preserved draft, mocked existing-form submit, one-time storage, Escape, mobile overflow, no runtime errors.');await browser.close();
+})();
