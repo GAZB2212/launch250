@@ -29,9 +29,9 @@ media_processing:
   strip_metadata: true
   width: 2000
   height: null
-site_url: https://joinery.launch250.co.uk
-display_url: https://joinery.launch250.co.uk
-logo_url: https://joinery.launch250.co.uk/img/uploads/logo.svg
+site_url: https://joinery.250launch.co.uk
+display_url: https://joinery.250launch.co.uk
+logo_url: https://joinery.250launch.co.uk/img/uploads/logo.svg
 locale: en
 editor:
   preview: false

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://launch250.co.uk/sitemap.xml
+Sitemap: https://250launch.co.uk/sitemap.xml

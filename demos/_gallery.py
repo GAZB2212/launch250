@@ -15,7 +15,7 @@ for s in SITES:
           f'<span class="demo__mark"><svg viewBox="0 0 100 100" aria-hidden="true">{MARKS[s["slug"]]("#fff", d["cta"], "g"+s["slug"])}</svg></span>')}
         <span class="demo__chip">{e(s['trade'])}</span>
         <span class="demo__name">{e(s['brand'])} {e(s['brand2'])}</span>
-        <span class="demo__url">{s['slug']}.launch250.co.uk</span>
+        <span class="demo__url">{s['slug']}.250launch.co.uk</span>
         <span class="demo__go">View the site &rarr;</span>
       </a>\n'''
 

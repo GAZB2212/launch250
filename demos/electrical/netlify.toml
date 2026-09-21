@@ -1,4 +1,4 @@
-# Netlify build for electrical.launch250.co.uk
+# Netlify build for electrical.250launch.co.uk
 # In the Netlify site settings set "Package directory" to demos/electrical and leave
 # "Base directory" as the repo root. Paths below are relative to the repo root.
 [build]
