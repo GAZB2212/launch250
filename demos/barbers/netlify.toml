@@ -9,7 +9,10 @@
 [build.environment]
   PYTHON_VERSION = "3.11"
 
+# Demo sites are fictional businesses with illustrative reviews. Keep them out
+# of Google so they never compete with, or get mistaken for, a real trader.
+# (The client template repo does not carry this header.)
 [[headers]]
-  for = "/admin/*"
+  for = "/*"
   [headers.values]
     X-Robots-Tag = "noindex"

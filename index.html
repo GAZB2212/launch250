@@ -29,21 +29,96 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://launch250.co.uk/#org",
   "name": "Launch250",
-  "description": "Web design studio building professional small-business websites from a flat £250.",
+  "description": "Web design studio building professional small-business websites for a flat £250, live within seven days.",
   "url": "https://launch250.co.uk/",
+  "logo": "https://launch250.co.uk/assets/img/og.png",
+  "image": "https://launch250.co.uk/assets/img/og.png",
   "email": "hello@launch250.co.uk",
   "telephone": "+447522651942",
-  "areaServed": "GB",
+  "areaServed": {"@type": "Country", "name": "United Kingdom"},
   "priceRange": "££",
+  "openingHours": "Mo-Fr 08:00-18:00",
+  "contactPoint": {"@type": "ContactPoint", "telephone": "+447522651942", "email": "hello@launch250.co.uk", "contactType": "sales", "availableLanguage": "en-GB"},
+  "knowsAbout": ["Web design", "Websites for tradespeople", "Small business websites", "Local SEO"],
   "makesOffer": {
     "@type": "Offer",
     "name": "Website build",
     "price": "250",
     "priceCurrency": "GBP",
-    "description": "A complete, mobile-ready business website for a one-off £250."
+    "url": "https://launch250.co.uk/pricing.html",
+    "description": "A complete, mobile-ready business website for a one-off £250. Hosting included for year one, then £60 a year."
   }
 }
+</script>
+<script type="application/ld+json" data-seo="faq">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://launch250.co.uk/#faq",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is it really £250? What's the catch?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Really £250, once, for a complete business website. The catch — if you want to call it one — is scope. £250 covers a sharp, single-page site built around getting you enquiries. Want six pages, a shop or a full SEO campaign? Those are priced separately and shown to you before you commit. Nothing gets added to your bill without you ticking a box."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How can you do it that cheap?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No city-centre office, no account managers, no six weeks of meetings before anything gets built. We've built the same core structure enough times to be genuinely fast at it, and we make our money on volume and on the extras people choose later. Cheap for you isn't the same as cheap work."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Are there monthly fees?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No monthly fees, and no contract. Hosting and the security certificate are covered for the first year in the £250. After that it's £60 a year if you'd like us to keep hosting it, or you take the files and host them anywhere you like; we'll even help you move them. Your domain name is separate: you buy it in your own name, usually £10 to £15 a year, so it can never be held over you. Already own one? We'll use it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Who owns the website?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "You do, completely, from day one. The domain is registered in your name, the files are yours, and you get every login. We don't hold anything hostage — that's the whole point."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if I don't have any content or photos?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Most people don't, and it's the main reason websites stall for months. Add copywriting for £200 and we'll interview you for half an hour and write the lot. For images we'll source high-quality licensed photography that fits your trade at no extra cost."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I update it myself afterwards?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. We hand over a simple editor and a short video showing you how to change text, prices and photos. If you'd rather not, small changes are £25 and usually done the same day."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does “live in 7 days” actually mean?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Once you've approved the design and sent your content, we have seven working days to get you live — and we hit it on 96% of builds. If anything on our side slows it down, you'll hear from us straight away with a new date, not silence. The clock is ours to manage, not yours."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://launch250.co.uk/#website", "url": "https://launch250.co.uk/", "name": "Launch250", "publisher": {"@id": "https://launch250.co.uk/#org"}, "inLanguage": "en-GB"}
 </script>
 </head>
 <body>
@@ -622,7 +697,7 @@
           </ul>
         </div>
 
-        <form class="form" data-form novalidate>
+        <form class="form" data-form novalidate data-endpoint="https://hffwugpulmerckzqzjfv.supabase.co/functions/v1/launch250-enquiry">
           <div class="form__ok" data-form-ok role="status">
             <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
             <span><strong>Got it — thanks.</strong><br>We'll come back with a price and a launch date, usually within a few hours.</span>
@@ -712,6 +787,17 @@
           <li><a href="pricing.html#tiers">SEO launch pack</a></li>
           <li><a href="pricing.html#tiers">Online shops</a></li>
           <li><a href="pricing.html#addons">Logo &amp; branding</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <h4>Websites for</h4>
+        <ul>
+          <li><a href="websites-for-plumbers.html">Plumbers</a></li>
+          <li><a href="websites-for-electricians.html">Electricians</a></li>
+          <li><a href="websites-for-joiners.html">Joiners</a></li>
+          <li><a href="websites-for-landscapers.html">Landscapers</a></li>
+          <li><a href="websites-for-barbers.html">Barbers</a></li>
+          <li><a href="websites-for-dog-groomers.html">Dog groomers</a></li>
         </ul>
       </div>
       <div class="foot__col">

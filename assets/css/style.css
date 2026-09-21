@@ -1360,11 +1360,12 @@ p { text-wrap: pretty; }
 }
 .foot__grid {
   display: grid;
-  grid-template-columns: 1.4fr repeat(3, .9fr);
+  grid-template-columns: 1.4fr repeat(4, .9fr);
   gap: clamp(1.5rem, 4vw, 3rem);
   padding-bottom: 2.5rem;
   border-bottom: 1px solid var(--line-ink);
 }
+@media (max-width: 1000px) { .foot__grid { grid-template-columns: 1fr 1fr 1fr; } .foot__grid > div:first-child { grid-column: 1 / -1; } }
 @media (max-width: 820px) { .foot__grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .foot__grid { grid-template-columns: 1fr; } }
 .site-foot .logo { color: var(--paper); margin-bottom: 1rem; }
