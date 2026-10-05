@@ -87,7 +87,7 @@ def optimise_photos(s):
 def build(s):
     L250 = 'https://launch250.co.uk'
     full = f"{s['brand']} {s['brand2']}"
-    dom = f"https://{s['slug']}.launch250.co.uk/"
+    dom = f"https://launch250.co.uk/demos/{s['slug']}/"
 
     # ---- hero ----
     trusts = "".join(
@@ -219,6 +219,7 @@ def build(s):
 </script>
 </head>
 <body>
+<aside style="padding:12px 20px;background:#fff;color:#111;text-align:center;font:14px/1.5 system-ui;border-bottom:1px solid #ddd;position:relative;z-index:100">Launch250 design demo. This business, its reviews and details are fictional. Forms are for demonstration only. <a href="https://launch250.co.uk/contact.html" style="color:#a81912;text-decoration:underline">Ask about your own website</a></aside>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="head">

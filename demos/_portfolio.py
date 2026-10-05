@@ -3,24 +3,30 @@ so the case studies and the live demo sites can never drift apart."""
 import sys, os, re, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _sites import SITES
+from _content import load as load_content
 
 def e(t): return html.escape(str(t), quote=False)
 
-# price shown on the card, dark/light mockup, blurb, three result stats
-META = {
- 'plumbing': ("£250 build", "light", "Emergency plumbing is a four-second decision made on a phone in a flooded kitchen. One page, one enormous call button, and a site that loads before the panic sets in.",
-              [("+62%","Callouts in 90 days"),("0.4s","Load time"),("3","Days to live")]),
- 'electrical': ("£550 build", "dark", "Six services, eight towns and the SEO launch pack on top. Now sitting top three locally for “emergency electrician” without a penny spent on ads.",
-              [("#2","Local search rank"),("+180%","Calls year on year"),("7","Days to live")]),
- 'joinery': ("£400 build", "light", "Twenty years of beautiful bespoke work and nothing to show for it online. A warm, typographic one-pager that puts the craft first and the phone number second.",
-              [("+41","Enquiries in month one"),("£0","Monthly fees"),("6","Days to live")]),
- 'landscaping': ("£700 build", "light", "Design-and-build landscaper who was losing quotes to firms with worse gardens and better websites. Six services, priced openly, with the guarantee front and centre.",
-              [("x3","Quote requests"),("+£48k","Pipeline added"),("7","Days to live")]),
- 'barbers': ("£425 build", "dark", "Walk-in barbershop that lived on Instagram and lost anyone who searched Google. A dark, confident one-pager with the price list where people can actually find it.",
-              [("310","New walk-ins / quarter"),("£0","Booking commission"),("5","Days to live")]),
- 'doggrooming': ("£425 build", "light", "Mobile groomer running her whole diary through Facebook Messenger. Now every enquiry arrives with the dog's breed, size and postcode already filled in.",
-              [("-80%","Admin time"),("500+","Regular clients"),("4","Days to live")]),
-}
+# Demo label, presentation theme, factual description, optional feature list
+META = {'plumbing': ('Design demo',
+              'light',
+              'A plumbing demo with service information, areas covered and a prominent call '
+              'button.'),
+ 'electrical': ('Design demo',
+                'dark',
+                'An electrical demo showing services, example prices and clear contact options.'),
+ 'joinery': ('Design demo',
+             'light',
+             'A joinery demo with a warm layout and room for project photographs.'),
+ 'landscaping': ('Design demo',
+                 'light',
+                 'A landscaping demo presenting services, example prices and garden imagery.'),
+ 'barbers': ('Design demo',
+             'dark',
+             'A barber demo with a visible price list, opening hours and booking links.'),
+ 'doggrooming': ('Design demo',
+                 'light',
+                 'A grooming demo with example packages and an enquiry form.')}
 
 def frame(slug, url, theme, alt):
     """Browser frame holding a real screenshot of the demo (see _screenshots.js)."""
@@ -35,11 +41,11 @@ def frame(slug, url, theme, alt):
 ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>'
 
 def card(s, live_prefix):
-    tag, theme, blurb, stats = META[s['slug']]
+    s = load_content(s)
+    tag, theme, blurb = META[s['slug']]
     full = f"{s['brand']} {s['brand2']}"
-    url = f"{s['slug']}.launch250.co.uk"
-    href = f"{live_prefix}{s['slug']}/index.html" if live_prefix else f"https://{url}/"
-    st = "".join(f'<div class="work__stat"><b>{e(n)}</b><span>{e(l)}</span></div>' for n, l in stats)
+    url = f"launch250.co.uk/demos/{s['slug']}/"
+    href = f"{live_prefix or 'demos/'}{s['slug']}/index.html"
     return f'''      <article class="work reveal">
         <div class="work__media">
           {frame(s['slug'], url, theme, e(full) + ' website, ' + e(s['trade']))}
@@ -52,8 +58,8 @@ def card(s, live_prefix):
           </div>
           <h3>{e(full)}</h3>
           <p>{e(blurb)}</p>
-          <a class="tlink" href="{href}">Visit the live site {ARROW}</a>
-          <div class="work__stats">{st}</div>
+          <a class="tlink" href="{href}">Explore the demo {ARROW}</a>
+          <p class="work__disclosure">Fictional business. Sample content, not customer results.</p>
         </div>
       </article>
 '''

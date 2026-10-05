@@ -10,7 +10,7 @@ no framework. Open `index.html` and it works.
 | --- | --- |
 | `index.html` | Homepage — hero, the £250 moat, what's included, price builder, work, process, reviews, FAQ, quote form |
 | `pricing.html` | Three packages, the full add-on price builder, what's never charged, money FAQ |
-| `work.html` | Six case studies with results |
+| `work.html` | Six clearly labelled design demos |
 | `contact.html` | Quote form with what-happens-next and contact details |
 
 ## Running it
@@ -46,23 +46,18 @@ Colours, type, spacing and radii are CSS custom properties at the top of
 - Animated stat counters, honeypot-protected forms, auto-updating copyright year
 - Every animation respects `prefers-reduced-motion`
 
-## Before this goes live
+## Marketing readiness
 
-The content is written as a working draft for a real studio. Swap these for the real thing:
-
-1. **Phone and email** — `07522 651942` (also WhatsApp) and `hello@launch250.co.uk` are live. The contact form posts to Netlify Forms; set the notification email in Netlify → Forms.
-   They appear in the header, footer and contact page of all four pages.
-2. **Domain** — `launch250.co.uk` in the canonical tags, Open Graph URLs, `robots.txt`
-   and `sitemap.xml`.
-3. **Form handling** — the forms currently show a confirmation message client-side and
-   send nothing. Point them at Formspree, Netlify Forms, Basin or your own endpoint.
-4. **Case studies and reviews** — the six builds and three testimonials are illustrative
-   placeholders. Replace with real clients, real numbers and real permission.
-5. **Social links** — the footer icons point at `#`.
-6. **`assets/img/og.png`** — referenced by the Open Graph tags but not yet created.
-   A 1200×630 share image.
-7. **Prices** — the add-on prices live in the `data-price` attributes in
-   `index.html` and `pricing.html`. Keep the two in sync.
+- The live contact details are `07522 651942` and `hello@launch250.co.uk`.
+- Enquiry forms POST JSON to the Supabase function in `data-endpoint`.
+  The function is expected to store leads and notify the inbox; verify delivery
+  after deployment. Do not replace this with a client-only success message.
+- Portfolio examples are fictional demos, labelled on the portfolio and demo
+  pages. Do not add ratings, client results or testimonials without evidence.
+- Demo links use `/demos/<slug>/index.html` on the main domain. No subdomain DNS
+  setup is required. Generators preserve these destinations.
+- Social links should only be added once their real account URLs are confirmed.
+- Prices are set in `index.html` and `pricing.html`; keep both in sync.
 
 ## Demo sites (`demos/`)
 

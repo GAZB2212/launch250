@@ -39,7 +39,7 @@ TRADES = [
   faq=[('Do I need more than one page?', 'Not to start. A single page with services, prices, areas and reviews converts emergency callers well. Add pages for boiler installations or bathrooms later if you want to rank for those separately; it is £150 for up to five.'),
        ('Can you show my Gas Safe registration?', 'Yes, and you should. We put your registration number and the badge in the header area and link it to the Gas Safe register so people can check it.'),
        ('What about my Checkatrade or Google reviews?', 'We quote your best ones on the page with the customer\'s name and area, and link to the full list. If you have none yet we set up your Google Business Profile so you can start collecting them.'),
-       ('How fast will it be on a phone?', 'Under a second on 4G. Plumbing customers are almost always on a phone, often in a hurry, and a slow site loses them to the next result.')],
+       ('How fast will it be on a phone?', 'We build lightweight pages and check the mobile layout. Actual load time depends on images, device and connection.')],
  ),
  dict(slug='electricians', trade='electricians', one='electrician', demo='electrical', demo_name='Volt Electrical', dark=True,
   title='Websites for electricians from £250 | NICEIC-ready design | Launch250',
@@ -241,7 +241,7 @@ def page(t, header, footer, form):
     <p class="lede" style="margin-top:1.5rem">{t['lede']}</p>
     <div class="hero__actions" style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap">
       <a class="btn btn--red btn--lg" href="#quote">Get a fixed price</a>
-      <a class="btn btn--ghost btn--lg" href="#demo">See a {t['one']} site we built</a>
+      <a class="btn btn--ghost btn--lg" href="#demo">See a {t['one']} demo</a>
     </div>
   </div>
 </section>
@@ -269,7 +269,7 @@ def page(t, header, footer, form):
       <article class="work reveal">
         <div class="work__media">
           <div class="{browser}">
-            <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">{t['demo']}.launch250.co.uk</span></div>
+            <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span class="browser__url">launch250.co.uk/demos/{t['demo']}</span></div>
             <div class="browser__body browser__body--img">
               <img src="assets/img/work/{t['demo']}.webp" alt="{t['demo_name']} website by Launch250" loading="lazy" width="1200" height="825">
             </div>
@@ -281,8 +281,8 @@ def page(t, header, footer, form):
             <span class="tag">{t['one'].capitalize()} website</span>
           </div>
           <p>{t['demo_blurb']}</p>
-          <p>{t['demo_yours']}</p>
-          <a class="tlink" href="https://{t['demo']}.launch250.co.uk/" target="_blank" rel="noopener">Open the live site {ARROW}</a>
+          <p>{t['demo_yours']}</p><p>Fictional business. Content and reviews are illustrative.</p>
+          <a class="tlink" href="https://launch250.co.uk/demos/{t['demo']}/" target="_blank" rel="noopener">Explore the demo {ARROW}</a>
         </div>
       </article>
     </div>
