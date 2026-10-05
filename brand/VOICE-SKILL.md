@@ -23,6 +23,9 @@ Write for the person, not for a "small business owner persona". Picture a plumbe
 - Hosting is included for year one, then **£60 a year**, or the client takes the files and hosts it themselves. Say this whenever "no monthly fees" would otherwise be implied.
 - The domain name is **not included**. The client buys it in their own name (usually £10 to £15 a year) so it is always theirs. Launch250 helps choose it and sets it up.
 - No contract, no subscription. The client owns the site, the files and every login.
+- The £250 includes basic search setup, Search Console verification and sitemap submission once access is provided, plus linking an existing Google Business Profile.
+- Creating or improving an eligible Google Business Profile is quoted separately. The client owns the profile and completes Google verification.
+- The £300 SEO launch pack covers keyword research, page titles and descriptions, on-page content tuning and a written SEO action plan. Google Business Profile setup is separate. No indexing or ranking guarantees.
 - Optional add-ons, priced up front, paid once: extra pages (up to 5) £150, SEO launch pack £300, copywriting £200, online shop £450, online booking £175, logo and brand kit £125, second language £90.
 - Every site comes with a simple editor so the client can change text, prices and photos themselves, plus a short video showing how.
 - British-built, made by humans. Someone answers the phone.
