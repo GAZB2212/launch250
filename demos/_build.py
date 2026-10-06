@@ -199,6 +199,7 @@ def build(s):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
 <title>{e(s['title'])}</title>
 <meta name="description" content="{e(s['desc'])}">
 <link rel="canonical" href="{dom}">
