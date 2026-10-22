@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Supabase",
+      "mcp__Higgsfield__jobs_wait",
+      "mcp__Higgsfield__show_generation_by_ids",
+      "mcp__Higgsfield__models_explore",
+      "mcp__Higgsfield__media_confirm"
+    ]
+  }
+}
