@@ -116,11 +116,11 @@
       <div id="list"><p class="empty">Loading enquiries…</p></div>
 
       <h2 style="margin-top:3rem">Prospects</h2>
-      <p class="muted">Businesses with no website that we build a preview for and then email. Found by the finder (weekday mornings), by Astra, or added by hand.</p>
+      <p class="muted">Businesses with no website that we build a preview for and then email. Found by the finder (weekday mornings), by Astra, or added by hand. <b>Nothing is emailed until you open the preview and press Approve design.</b></p>
       <div class="adm-bar">
         <select id="pStatusSel">
           <option value="">All statuses</option>
-          <option value="found">Found (needs a site)</option><option value="no_email">No email yet</option><option value="built">Built (ready to send)</option>
+          <option value="found">Found (needs a site)</option><option value="no_email">No email yet</option><option value="built">Built (needs your approval)</option><option value="approved">Approved (ready to send)</option>
           <option value="sent">Sent</option><option value="replied">Replied</option><option value="won">Won</option><option value="lost">Lost</option><option value="skipped">Skipped</option><option value="opted_out">Opted out</option>
         </select>
         <input id="pSearch" type="search" placeholder="Search name, town, email">
@@ -253,7 +253,9 @@ function renderProspects() {
       </p>
       <div class="enq__act">
         <select data-pstatus>${P_STATUSES.map((s) => `<option value="${s}" ${s === r.status ? "selected" : ""}>${s.replace("_", " ")}</option>`).join("")}</select>
-        ${r.preview_url && r.email && !["sent", "replied", "won", "opted_out"].includes(r.status) ? `<button class="btn btn--red btn--sm" data-send>Send the email</button>` : ""}
+        ${r.preview_url && ["built", "no_email"].includes(r.status) ? `<button class="btn btn--red btn--sm" data-approve>Approve design</button> <button class="btn btn--ghost btn--sm" data-reject>Reject</button>` : ""}
+        ${r.preview_url && r.email && r.status === "approved" ? `<button class="btn btn--red btn--sm" data-send>Send the email</button>` : ""}
+        ${r.preview_url && !r.email && r.status === "approved" ? `<span class="muted">Approved. Waiting for an email address (Astra or the finder), or ring them.</span>` : ""}
         <textarea data-pnotes placeholder="Notes">${esc(r.notes || "")}</textarea>
         <span class="saved" data-saved>Saved</span>
       </div>
@@ -269,6 +271,12 @@ async function saveProspect(card, patch) {
 $("pList").addEventListener("change", (e) => { const card = e.target.closest("[data-pid]"); if (e.target.matches("[data-pstatus]")) saveProspect(card, { status: e.target.value }); });
 $("pList").addEventListener("focusout", (e) => { if (e.target.matches("[data-pnotes]")) { const card = e.target.closest("[data-pid]"); const r = prospects.find((x) => x.id === card.dataset.pid); if ((r.notes || "") !== e.target.value) saveProspect(card, { notes: e.target.value }); } });
 $("pList").addEventListener("click", async (e) => {
+  if (e.target.matches("[data-approve]") || e.target.matches("[data-reject]")) {
+    const card = e.target.closest("[data-pid]"); const r = prospects.find((x) => x.id === card.dataset.pid);
+    const status = e.target.matches("[data-approve]") ? "approved" : "skipped";
+    if (status === "skipped" && !confirm(`Reject the ${r.name} preview? It will not be sent.`)) return;
+    await saveProspect(card, { status }); renderProspects(); return;
+  }
   if (!e.target.matches("[data-send]")) return;
   const card = e.target.closest("[data-pid]"); const r = prospects.find((x) => x.id === card.dataset.pid);
   if (!confirm(`Email ${r.email} about ${r.name}?`)) return;

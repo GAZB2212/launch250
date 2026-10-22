@@ -4,10 +4,10 @@ Find a local business with no website, build it one, email them the preview,
 sell it for £250. Five a day.
 
 ```
- find (06:00 weekdays)      build (you, 10 min)        send (admin page, or Astra)
- launch250-prospect-find -> launch250_prospects   ->  prospect/build.py   ->  preview.launch250.co.uk/<slug>/
- Google Places, no website    status: found           prospects/<slug>/       status: built -> sent
- + public email hunt          (or no_email)           commit + push           reply -> won / lost
+ find (06:00 weekdays)      build (07:00, scheduled)   approve (you)        send (admin page, or Astra)
+ launch250-prospect-find -> launch250_prospects   ->  prospect/build.py   ->  admin page     ->  email with preview link
+ Google Places, no website    status: found           prospects/<slug>/       built -> approved   approved -> sent
+ + public email hunt          (or no_email)           commit + push           (or skipped)        reply -> won / lost
 ```
 
 Everything meets in one Supabase table, `launch250_prospects`, which is also
@@ -37,8 +37,9 @@ git add prospects && git commit -m "Previews for <date>" && git push
 python3 prospect/build.py mark <slug>  # for each one you are happy with: status -> built, preview_url set
 ```
 
-Then on the admin page each one shows **Send the email**. Read the preview
-first. If a name split badly or the trade is wrong, fix `content.json` in
+Then on the admin page each one shows **Approve design** and **Reject**. Open
+the preview, and approve it if you would be happy for the business to see it.
+Only approved prospects can be sent, by you (**Send the email**) or by Astra. If a name split badly or the trade is wrong, fix `content.json` in
 `prospects/<slug>/`, rebuild with `build`, push again.
 
 `build` works offline from the queue file, so you can also hand-write a queue
@@ -69,10 +70,10 @@ Header: x-prospect-key: <value of launch250_settings.prospect_api_key>
 
 Division of labour:
 
-- **Astra finds and sends.** It adds prospects (ours finds too; duplicates by name and town are skipped), polls for `status=built`, pulls the email text, sends it from its own mailbox, and reports `sent`, then `replied` / `won` / `lost` / `opted_out` as the conversation goes.
+- **Astra finds and sends.** It adds prospects (ours finds too; duplicates by name and town are skipped), polls for `status=approved`, pulls the email text, sends it from its own mailbox, and reports `sent`, then `replied` / `won` / `lost` / `opted_out` as the conversation goes. It never sends anything merely `built`.
 - **This side builds.** Anything with status `found` gets a preview site and comes back as `built` with a `preview_url`.
 
-Statuses, in order: `found` → `built` → `sent` → `replied` → `won` | `lost`. Side states: `no_email` (worth a phone call instead), `skipped`, `opted_out` (never contact again; delete the preview).
+Statuses, in order: `found` → `built` → `approved` (you, on the admin page) → `sent` → `replied` → `won` | `lost`. Side states: `no_email` (built but nothing to email; approve it anyway and Astra will hunt for an address, or ring them), `skipped` (rejected), `opted_out` (never contact again; delete the preview).
 
 If Astra sends, keep `launch250-prospect-send` for the ones you want to send by hand; both mark `sent`, so nobody gets two.
 
