@@ -1,0 +1,73 @@
+# Daily prospect previews. Runs in GitHub's cloud; nothing on anyone's computer.
+#
+# Weekdays at 07:00 UTC (an hour after the Supabase finder): pull prospects
+# that have no preview yet, build a preview site for each, commit, push, and
+# mark them built in Supabase. Needs two repository secrets:
+#   SUPABASE_URL          https://hffwugpulmerckzqzjfv.supabase.co
+#   SUPABASE_SERVICE_KEY  the service_role key (Supabase -> Project Settings -> API)
+# Also runnable by hand: Actions tab -> "Prospect previews" -> Run workflow.
+name: Prospect previews
+
+on:
+  schedule:
+    - cron: "0 7 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prospects
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/festive-albattani-iyheb4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r demos/requirements.txt
+      - name: Check secrets are set
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_KEY" ]; then
+            echo "::error::Add SUPABASE_URL and SUPABASE_SERVICE_KEY under Settings -> Secrets and variables -> Actions"; exit 1; fi
+      - name: Pull prospects waiting for a preview
+        run: python3 prospect/build.py pull
+      - name: Build previews
+        id: build
+        run: |
+          built=""
+          for f in prospect/queue/*.json; do
+            [ -e "$f" ] || continue
+            slug=$(basename "$f" .json)
+            case "$slug" in example-*) continue;; esac
+            if [ -d "prospects/$slug" ]; then echo "already built: $slug"; continue; fi
+            python3 prospect/build.py build "$slug" && built="$built $slug"
+          done
+          echo "built=$built" >> "$GITHUB_OUTPUT"
+          echo "Built:$built"
+      - name: Commit and push
+        if: steps.build.outputs.built != ''
+        run: |
+          git config user.name "launch250-bot"
+          git config user.email "hello@launch250.co.uk"
+          git add prospects
+          git commit -m "Prospect previews for $(date -u +%Y-%m-%d)" -m "Built by the scheduled GitHub workflow for:${{ steps.build.outputs.built }}"
+          for i in 1 2 3 4; do git push origin HEAD:claude/festive-albattani-iyheb4 && break || { echo "push failed, retry $i"; sleep $((2**i)); git pull --rebase origin claude/festive-albattani-iyheb4; }; done
+      - name: Mark built in Supabase
+        if: steps.build.outputs.built != ''
+        run: |
+          for slug in ${{ steps.build.outputs.built }}; do python3 prospect/build.py mark "$slug"; done
+      - name: Summary
+        run: |
+          { echo "## Prospect previews"; echo;
+            if [ -z "${{ steps.build.outputs.built }}" ]; then echo "Nothing new to build today."; else
+            for slug in ${{ steps.build.outputs.built }}; do echo "- https://preview.launch250.co.uk/$slug/"; done;
+            echo; echo "Approve or reject them at https://launch250.co.uk/admin.html"; fi; } >> "$GITHUB_STEP_SUMMARY"
