@@ -1,0 +1,104 @@
+{
+  "brand": "Dave Kilbride",
+  "brand2": "Plumbing & Heating",
+  "trade": "Plumber & heating engineer",
+  "town": "Heswall",
+  "title": "Dave Kilbride Plumbing & Heating | Plumber & heating engineer in Heswall",
+  "desc": "Dave Kilbride Plumbing & Heating is a plumber & heating engineer based in Heswall. Repairs, installations and emergencies across Heswall and the surrounding area. Fixed prices agreed before we start, and",
+  "phone": "07700 900250",
+  "tel": "+447700900250",
+  "email": "dave@example.com",
+  "hours": "Mon–Fri 8am–6pm · Sat 9am–1pm · Sun closed",
+  "logo": "",
+  "hero_photo": "img/uploads/hero.webp",
+  "photo1": "img/uploads/shot-1.webp",
+  "photo2": "img/uploads/shot-2.webp",
+  "eyebrow": "Local, insured, fixed prices",
+  "h1": "Plumbing and heating you can actually get hold of.",
+  "sub": "Repairs, installations and emergencies across Heswall and the surrounding area. Fixed prices agreed before we start, and a real person answering the phone.",
+  "trusts": [
+    "Fully insured",
+    "Fixed price agreed first",
+    "Based in Heswall"
+  ],
+  "svc_h": "What we do, priced before we start.",
+  "svc_l": "Tell us the problem, we tell you the price. No hourly meter running.",
+  "services": [
+    {
+      "title": "Emergency callouts",
+      "desc": "Burst pipes, leaks, no heating, no hot water. Ring us and we will tell you honestly how fast we can get there.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Boiler repair & servicing",
+      "desc": "Repairs, annual services and landlord safety certificates.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Boiler installation",
+      "desc": "New combi and system boilers supplied and fitted.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Bathrooms",
+      "desc": "From a straight swap to a full strip-out and refit.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Leaks & drainage",
+      "desc": "Leak detection, blocked drains, overflows and soil pipes.",
+      "price": "Free quote"
+    },
+    {
+      "title": "General plumbing",
+      "desc": "Taps, radiators, outside taps, showers, and the jobs nobody else wants.",
+      "price": "Free quote"
+    }
+  ],
+  "about_h": "A local plumber, not a call centre.",
+  "about_p": "Dave Kilbride Plumbing & Heating is a Heswall-based plumbing and heating business. When you ring, you speak to the person who turns up. We price the job before we start, keep the place tidy, and tell you straight if something is not worth fixing.",
+  "stats": [
+    {
+      "value": "4.8",
+      "label": "Google rating"
+    },
+    {
+      "value": "27",
+      "label": "Google reviews"
+    },
+    {
+      "value": "Free",
+      "label": "Written quotes"
+    }
+  ],
+  "areas": [
+    "Heswall",
+    "and surrounding areas"
+  ],
+  "reviews": [
+    {
+      "quote": "Came out the same afternoon when our boiler packed in. Sorted in an hour and charged what he said on the phone.",
+      "name": "Claire D.",
+      "where": "Heswall"
+    },
+    {
+      "quote": "Fitted a new bathroom for us. Tidy, polite and finished on the day he said he would.",
+      "name": "Martin R.",
+      "where": "Heswall"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do you charge a callout fee?",
+      "a": "Ask us when you ring. We will tell you exactly what a visit costs before we come out, and the price for the job before we start it."
+    },
+    {
+      "q": "Which areas do you cover?",
+      "a": "Heswall and the surrounding area. If you are a little further out, ring and ask; we usually can."
+    },
+    {
+      "q": "Are you insured?",
+      "a": "Yes, fully. We are happy to show you the certificates."
+    }
+  ]
+}

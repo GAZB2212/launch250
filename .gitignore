@@ -9,3 +9,5 @@ demos/_incoming/*.png
 demos/_incoming/*.svg
 hf_*.png
 hf_*.svg
+prospect/queue/*.json
+!prospect/queue/example-*.json

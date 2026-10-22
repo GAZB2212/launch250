@@ -1,0 +1,19 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "Dave Kilbride Plumbing & Heating",
+  "trade": "plumber",
+  "town": "Heswall",
+  "address": "12 Telegraph Road, Heswall, Wirral CH60 0AE",
+  "phone": "07700 900250",
+  "email": "dave@example.com",
+  "rating": 4.8,
+  "reviews_count": 27,
+  "hours": "Monday: 8:00 AM – 6:00 PM · Tuesday: 8:00 AM – 6:00 PM · Wednesday: 8:00 AM – 6:00 PM · Thursday: 8:00 AM – 6:00 PM · Friday: 8:00 AM – 6:00 PM · Saturday: 9:00 AM – 1:00 PM · Sunday: Closed",
+  "reviews": [
+    {"author": "Claire Dawson", "rating": 5, "text": "Came out the same afternoon when our boiler packed in. Sorted in an hour and charged what he said on the phone."},
+    {"author": "Martin Rowe", "rating": 5, "text": "Fitted a new bathroom for us. Tidy, polite and finished on the day he said he would."},
+    {"author": "Someone Grumpy", "rating": 2, "text": "Didn't answer the phone once."}
+  ],
+  "maps_url": "https://maps.google.com/?cid=1",
+  "slug": "example-plumbing-heswall"
+}

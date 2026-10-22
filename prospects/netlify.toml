@@ -1,0 +1,13 @@
+# Netlify site "launch250-prospects" -> preview.launch250.co.uk
+# Publish directory: prospects (this folder). No build command: sites are built
+# by prospect/build.py and committed. Every page is noindex: these are previews
+# for one business each, not pages we want Google to find.
+[build]
+  publish = "."
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- prospects"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"

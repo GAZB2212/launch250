@@ -26,6 +26,13 @@ MAIL_F = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h20v12a1 1 0 
 CHK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>'
 
 def e(t): return html.escape(str(t), quote=False)
+HERE = os.path.dirname(os.path.abspath(__file__))
+def site_dir(s):
+    """Where a site's files live: demos/<slug>/, or out_dir for a prospect site."""
+    return s.get('out_dir') or os.path.join(HERE, s['slug'])
+def design_of(s):
+    """Which demo's trade mark and favicon to use (a prospect borrows a demo's design)."""
+    return s.get('design') or s['slug']
 def initials(name):
     p = [x for x in name.split() if x]
     return (p[0][0] + p[-1][0]).upper() if len(p) > 1 else p[0][:2].upper()
@@ -34,7 +41,7 @@ def logo_shape(s):
     """badge (round/square), stack (mark over wordmark) or wide (wordmark),
     read from the SVG viewBox so the header can size each logo sensibly."""
     if not s.get('logo'): return None
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), s['slug'], s['logo'])
+    path = os.path.join(site_dir(s), s['logo'])
     try:
         m = re.search(r'viewBox="[-\d.]+ [-\d.]+ ([\d.]+) ([\d.]+)"', open(path, encoding='utf-8').read())
         ratio = float(m.group(1)) / float(m.group(2))
@@ -53,19 +60,19 @@ def brand_lockup(s, where):
         if where == 'foot': img = f'<span class="foot__tile">{img}</span>'
         name = f'<span class="brand__name">{e(s["brand"])}<span class="brand__sub">{e(s["brand2"])}</span></span>' if shape == 'badge' else ''
         return img + name
-    mark = f'<span class="brand__mark" aria-hidden="true">{trade_mark(s["slug"], "h" if where == "head" else "f")}</span>'
+    mark = f'<span class="brand__mark" aria-hidden="true">{trade_mark(design_of(s), "h" if where == "head" else "f")}</span>'
     if where == 'foot':
         return mark + f'<span class="brand__name">{e(full)}</span>'
     return mark + f'<span class="brand__name">{e(s["brand"])}<span class="brand__sub">{e(s["brand2"])}</span></span>'
 
 MAX_PHOTO = 2000
-def optimise_photo(slug, rel):
+def optimise_photo(s, rel):
     """A client upload (img/uploads/x.jpg, straight off a phone) becomes a
     WebP no wider than MAX_PHOTO next to it, and the build uses that instead.
     SVGs and already-small WebPs pass through. Cached on mtime."""
     if not rel or not rel.startswith('img/uploads/') or rel.lower().endswith(('.svg', '.webp')): return rel
     from PIL import Image
-    src = os.path.join(os.path.dirname(os.path.abspath(__file__)), slug, rel)
+    src = os.path.join(site_dir(s), rel)
     if not os.path.exists(src): return rel
     out_rel = os.path.splitext(rel)[0] + '.webp'; out = os.path.join(os.path.dirname(src), os.path.basename(out_rel))
     if not os.path.exists(out) or os.path.getmtime(out) < os.path.getmtime(src):
@@ -80,14 +87,16 @@ def optimise_photos(s):
     for key, wrap in (('hero_img', True), ('shot1', True), ('shot2', True), ('hero_poster', False), ('logo', False)):
         v = s.get(key)
         if not v or v == 'none': continue
-        rel = optimise_photo(s['slug'], _url(v))
+        rel = optimise_photo(s, _url(v))
         s[key] = f"url('{rel}')" if wrap else rel
     return s
+
+DEMO_BANNER = '''<aside style="padding:12px 20px;background:#fff;color:#111;text-align:center;font:14px/1.5 system-ui;border-bottom:1px solid #ddd;position:relative;z-index:100">Launch250 design demo. This business, its reviews and details are fictional. Forms are for demonstration only. <a href="https://launch250.co.uk/contact.html" style="color:#a81912;text-decoration:underline">Ask about your own website</a></aside>'''
 
 def build(s):
     L250 = 'https://launch250.co.uk'
     full = f"{s['brand']} {s['brand2']}"
-    dom = f"https://launch250.co.uk/demos/{s['slug']}/"
+    dom = s.get('url') or f"https://launch250.co.uk/demos/{s['slug']}/"
 
     # ---- hero ----
     trusts = "".join(
@@ -220,7 +229,7 @@ def build(s):
 </script>
 </head>
 <body>
-<aside style="padding:12px 20px;background:#fff;color:#111;text-align:center;font:14px/1.5 system-ui;border-bottom:1px solid #ddd;position:relative;z-index:100">Launch250 design demo. This business, its reviews and details are fictional. Forms are for demonstration only. <a href="https://launch250.co.uk/contact.html" style="color:#a81912;text-decoration:underline">Ask about your own website</a></aside>
+{s.get('banner') or DEMO_BANNER}
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="head">
@@ -367,7 +376,7 @@ def build(s):
     </div>
     <div class="foot__bottom">
       <p>&copy; <span data-year>2026</span> {e(full)}. {e(s['hours'])}</p>
-      <p class="foot__by">Demo site built by <a href="{L250}">{ROCKET}Launch250</a> — websites from £250</p>
+      <p class="foot__by">{e(s.get("credit") or "Demo site built by")} <a href="{L250}">{ROCKET}Launch250</a> — websites from £250</p>
     </div>
   </div>
 </footer>
@@ -420,13 +429,13 @@ def build(s):
 </body>
 </html>
 '''
-    fav = trade_favicon(s['slug'], dv['cta'], s['on_accent'], full)
+    fav = trade_favicon(design_of(s), dv['cta'], s['on_accent'], full)
 
     # Always write into demos/<slug>/ next to this file, whatever the current
     # directory: Netlify runs `python3 demos/_build.py <slug>` from the repo
     # root and publishes demos/<slug>, so a cwd-relative path would leave the
     # published folder untouched and the client's edits would never appear.
-    d = os.path.join(os.path.dirname(os.path.abspath(__file__)), s['slug'])
+    d = site_dir(s)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
     open(os.path.join(d, "style.css"), "w", encoding="utf-8").write(css)

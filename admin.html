@@ -114,6 +114,20 @@
         <button class="btn btn--ghost btn--sm" id="refreshBtn">Refresh</button>
       </div>
       <div id="list"><p class="empty">Loading enquiries…</p></div>
+
+      <h2 style="margin-top:3rem">Prospects</h2>
+      <p class="muted">Businesses with no website that we build a preview for and then email. Found by the finder (weekday mornings), by Astra, or added by hand.</p>
+      <div class="adm-bar">
+        <select id="pStatusSel">
+          <option value="">All statuses</option>
+          <option value="found">Found (needs a site)</option><option value="no_email">No email yet</option><option value="built">Built (ready to send)</option>
+          <option value="sent">Sent</option><option value="replied">Replied</option><option value="won">Won</option><option value="lost">Lost</option><option value="skipped">Skipped</option><option value="opted_out">Opted out</option>
+        </select>
+        <input id="pSearch" type="search" placeholder="Search name, town, email">
+        <span class="spacer"></span>
+        <button class="btn btn--ghost btn--sm" id="pRefreshBtn">Refresh</button>
+      </div>
+      <div id="pList"><p class="empty">Loading prospects…</p></div>
     </section>
 
   </div>
@@ -211,10 +225,66 @@ async function loadStats(session) {
   } catch (e) { $("anaNote").textContent = "Visitor stats unavailable: " + e.message; }
 }
 
+/* ---------------- prospects ---------------- */
+const P_STATUSES = ["found", "no_email", "built", "approved", "sent", "replied", "won", "lost", "skipped", "opted_out"];
+let prospects = [];
+async function loadProspects() {
+  const { data, error } = await sb.from("launch250_prospects").select("*").order("created_at", { ascending: false }).limit(300);
+  if (error) { $("pList").innerHTML = `<p class="empty">Could not load prospects: ${esc(error.message)}</p>`; return; }
+  prospects = data; renderProspects();
+}
+function renderProspects() {
+  const st = $("pStatusSel").value, q = $("pSearch").value.trim().toLowerCase();
+  const list = prospects.filter((r) => (!st || r.status === st) && (!q || [r.name, r.town, r.email, r.trade, r.phone].join(" ").toLowerCase().includes(q)));
+  if (!list.length) { $("pList").innerHTML = `<p class="empty">No prospects here yet.</p>`; return; }
+  $("pList").innerHTML = list.map((r) => `
+    <article class="enq" data-pid="${r.id}">
+      <div class="enq__top">
+        <h3>${esc(r.name)} <small class="muted">· ${esc(r.town)}${r.trade ? " · " + esc(r.trade) : ""}</small></h3>
+        <span class="badge ${esc(r.status)}">${esc(r.status.replace("_", " "))}</span>
+      </div>
+      <p class="muted">
+        ${r.email ? `<a href="mailto:${esc(r.email)}">${esc(r.email)}</a>` : "<em>no email found</em>"}
+        ${r.phone ? " · " + esc(r.phone) : ""}
+        ${r.rating ? " · " + esc(r.rating) + "★ (" + esc(r.reviews_count || 0) + ")" : ""}
+        ${r.maps_url ? ` · <a href="${esc(r.maps_url)}" target="_blank" rel="noopener">Google listing</a>` : ""}
+        ${r.preview_url ? ` · <a href="${esc(r.preview_url)}" target="_blank" rel="noopener"><b>Preview site</b></a>` : " · <em>preview not built yet</em>"}
+        · added ${fmt(r.created_at)} (${esc(r.source)})${r.sent_at ? " · sent " + fmt(r.sent_at) : ""}
+      </p>
+      <div class="enq__act">
+        <select data-pstatus>${P_STATUSES.map((s) => `<option value="${s}" ${s === r.status ? "selected" : ""}>${s.replace("_", " ")}</option>`).join("")}</select>
+        ${r.preview_url && r.email && !["sent", "replied", "won", "opted_out"].includes(r.status) ? `<button class="btn btn--red btn--sm" data-send>Send the email</button>` : ""}
+        <textarea data-pnotes placeholder="Notes">${esc(r.notes || "")}</textarea>
+        <span class="saved" data-saved>Saved</span>
+      </div>
+    </article>`).join("");
+}
+async function saveProspect(card, patch) {
+  const id = card.dataset.pid;
+  const { error } = await sb.from("launch250_prospects").update(patch).eq("id", id);
+  if (error) { alert("Could not save: " + error.message); return; }
+  Object.assign(prospects.find((r) => r.id === id), patch);
+  const s = card.querySelector("[data-saved]"); s.classList.add("is-on"); setTimeout(() => s.classList.remove("is-on"), 1500);
+}
+$("pList").addEventListener("change", (e) => { const card = e.target.closest("[data-pid]"); if (e.target.matches("[data-pstatus]")) saveProspect(card, { status: e.target.value }); });
+$("pList").addEventListener("focusout", (e) => { if (e.target.matches("[data-pnotes]")) { const card = e.target.closest("[data-pid]"); const r = prospects.find((x) => x.id === card.dataset.pid); if ((r.notes || "") !== e.target.value) saveProspect(card, { notes: e.target.value }); } });
+$("pList").addEventListener("click", async (e) => {
+  if (!e.target.matches("[data-send]")) return;
+  const card = e.target.closest("[data-pid]"); const r = prospects.find((x) => x.id === card.dataset.pid);
+  if (!confirm(`Email ${r.email} about ${r.name}?`)) return;
+  e.target.disabled = true; e.target.textContent = "Sending…";
+  const { data: { session } } = await sb.auth.getSession();
+  const res = await fetch(SUPABASE_URL + "/functions/v1/launch250-prospect-send", { method: "POST", headers: { Authorization: "Bearer " + session.access_token, apikey: SUPABASE_ANON_KEY, "Content-Type": "application/json" }, body: JSON.stringify({ id: r.id }) });
+  const j = await res.json();
+  if (!res.ok) { alert("Not sent: " + (j.error || res.status)); e.target.disabled = false; e.target.textContent = "Send the email"; return; }
+  r.status = "sent"; r.sent_at = new Date().toISOString(); renderProspects();
+});
+$("pStatusSel").addEventListener("change", renderProspects); $("pSearch").addEventListener("input", renderProspects); $("pRefreshBtn").addEventListener("click", loadProspects);
+
 function show(session) {
   const on = !!session;
   $("loginView").hidden = on; $("dashView").hidden = !on; $("signOut").hidden = !on;
-  if (on) { $("who").textContent = "Signed in as " + session.user.email; load(); loadStats(session); }
+  if (on) { $("who").textContent = "Signed in as " + session.user.email; load(); loadStats(session); loadProspects(); }
 }
 $("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault(); $("loginErr").classList.remove("is-on"); $("loginBtn").disabled = true;
