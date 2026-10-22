@@ -1,0 +1,109 @@
+{
+  "brand": "DMC",
+  "brand2": "Painting & Decorating",
+  "trade": "Painter & decorator",
+  "town": "Bebington",
+  "title": "DMC Painting & Decorating | Painter & decorator in Bebington",
+  "desc": "DMC Painting & Decorating is a painter & decorator based in Bebington. Interior and exterior painting and decorating across Bebington. Walls, ceilings, woodwork, wallpaper and exteriors, with",
+  "phone": "07500 410920",
+  "tel": "+447500410920",
+  "email": "",
+  "hours": "Mon–Fri 9 am–5 pm · Sat–Sun closed",
+  "logo": "",
+  "hero_photo": "img/uploads/hero.webp",
+  "photo1": "img/uploads/shot-1.webp",
+  "photo2": "",
+  "eyebrow": "Clean lines, tidy finish, fair prices",
+  "h1": "Decorating done properly, and tidied up after.",
+  "sub": "Interior and exterior painting and decorating across Bebington. Walls, ceilings, woodwork, wallpaper and exteriors, with a written price before we start and dust sheets on everything.",
+  "trusts": [
+    "Written quotes",
+    "Fully insured",
+    "Based in Bebington"
+  ],
+  "svc_h": "What we do.",
+  "svc_l": "Send us a photo of the room and we will come back with a price.",
+  "services": [
+    {
+      "title": "Interior painting",
+      "desc": "Walls, ceilings and woodwork, prepped properly before a brush goes near them.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Wallpapering",
+      "desc": "Feature walls to whole rooms, patterned and plain, lined where it needs it.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Exterior painting",
+      "desc": "Render, masonry, fascias, doors and windows, weather permitting.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Woodwork & spraying",
+      "desc": "Doors, skirting, staircases and kitchen units, brushed or sprayed.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Plaster repairs",
+      "desc": "Cracks, holes and tired ceilings made good before decorating.",
+      "price": "Free quote"
+    },
+    {
+      "title": "Landlord turnarounds",
+      "desc": "Whole flats and houses freshened between tenants, quickly.",
+      "price": "Free quote"
+    }
+  ],
+  "about_h": "A local decorator who turns up and finishes.",
+  "about_p": "DMC Painting & Decorating is a painting and decorating business based in Bebington. We quote in writing, start when we say we will, and leave the room cleaner than we found it.",
+  "stats": [
+    {
+      "value": "4.9",
+      "label": "Google rating"
+    },
+    {
+      "value": "69",
+      "label": "Google reviews"
+    },
+    {
+      "value": "Free",
+      "label": "Written quotes"
+    }
+  ],
+  "areas": [
+    "Bebington",
+    "and surrounding areas"
+  ],
+  "reviews": [
+    {
+      "quote": "We found Dave online after looking for someone local. Dave was friendly and tidied up at the end of each day. We had our Hall, Stairs, Landing and downstairs loo booked in but needed to add in our kitchen after a re fit. We were on a tight deadline to get ever",
+      "name": "Christina J.",
+      "where": "Bebington"
+    },
+    {
+      "quote": "The paint finish to my ceiling, wood casing and fitted furniture is fabulous and I'm delighted with the result. Give Dave a call you won't be disappointed.",
+      "name": "Jeff L.",
+      "where": "Bebington"
+    },
+    {
+      "quote": "Highly recommend Dave, he was great from start to finish, nothing was too much trouble. Knew his stuff, what would work best. The finish on the bar and TV stand is outstanding. Will definitely be using again!",
+      "name": "Samantha B.",
+      "where": "Bebington"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Do you give free quotes?",
+      "a": "Yes. Send photos through the form or ring, and we will visit to measure before giving a written price."
+    },
+    {
+      "q": "Do I need to move the furniture?",
+      "a": "No. We move it, cover it, and put it back."
+    },
+    {
+      "q": "Which areas do you cover?",
+      "a": "Bebington and the surrounding area."
+    }
+  ]
+}

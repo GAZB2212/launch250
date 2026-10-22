@@ -1,0 +1,22 @@
+{
+  "id": "36af6634-f02c-48d3-99be-2ca92e070734",
+  "name": "Ciaran Green",
+  "trade": "painter and decorator",
+  "town": "Bebington",
+  "address": "10 Beech Rd, Bebington, Wirral CH63 8PE",
+  "phone": "0151 645 4286",
+  "email": null,
+  "rating": 5,
+  "reviews_count": 2,
+  "hours": null,
+  "reviews": [
+    {
+      "text": "Fantastic decorator. Would highly recommend.",
+      "author": "K N",
+      "rating": 5
+    }
+  ],
+  "maps_url": "https://maps.google.com/?cid=13829488645468830334",
+  "status": "no_email",
+  "slug": "ciaran-green-bebington"
+}

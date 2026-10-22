@@ -1,0 +1,37 @@
+{
+  "id": "29aba8e5-cb57-48c6-9dc6-e945c7d6f7d7",
+  "name": "DMC Painting & Decorating",
+  "trade": "painter and decorator",
+  "town": "Bebington",
+  "address": "78 Stanton Rd, Bebington, Wirral CH63 3AU",
+  "phone": "07500 410920",
+  "email": null,
+  "rating": 4.9,
+  "reviews_count": 69,
+  "hours": "Monday: 9:00 am – 5:00 pm · Tuesday: 9:00 am – 5:00 pm · Wednesday: 9:00 am – 5:00 pm · Thursday: 9:00 am – 5:00 pm · Friday: 9:00 am – 5:00 pm · Saturday: Closed · Sunday: Closed",
+  "reviews": [
+    {
+      "text": "We found Dave online after looking for someone local. Dave was friendly and tidied up at the end of each day. We had our Hall, Stairs, Landing and downstairs loo booked in but needed to add in our kitchen after a re fit. We were on a tight deadline to get everything completed before our newborn arrived. Despite having other jobs booked in, Dave managed to fit us and have everything completed on time.",
+      "author": "Christina Jones",
+      "rating": 5
+    },
+    {
+      "text": "The paint finish to my ceiling, wood casing and fitted furniture is fabulous and I'm delighted with the result. Give Dave a call you won't be disappointed.",
+      "author": "Jeff Leahey",
+      "rating": 5
+    },
+    {
+      "text": "Highly recommend Dave, he was great from start to finish, nothing was too much trouble. Knew his stuff, what would work best. The finish on the bar and TV stand is outstanding. Will definitely be using again!",
+      "author": "Samantha Bromilow",
+      "rating": 5
+    },
+    {
+      "text": "Once again Dave has come through for us! Superb job decorating my office and our bathroom. Ever the professional and always leaves everywhere neat and tidy. He has completed our whole house now.",
+      "author": "Michael Costall",
+      "rating": 5
+    }
+  ],
+  "maps_url": "https://maps.google.com/?cid=17158339967098643862",
+  "status": "no_email",
+  "slug": "dmc-painting-decorating-bebington"
+}

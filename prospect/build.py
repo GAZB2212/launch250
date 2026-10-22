@@ -30,7 +30,8 @@ OUT = os.path.join(ROOT, 'prospects')
 PREVIEW = 'https://preview.launch250.co.uk'
 TRADE_WORDS = ['plumbing', 'plumber', 'plumbers', 'heating', 'electrical', 'electrician', 'electricians', 'joinery', 'joiners', 'joiner',
                'carpentry', 'landscapes', 'landscaping', 'landscapers', 'gardens', 'gardening', 'barbers', 'barber', 'grooming',
-               'roofing', 'roofers', 'plastering', 'decorators', 'decorating', 'cleaning', 'tyres', 'garage', 'builders', 'building']
+               'roofing', 'roofers', 'plastering', 'plasterers', 'decorators', 'decorating', 'decorator', 'painting', 'painters', 'painter',
+               'interior', 'interiors', 'cleaning', 'cleaners', 'tyres', 'garage', 'builders', 'building', 'services']
 
 def slugify(s):
     return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', s.lower())).strip('-')[:48]
@@ -41,8 +42,8 @@ def split_name(name, label):
     for i, w in enumerate(words):
         if w.lower().strip('&,.') in TRADE_WORDS and i > 0:
             return ' '.join(words[:i]), ' '.join(words[i:])
-    if len(words) >= 3: return ' '.join(words[:-1]), words[-1]
-    if len(words) == 2: return words[0], words[1]
+    # No trade word: it is probably a person's or family name. Keep it whole
+    # and put the trade underneath, rather than splitting 'Ciaran Green'.
     return name, label
 
 def uk_tel(phone):

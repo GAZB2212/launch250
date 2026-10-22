@@ -1,0 +1,32 @@
+{
+  "id": "72327628-1ade-4cbd-9236-162b983fc1e9",
+  "name": "Poole's Decorating",
+  "trade": "painter and decorator",
+  "town": "Bebington",
+  "address": "Monks Way, Bebington, Wirral CH63 3HZ",
+  "phone": "07784 144559",
+  "email": null,
+  "rating": 5,
+  "reviews_count": 12,
+  "hours": "Monday: 8:00 am – 8:00 pm · Tuesday: 8:00 am – 8:00 pm · Wednesday: 8:00 am – 8:00 pm · Thursday: 8:00 am – 8:00 pm · Friday: 8:00 am – 8:00 pm · Saturday: 9:00 am – 8:00 pm · Sunday: 9:00 am – 8:00 pm",
+  "reviews": [
+    {
+      "text": "Martin and the team worked quietly and diligently whilst helping us renovate two bedrooms and the hall, stairs and landing. A very high standard of work and would recommend them 100%!",
+      "author": "Jayne Vincent",
+      "rating": 5
+    },
+    {
+      "text": "In a week him and his team painted, glossed and did several feature walls in 3 bedrooms, hall stairs and landing, front room, kitchen and our back room. The team were so lovely and professional. Everything was finished to a high standard.",
+      "author": "Kylie Jones",
+      "rating": 5
+    },
+    {
+      "text": "Martin was really clear and managed expectations when painting and wallpapering an old property. His expertise was clear and the results are fantastic.",
+      "author": "Emily Edwards",
+      "rating": 5
+    }
+  ],
+  "maps_url": "https://maps.google.com/?cid=6538048325039366134",
+  "status": "no_email",
+  "slug": "poole-s-decorating-bebington"
+}

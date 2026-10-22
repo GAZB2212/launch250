@@ -1,0 +1,22 @@
+{
+  "id": "5c918ac7-d0d7-4cf0-b8f9-74413b46f13b",
+  "name": "P M Painting & Decorating Ltd",
+  "trade": "painter and decorator",
+  "town": "Bebington",
+  "address": "105 Higher Bebington Rd, Bebington, Wirral CH63 2PL",
+  "phone": "0151 644 0949",
+  "email": null,
+  "rating": 5,
+  "reviews_count": 1,
+  "hours": null,
+  "reviews": [
+    {
+      "text": "Amazing decorator, honest, kind and reliable.",
+      "author": "Beverley Mearns",
+      "rating": 5
+    }
+  ],
+  "maps_url": "https://maps.google.com/?cid=17114121170570637467",
+  "status": "no_email",
+  "slug": "p-m-painting-decorating-ltd-bebington"
+}

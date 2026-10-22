@@ -1,0 +1,27 @@
+{
+  "id": "94c2a02a-c1ea-4070-9e49-683a7533c4c8",
+  "name": "Oxton & Wirral interior decorating",
+  "trade": "painter and decorator",
+  "town": "Bebington",
+  "address": "Beresford Rd, Birkenhead, Prenton CH43 1YF",
+  "phone": "07865 998344",
+  "email": null,
+  "rating": 5,
+  "reviews_count": 3,
+  "hours": "Monday: 9:00 am – 5:00 pm · Tuesday: 9:00 am – 5:00 pm · Wednesday: 9:00 am – 5:00 pm · Thursday: 9:00 am – 5:00 pm · Friday: 9:00 am – 5:00 pm · Saturday: Closed · Sunday: Closed",
+  "reviews": [
+    {
+      "text": "Eric did a fantastic job painting our hall, stairs and landing. He is a very pleasant guy, easy to get along with and have in your home. Can definitely recommend him and will use his service again.",
+      "author": "Jan Ruse",
+      "rating": 5
+    },
+    {
+      "text": "I got Eric to paint my hall, stairs and landing. He was punctual, did a great job, was tidy and completed on time. Thoroughly nice man as well.",
+      "author": "Michael Fitzgerald",
+      "rating": 5
+    }
+  ],
+  "maps_url": "https://maps.google.com/?cid=2501799628990785382",
+  "status": "no_email",
+  "slug": "oxton-wirral-interior-decorating-bebington"
+}
