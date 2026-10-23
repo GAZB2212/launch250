@@ -79,6 +79,7 @@ If Astra sends, keep `launch250-prospect-send` for the ones you want to send by 
 ## Rules we keep to
 
 - **Only businesses with no website at all.** A bad website is a different pitch.
+- **No email, no prospect.** The finder counts a business toward the daily five only when it has found a published email address. Businesses without one are stored as `no_email` so they are never re-checked and so Astra can try to enrich them, but nothing is built or sent for them.
 - **Only public business contact details.** The email we use is one the business has published itself, and the row records where it was found (`email_source`).
 - **UK marketing law (PECR).** Unsolicited email to a limited company is allowed with an opt-out; to a sole trader or partnership it technically needs consent. Most tradespeople are sole traders. Every email carries a one-line opt-out and we honour it the same day (`opted_out`, preview deleted). Keep volume low and the message genuinely useful; that is also what makes it work.
 - **Nothing of theirs on the preview that they did not publish.** Name, phone, hours and Google reviews are already public. Photos are our licensed trade photography, labelled as placeholders. We do not lift their Facebook photos or logo; we ask for them when they reply.
