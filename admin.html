@@ -51,6 +51,14 @@
   .ana .muted { color: var(--muted); }
   .empty { color: var(--muted); padding: 2rem 0; text-align: center; }
   [hidden] { display: none !important; }
+
+  /* The site's form styles are tuned for dark panels; the admin page is light. */
+  main .field label { color: var(--muted, #6b6b76); }
+  main .field input, main .field select, main .field textarea, main textarea, main select, main input[type="search"] {
+    background: #fff; color: var(--ink, #0b0b0c); border: 1px solid rgba(11, 11, 12, .22); }
+  main .field input::placeholder, main textarea::placeholder { color: rgba(11, 11, 12, .4); }
+  main .field input:focus, main .field select:focus, main .field textarea:focus, main textarea:focus { border-color: var(--red, #e10600); outline: none; }
+  main select option { background: #fff; color: var(--ink, #0b0b0c); }
 </style>
 </head>
 <body>
